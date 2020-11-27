@@ -1,0 +1,10 @@
+Programme doit fonctionner
+
+Utiliser les listes chainées
+
+Préparer des données
+
+Fixer l'énoncé clairement
+
+Avancer par module et ne progresser que si le module est complet
+
