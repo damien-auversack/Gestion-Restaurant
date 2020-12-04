@@ -5,12 +5,8 @@
 
 main() {
 	afficherMenu();
-	supprimerMenu();
-	afficherMenu();
-	/*
 	ajouterMenu();
-	afficherMenu();
 	supprimerMenu();
 	afficherMenu();
-	*/
+	
 }

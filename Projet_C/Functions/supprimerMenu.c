@@ -8,15 +8,14 @@ typedef struct Menu {
 }Menu;
 
 void supprimerMenu() {
-	int n=0, i;
-	char menu[21];
+	int n=0, i, nMenu=1, menuEntre;
 	
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Menu.dat", "r");
 	fdatTmp = fopen("Data/Menu.tmp", "w");
 	
 	printf("Supprimer un Menu : ");
-	scanf("%s", &menu);
+	scanf("%d", &menuEntre);
 		
 	Menu *deb, *courant, *suivant;
 	courant=malloc(sizeof(Menu));
@@ -25,12 +24,13 @@ void supprimerMenu() {
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
 		fscanf(fdat,"%s",&courant->nom);
-		if(strcasecmp(courant->nom,menu) != 0) {
+		if(menuEntre != nMenu) {
 			suivant=malloc(sizeof(Menu));
 			courant->suivant=suivant;
 			n++;
 			courant=suivant;
-		}		
+		}	
+		nMenu++;	
 	}
 	
 	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
