@@ -16,7 +16,7 @@ void afficherTables() {
 	printf("\n");
 	printf("   ***************************************************************************************");
 	printf("\n");
-	printf("\n");
+	recupTables();
 	printf("   1. Ajouter une table\n");
 	printf("   2. Supprimer une table\n");
 	printf("\n");

@@ -10,13 +10,16 @@
 #include "Headers/ajouterMenu.h"
 #include "Headers/supprimerMenu.h"
 #include "Headers/recupMenu.h"
+#include "Headers/recupTables.h"
 
+#include "Headers/ajouterTable.h"
+#include "Headers/supprimerTable.h"
 
 
 main() {
 	// Paramètre Fenêtre
 		system("title Gestion Restaurant");	// Défini un titre à ma fenêtre
-		system("mode con: cols=110 lines=30"); // Défini la taille de ma fenêtre	
+		system("mode con: cols=110 lines=40"); // Défini la taille de ma fenêtre	
 	// Fin Paramètre Fenêtre
 	
 	int choix=0;
@@ -57,6 +60,16 @@ main() {
 								system("cls");
 								afficherTables();
 								scanf("%d", &choixTables);
+								switch(choixTables) {
+									case 1: // ajouter Table
+										system("cls");
+										ajouterTable();
+										break;
+									case 2: // supprimer Table
+										system("cls");
+										supprimerTable();
+										break;
+								}
 								if(choixTables==0) break;
 							}
 							break;
