@@ -1,1 +1,2 @@
 void recupTables();
+void recupMenu();

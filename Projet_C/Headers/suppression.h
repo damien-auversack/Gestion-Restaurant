@@ -1,1 +1,2 @@
 void supprimerTable();
+void supprimerMenu();

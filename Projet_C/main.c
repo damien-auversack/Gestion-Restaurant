@@ -2,20 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Headers/afficherEcranPrincipal.h"
-#include "Headers/afficherGestionPersonnel.h"
-#include "Headers/afficherMenu.h"
-#include "Headers/afficherServices.h"
-#include "Headers/afficherTables.h"
-
-#include "Headers/ajouterMenu.h"
-#include "Headers/ajouterTable.h"
-
-#include "Headers/recupMenu.h"
-#include "Headers/recupTables.h"
-
-#include "Headers/supprimerMenu.h"
-#include "Headers/supprimerTable.h"
+#include "Headers/affichage.h"
+#include "Headers/ajout.h"
+#include "Headers/suppression.h"
+#include "Headers/recuperation.h"
 
 main() {
 	// Paramètre Fenêtre

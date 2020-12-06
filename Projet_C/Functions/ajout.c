@@ -16,6 +16,10 @@ typedef struct Table {
 	int numMenuSoir;
 }Table;
 
+typedef struct Menu {
+	char nom[21];
+}Menu;
+
 void ajouterTable() {
 
 	Table table;
@@ -97,8 +101,7 @@ void ajouterTable() {
 		printf("   Numero du menu choisi : ");
 		scanf("%d", &table.numMenuSoir);
 	}
-	
-	
+		
 	fprintf(fdat, "\n%d ", table.estReserveMatin);
 	if(table.estReserveMatin==1) {
 		fprintf(fdat, "%s %d %d ", table.nomMatin, table.nbPersonneMatin, table.numMenuMatin);
@@ -109,5 +112,21 @@ void ajouterTable() {
 		fprintf(fdat, " %s %d %d", table.nomSoir, table.nbPersonneSoir, table.numMenuSoir);
 	}
 	fprintf(fdat, " %d", table.nbPlaceMax);
+	fclose(fdat);	
+}
+
+void ajouterMenu() {
+	Menu menu;
+	
+	FILE *fdat;
+	fdat = fopen("Data/Menu.dat", "a");
+	
+	recupMenu();
+	
+	printf("   Ajouter un Menu : ");
+	scanf("%s", &menu.nom);
+	
+	fprintf(fdat, "\n%s", menu.nom);
+	
 	fclose(fdat);	
 }
