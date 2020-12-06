@@ -17,7 +17,7 @@ void supprimerMenu() {
 	
 	printf("   Supprimer un Menu : ");
 	scanf("%d", &menuEntre);
-		
+	
 	Menu *deb, *courant, *suivant;
 	courant=malloc(sizeof(Menu));
 	deb=courant;

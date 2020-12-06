@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void afficherServices() {
-	
+void afficherServices() {	
 	printf("\n");
 	printf("   ********************************************");
 	printf("\n");
@@ -24,6 +23,5 @@ void afficherServices() {
 	printf("\n");
 	printf("   0. Retour\n");
 	printf("\n");
-	printf("   Choix : ");
-	
+	printf("   Choix : ");	
 }

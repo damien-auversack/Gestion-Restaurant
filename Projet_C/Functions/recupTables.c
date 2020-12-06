@@ -30,6 +30,8 @@ void recupTables() {
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
+		
+		// Initialisation
 		courant->estReserveMatin = 0;
 		strcpy(courant->nomMatin, "");
 		courant->nbPersonneMatin = 0;

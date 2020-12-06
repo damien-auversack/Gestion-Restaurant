@@ -2,8 +2,6 @@
 #include <stdlib.h>
 
 void afficherTables() {
-	
-	// Affichage
 	printf("\n");
 	printf("   ***************************************************************************************");
 	printf("\n");
@@ -16,12 +14,13 @@ void afficherTables() {
 	printf("\n");
 	printf("   ***************************************************************************************");
 	printf("\n");
+	
 	recupTables();
+	
 	printf("   1. Ajouter une table\n");
 	printf("   2. Supprimer une table\n");
 	printf("\n");
 	printf("   0. Retour\n");
 	printf("\n");
-	printf("   Choix : ");
-	
+	printf("   Choix : ");	
 }

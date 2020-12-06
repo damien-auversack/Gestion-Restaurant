@@ -14,8 +14,6 @@ typedef struct Table {
 	char nomSoir[21];
 	int nbPersonneSoir;
 	int numMenuSoir;
-	
-	struct Table *suivant;
 }Table;
 
 void ajouterTable() {
@@ -24,7 +22,8 @@ void ajouterTable() {
 	
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "a");
-
+	
+	// Initialisation
 	table.estReserveMatin = 0;
 	strcpy(table.nomMatin, "");
 	table.nbPersonneMatin = 0;
@@ -33,37 +32,30 @@ void ajouterTable() {
 	table.estReserveSoir = 0;
 	strcpy(table.nomSoir, "");
 	table.nbPersonneSoir = 0;
-	table.numMenuSoir = 0;
+	table.numMenuSoir = 0;	
 	
-	
+	// Ajout table
 	system("cls");
 	recupTables();
-	
-	printf("   Nombres de places a table : ");
-	
+	printf("   Nombres de places a table : ");	
 	scanf("%d", &table.nbPlaceMax);
 		
 	system("cls");
-	recupTables();
-	
-	printf("   Table reserve le matin(0/1) : ");
-	
+	recupTables();	
+	printf("   Table reserve le matin(0/1) : ");	
 	scanf("%d", &table.estReserveMatin);
 
 	if(table.estReserveMatin==1) {
-		system("cls");
-	
-		recupTables();
 		
+		system("cls");	
+		recupTables();		
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomMatin);
 		
 		erreurNbPlaceMaxMatin:
 		
-		system("cls");
-		
-		recupTables();
-		
+		system("cls");		
+		recupTables();		
 		printf("   Nombre de personne a table : ");
 		scanf("%d", &table.nbPersonneMatin);
 		
@@ -71,10 +63,8 @@ void ajouterTable() {
 			goto erreurNbPlaceMaxMatin;
 		}
 		
-		system("cls");
-		
-		recupTables();
-		
+		system("cls");		
+		recupTables();		
 		printf("   Numero du menu choisi : ");
 		scanf("%d", &table.numMenuMatin);
 	}
@@ -85,19 +75,16 @@ void ajouterTable() {
 	scanf("%d", &table.estReserveSoir);
 	
 	if(table.estReserveSoir==1) {
-		system("cls");
-	
-		recupTables();
 		
+		system("cls");	
+		recupTables();		
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomSoir);
 		
 		erreurNbPlaceMaxSoir:
 		
-		system("cls");
-		
-		recupTables();
-		
+		system("cls");		
+		recupTables();		
 		printf("   Nombre de personne a table : ");
 		scanf("%d", &table.nbPersonneSoir);
 		
@@ -105,10 +92,8 @@ void ajouterTable() {
 			goto erreurNbPlaceMaxSoir;
 		}
 		
-		system("cls");
-		
-		recupTables();
-		
+		system("cls");		
+		recupTables();		
 		printf("   Numero du menu choisi : ");
 		scanf("%d", &table.numMenuSoir);
 	}

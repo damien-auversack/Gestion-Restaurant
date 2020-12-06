@@ -78,7 +78,7 @@ void supprimerTable() {
 	}
 	courant->suivant=NULL;		
 		
-	courant=deb;	
+	courant=deb;
 		
 	// Ecriture
 	for(i=1;i<=n;i++) {		

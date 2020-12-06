@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void afficherGestionPersonnel() {
-	
+void afficherGestionPersonnel() {	
 	printf("\n");
 	printf("   ******************************************************************************************************");
 	printf("\n");

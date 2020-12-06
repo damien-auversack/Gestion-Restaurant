@@ -32,11 +32,10 @@ void recupMenu() {
 	}
 	courant->suivant=NULL;	
 		
-	courant=deb;	
-	// Affichage
-	
-	printf("\n");
-	
+	courant=deb;
+		
+	// Affichage	
+	printf("\n");	
 	printf("   --------------------------------------\n");
 	printf("   |  N  |     Nom      |  Description  |\n");
 	printf("   --------------------------------------\n");

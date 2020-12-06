@@ -2,8 +2,6 @@
 #include <stdlib.h>
 
 void afficherMenu() {
-	
-	// Affichage
 	printf("\n");
 	printf("   ********************************************************************************************");
 	printf("\n");
@@ -16,12 +14,13 @@ void afficherMenu() {
 	printf("\n");
 	printf("   ********************************************************************************************");
 	printf("\n");
+	
 	recupMenu();
+	
 	printf("   1. Ajouter un menu\n");
 	printf("   2. Supprimer un menu\n");
 	printf("\n");
 	printf("   0. Retour\n");
 	printf("\n");
-	printf("   Choix : ");
-	
+	printf("   Choix : ");	
 }

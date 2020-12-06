@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct Menu {
+	char nom[21];
+}Menu;
+
 void ajouterMenu() {
-	char menu[21];
+	Menu menu;
 	
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "a");
@@ -10,9 +14,9 @@ void ajouterMenu() {
 	recupMenu();
 	
 	printf("   Ajouter un Menu : ");
-	scanf("%s", &menu);
+	scanf("%s", &menu.nom);
 	
-	fprintf(fdat, "\n%s", menu);
+	fprintf(fdat, "\n%s", menu.nom);
 	
 	fclose(fdat);	
 }

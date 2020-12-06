@@ -21,5 +21,4 @@ void afficherEcranPrincipal() {
 	printf("   0. Quitter\n");
 	printf("\n");
 	printf("   Choix : ");
-	
 }
