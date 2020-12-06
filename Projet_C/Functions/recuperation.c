@@ -20,8 +20,16 @@ typedef struct Table {
 
 typedef struct Menu {
 	char nom[21];
+	char description[40];
 	struct Menu *suivant;
 }Menu;
+
+typedef struct Employe {
+	char nom[21];
+	int service;
+	char fonction[21];
+	struct Employe *suivant;
+}Employe;
 
 void recupTables() {
 	
@@ -79,7 +87,7 @@ void recupTables() {
 	courant=deb;	
 	// Affichage
 	printf("\n");
-	printf("   |Matin|\n");	
+	printf("   |Midi|\n");	
 	printf("   --------------------------------------------------------------------------------\n");
 	printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 	printf("   --------------------------------------------------------------------------------\n");
@@ -111,7 +119,7 @@ void recupTables() {
 }
 
 void recupMenu() {
-	int n=0, i;
+	int n=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "r");
 
@@ -122,6 +130,7 @@ void recupMenu() {
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
 		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%s",&courant->description);
 		suivant=malloc(sizeof(Menu));
 		courant->suivant=suivant;
 		n++;
@@ -139,17 +148,73 @@ void recupMenu() {
 		
 	// Affichage	
 	printf("\n");	
-	printf("   --------------------------------------\n");
-	printf("   |  N  |     Nom      |  Description  |\n");
-	printf("   --------------------------------------\n");
+	printf("   -------------------------------------------------------------\n");
+	printf("   |  N  |     Nom      |           Description                |\n");
+	printf("   -------------------------------------------------------------\n");
 	for(i=1;i<=n;i++) {
-		printf("   |  %d  |  %-10s  |               |\n",i, courant->nom);
+		
+		for(j=0; j<strlen(courant->description); j++) {
+			if(courant->description[j] == '_') {
+				courant->description[j] = ' ';
+			}
+		}
+		
+		printf("   |  %d  |  %-10s  |  %-25s           |\n",i, courant->nom, courant->description);
 		courant=courant->suivant;
 	}
-	printf("   --------------------------------------\n");
+	printf("   -------------------------------------------------------------\n");
 	printf("\n");
 	
 	free(courant);
 	free(suivant);	
 	fclose(fdat);	
+}
+
+void recupEmployes() {
+	int n=0, i;
+	FILE *fdat;
+	fdat = fopen("Data/Employes.dat", "r");
+
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+		
+		suivant=malloc(sizeof(Employe));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+	}
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;
+		
+	// Affichage
+	printf("\n");
+	printf("   Service - Midi : 12h00-15h00 - Soir : 18h00-23h00");	
+	printf("\n");	
+	printf("   ----------------------------------------------------\n");
+	printf("   |  N  |     Nom      |   Service   |   Fonction    |\n");
+	printf("   ----------------------------------------------------\n");
+	for(i=1;i<=n;i++) {
+		printf("   |  %d  |   %-10s |    %-6s   |   %-10s  |\n",i, courant->nom, (courant->service==1)?"Midi":(courant->service==2)?"Soir":"Aucun", courant->fonction);
+		courant=courant->suivant;
+	}
+	printf("   ----------------------------------------------------\n");
+	printf("\n");
+	
+	free(courant);
+	free(suivant);	
+	fclose(fdat);
 }

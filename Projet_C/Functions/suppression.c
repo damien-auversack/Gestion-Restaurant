@@ -20,6 +20,7 @@ typedef struct Table {
 
 typedef struct Menu {
 	char nom[21];
+	char description[40];
 	struct Menu *suivant;
 }Menu;
 
@@ -128,6 +129,7 @@ void supprimerMenu() {
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
 		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%s",&courant->description);
 		if(menuEntre != nMenu) {
 			suivant=malloc(sizeof(Menu));
 			courant->suivant=suivant;
@@ -148,7 +150,7 @@ void supprimerMenu() {
 		
 	// Ecriture
 	for(i=1;i<=n;i++) {		
-		fprintf(fdatTmp, "%s", courant->nom);
+		fprintf(fdatTmp, "%s %s", courant->nom, courant->description);
 		if(i!=n) {
 			fprintf(fdatTmp, "\n");
 		}

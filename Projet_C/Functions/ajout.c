@@ -18,6 +18,7 @@ typedef struct Table {
 
 typedef struct Menu {
 	char nom[21];
+	char description[40];
 }Menu;
 
 void ajouterTable() {
@@ -116,6 +117,7 @@ void ajouterTable() {
 }
 
 void ajouterMenu() {
+	int j;
 	Menu menu;
 	
 	FILE *fdat;
@@ -123,10 +125,26 @@ void ajouterMenu() {
 	
 	recupMenu();
 	
-	printf("   Ajouter un Menu : ");
+	printf("   Nom du Menu : ");
 	scanf("%s", &menu.nom);
 	
-	fprintf(fdat, "\n%s", menu.nom);
+	system("cls");
+	recupMenu();
+	printf("   Description du Menu : ");
+	fflush(stdin);
+	fgets(menu.description, 40, stdin);
+	//scanf("%s", &menu.description);
+	
+	for(j=0; j<strlen(menu.description); j++) {
+		if(menu.description[j] == ' ') {
+			menu.description[j] = '_';
+		}
+		if(menu.description[j] == '\n') {
+			menu.description[j] = '\0';
+		}
+	}
+	
+	fprintf(fdat, "\n%s %s", menu.nom, menu.description);
 	
 	fclose(fdat);	
 }

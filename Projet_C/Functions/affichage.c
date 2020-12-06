@@ -38,9 +38,12 @@ void afficherGestionPersonnel() {
 	printf("\n");
 	printf("   ******************************************************************************************************");
 	printf("\n");
-	printf("\n");
-	printf("   1. Voir les horaires des employes\n");
-	printf("   2. Modifier les horaires des employes\n");
+	
+	recupEmployes();
+
+	printf("   1. Ajouter un employe\n");
+	printf("   2. Supprimer un employe\n");
+	printf("   3. Modifier l\'horaire d\'un employe\n");
 	printf("\n");
 	printf("   0. Retour\n");
 	printf("\n");
