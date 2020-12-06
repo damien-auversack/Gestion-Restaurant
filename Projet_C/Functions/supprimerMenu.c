@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 typedef struct Menu {
 	char nom[21];
@@ -14,7 +13,9 @@ void supprimerMenu() {
 	fdat = fopen("Data/Menu.dat", "r");
 	fdatTmp = fopen("Data/Menu.tmp", "w");
 	
-	printf("Supprimer un Menu : ");
+	recupMenu();
+	
+	printf("   Supprimer un Menu : ");
 	scanf("%d", &menuEntre);
 		
 	Menu *deb, *courant, *suivant;

@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Functions/afficherMenu.o Functions/ajouterMenu.o Functions/supprimerMenu.o
-LINKOBJ  = main.o Functions/afficherMenu.o Functions/ajouterMenu.o Functions/supprimerMenu.o
+OBJ      = main.o Functions/afficherMenu.o Functions/ajouterMenu.o Functions/supprimerMenu.o Functions/afficherEcranPrincipal.o Functions/afficherGestionPersonnel.o Functions/afficherServices.o Functions/recupMenu.o Functions/afficherTables.o
+LINKOBJ  = main.o Functions/afficherMenu.o Functions/ajouterMenu.o Functions/supprimerMenu.o Functions/afficherEcranPrincipal.o Functions/afficherGestionPersonnel.o Functions/afficherServices.o Functions/recupMenu.o Functions/afficherTables.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -35,3 +35,18 @@ Functions/ajouterMenu.o: Functions/ajouterMenu.c
 
 Functions/supprimerMenu.o: Functions/supprimerMenu.c
 	$(CC) -c Functions/supprimerMenu.c -o Functions/supprimerMenu.o $(CFLAGS)
+
+Functions/afficherEcranPrincipal.o: Functions/afficherEcranPrincipal.c
+	$(CC) -c Functions/afficherEcranPrincipal.c -o Functions/afficherEcranPrincipal.o $(CFLAGS)
+
+Functions/afficherGestionPersonnel.o: Functions/afficherGestionPersonnel.c
+	$(CC) -c Functions/afficherGestionPersonnel.c -o Functions/afficherGestionPersonnel.o $(CFLAGS)
+
+Functions/afficherServices.o: Functions/afficherServices.c
+	$(CC) -c Functions/afficherServices.c -o Functions/afficherServices.o $(CFLAGS)
+
+Functions/recupMenu.o: Functions/recupMenu.c
+	$(CC) -c Functions/recupMenu.c -o Functions/recupMenu.o $(CFLAGS)
+
+Functions/afficherTables.o: Functions/afficherTables.c
+	$(CC) -c Functions/afficherTables.c -o Functions/afficherTables.o $(CFLAGS)

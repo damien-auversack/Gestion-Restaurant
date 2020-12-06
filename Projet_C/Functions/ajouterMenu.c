@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void ajouterMenu() {
 	char menu[21];
@@ -6,7 +7,9 @@ void ajouterMenu() {
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "a");
 	
-	printf("Ajouter un Menu : ");
+	recupMenu();
+	
+	printf("   Ajouter un Menu : ");
 	scanf("%s", &menu);
 	
 	fprintf(fdat, "\n%s", menu);
