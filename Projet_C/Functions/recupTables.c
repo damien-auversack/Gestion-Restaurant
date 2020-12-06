@@ -3,6 +3,8 @@
 #include <string.h>
 
 typedef struct Table {
+	int nbPlaceMax;
+	
 	int estReserveMatin;
 	char nomMatin[21];
 	int nbPersonneMatin;
@@ -52,6 +54,7 @@ void recupTables() {
 			fscanf(fdat,"%d",&courant->nbPersonneSoir);
 			fscanf(fdat,"%d",&courant->numMenuSoir);
 		}
+		fscanf(fdat,"%d",&courant->nbPlaceMax);
 		
 		suivant=malloc(sizeof(Table));
 		courant->suivant=suivant;
@@ -70,28 +73,28 @@ void recupTables() {
 	// Affichage
 	printf("\n");
 	printf("   |Matin|\n");	
-	printf("   ----------------------------------------------------------------\n");
-	printf("   | Num table |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
-	printf("   ----------------------------------------------------------------\n");
+	printf("   --------------------------------------------------------------------------------\n");
+	printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
+	printf("   --------------------------------------------------------------------------------\n");
 	for(i=1;i<=n;i++) {
-		printf("   |     %d     |    %-3s    |   %-10s |      %d     |     %d    |\n",i, (courant->estReserveMatin==1 ? "Oui":"Non"), courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
+		printf("   |     %d     |      %2d       |    %-3s    |   %-10s |      %d     |     %d    |\n",i, courant->nbPlaceMax, (courant->estReserveMatin==1 ? "Oui":"Non"), courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
 		courant=courant->suivant;
 	}
-	printf("   ----------------------------------------------------------------\n");
+	printf("   --------------------------------------------------------------------------------\n");
 	printf("\n");
 	
 	courant=deb;	
 	// Affichage
 	
 	printf("   |Soir|\n");	
-	printf("   ----------------------------------------------------------------\n");
-	printf("   | Num table |  Reserve  |     Nom      |  nb Pers.  | Num menu | \n");
-	printf("   ----------------------------------------------------------------\n");
+	printf("   --------------------------------------------------------------------------------\n");
+	printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
+	printf("   --------------------------------------------------------------------------------\n");
 	for(i=1;i<=n;i++) {
-		printf("   |     %d     |    %-3s    |   %-10s |      %d     |     %d    |\n",i, (courant->estReserveSoir==1) ? "Oui":"Non", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
+		printf("   |     %d     |      %2d       |    %-3s    |   %-10s |      %d     |     %d    |\n",i,courant->nbPlaceMax, (courant->estReserveSoir==1) ? "Oui":"Non", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
 		courant=courant->suivant;
 	}
-	printf("   ----------------------------------------------------------------\n");
+	printf("   --------------------------------------------------------------------------------\n");
 	printf("\n");
 	
 	free(courant);

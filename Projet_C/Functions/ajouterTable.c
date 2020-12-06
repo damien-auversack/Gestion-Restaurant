@@ -3,6 +3,8 @@
 #include <string.h>
 
 typedef struct Table {
+	int nbPlaceMax;
+	
 	int estReserveMatin;
 	char nomMatin[21];
 	int nbPersonneMatin;
@@ -32,6 +34,14 @@ void ajouterTable() {
 	strcpy(table.nomSoir, "");
 	table.nbPersonneSoir = 0;
 	table.numMenuSoir = 0;
+	
+	
+	system("cls");
+	recupTables();
+	
+	printf("   Nombres de places a table : ");
+	
+	scanf("%d", &table.nbPlaceMax);
 		
 	system("cls");
 	recupTables();
@@ -101,6 +111,6 @@ void ajouterTable() {
 	if(table.estReserveSoir==1) {
 		fprintf(fdat, " %s %d %d", table.nomSoir, table.nbPersonneSoir, table.numMenuSoir);
 	}
-	
+	fprintf(fdat, " %d", table.nbPlaceMax);
 	fclose(fdat);	
 }

@@ -3,6 +3,8 @@
 #include <string.h>
 
 typedef struct Table {
+	int nbPlaceMax;
+	
 	int estReserveMatin;
 	char nomMatin[21];
 	int nbPersonneMatin;
@@ -59,6 +61,7 @@ void supprimerTable() {
 			fscanf(fdat,"%d",&courant->nbPersonneSoir);
 			fscanf(fdat,"%d",&courant->numMenuSoir);
 		}
+		fscanf(fdat,"%d",&courant->nbPlaceMax);
 		if(tableEntre != nTable) {
 			suivant=malloc(sizeof(Table));
 			courant->suivant=suivant;
@@ -88,6 +91,7 @@ void supprimerTable() {
 		if(courant->estReserveSoir==1) {
 			fprintf(fdatTmp, " %s %d %d", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
 		}
+		fprintf(fdatTmp, " %d", courant->nbPlaceMax);
 		if(i!=n) {
 			fprintf(fdatTmp, "\n");
 		}
