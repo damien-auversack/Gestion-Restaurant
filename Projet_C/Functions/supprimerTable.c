@@ -82,7 +82,7 @@ void supprimerTable() {
 		
 	// Ecriture
 	for(i=1;i<=n;i++) {		
-		fprintf(fdatTmp, "\n%d ", courant->estReserveMatin);
+		fprintf(fdatTmp, "%d ", courant->estReserveMatin);
 		if(courant->estReserveMatin==1) {
 			fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
 		}

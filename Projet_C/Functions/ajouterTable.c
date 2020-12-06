@@ -58,6 +58,8 @@ void ajouterTable() {
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomMatin);
 		
+		erreurNbPlaceMaxMatin:
+		
 		system("cls");
 		
 		recupTables();
@@ -65,12 +67,16 @@ void ajouterTable() {
 		printf("   Nombre de personne a table : ");
 		scanf("%d", &table.nbPersonneMatin);
 		
+		if(table.nbPersonneMatin > table.nbPlaceMax) {
+			goto erreurNbPlaceMaxMatin;
+		}
+		
 		system("cls");
 		
 		recupTables();
 		
 		printf("   Numero du menu choisi : ");
-		scanf("%d", &table.nbPersonneMatin);
+		scanf("%d", &table.numMenuMatin);
 	}
 	
 	system("cls");
@@ -86,6 +92,8 @@ void ajouterTable() {
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomSoir);
 		
+		erreurNbPlaceMaxSoir:
+		
 		system("cls");
 		
 		recupTables();
@@ -93,12 +101,16 @@ void ajouterTable() {
 		printf("   Nombre de personne a table : ");
 		scanf("%d", &table.nbPersonneSoir);
 		
+		if(table.nbPersonneSoir > table.nbPlaceMax) {
+			goto erreurNbPlaceMaxSoir;
+		}
+		
 		system("cls");
 		
 		recupTables();
 		
 		printf("   Numero du menu choisi : ");
-		scanf("%d", &table.nbPersonneSoir);
+		scanf("%d", &table.numMenuSoir);
 	}
 	
 	
