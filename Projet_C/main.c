@@ -4,17 +4,18 @@
 
 #include "Headers/afficherEcranPrincipal.h"
 #include "Headers/afficherGestionPersonnel.h"
-#include "Headers/afficherServices.h"
-
 #include "Headers/afficherMenu.h"
+#include "Headers/afficherServices.h"
+#include "Headers/afficherTables.h"
+
 #include "Headers/ajouterMenu.h"
-#include "Headers/supprimerMenu.h"
+#include "Headers/ajouterTable.h"
+
 #include "Headers/recupMenu.h"
 #include "Headers/recupTables.h"
 
-#include "Headers/ajouterTable.h"
+#include "Headers/supprimerMenu.h"
 #include "Headers/supprimerTable.h"
-
 
 main() {
 	// Paramètre Fenêtre
