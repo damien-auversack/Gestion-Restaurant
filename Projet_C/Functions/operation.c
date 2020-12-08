@@ -25,7 +25,7 @@ typedef struct Menu {
 	struct Menu *suivant;
 }Menu;
 
-FaireAddition(int tableAddition, int service) {
+void FaireAddition(int tableAddition, int service) {
 	float sommeAddition;
 	
 	int nbPlaceMaxSelect;

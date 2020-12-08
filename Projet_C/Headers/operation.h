@@ -1,1 +1,1 @@
-FaireAddition(int, int);
+void FaireAddition(int, int);

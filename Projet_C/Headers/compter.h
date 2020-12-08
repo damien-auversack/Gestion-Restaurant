@@ -1,2 +1,2 @@
-compterMenu();
-compterTable();
+int compterMenu();
+int compterTable();
