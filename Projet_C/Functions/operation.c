@@ -149,6 +149,19 @@ void FaireAddition(int tableAddition, int service) {
 	
 	sommeAddition = prixSelect * nbPersonneSelect;
 	system("cls");	
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	printf("                 _     _ _ _   _             \n");
+	printf("        /\\      | |   | (_) | (_)            \n");
+	printf("       /  \\   __| | __| |_| |_ _  ___  _ __  \n");
+	printf("      / /\\ \\ / _` |/ _` | | __| |/ _ \\| '_ \\ \n");
+	printf("     / ____ \\ (_| | (_| | | |_| | (_) | | | |\n");
+	printf("    /_/    \\_\\__,_|\\__,_|_|\\__|_|\\___/|_| |_|\n");
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	printf("\n");
 	if(service==1) {
 		
 		printf("   |Table|\n");

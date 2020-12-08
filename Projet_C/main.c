@@ -44,7 +44,10 @@ main() {
 					afficherServices();
 					scanf("%d", &choixServices);
 					switch(choixServices) {
-						case 1:
+						case 1: // Services -> 1. Faire une reservation	
+							system("cls");		
+							afficherReservation();
+							system("pause");
 							break;
 						case 2: // Services -> 2. Changer ma commande				
 							system("cls");							
