@@ -320,3 +320,186 @@ void selectTable(int numTable, int service) {
 		printf("   --------------------------------------------------------------------------------\n\n");
 	}
 }
+
+int rechercheTableLibre(int service, int nbPersonne) {
+	
+	int n=0, i;
+
+	FILE *fdat, *fdatTmp;
+	fdat = fopen("Data/Table.dat", "r");
+
+	Table *deb, *courant, *suivant;
+	courant=malloc(sizeof(Table));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		courant->estReserveMatin = 0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		courant->estReserveSoir = 0;
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
+		
+		fscanf(fdat,"%d",&courant->estReserveMatin);
+		if(courant->estReserveMatin == 1) {
+			fscanf(fdat,"%s",&courant->nomMatin);
+			fscanf(fdat,"%d",&courant->nbPersonneMatin);
+			fscanf(fdat,"%d",&courant->numMenuMatin);
+			
+		}
+
+		fscanf(fdat,"%d",&courant->estReserveSoir);
+		if(courant->estReserveSoir == 1) {
+			fscanf(fdat,"%s",&courant->nomSoir);
+			fscanf(fdat,"%d",&courant->nbPersonneSoir);
+			fscanf(fdat,"%d",&courant->numMenuSoir);
+		}
+		fscanf(fdat,"%d",&courant->nbPlaceMax);
+		
+		suivant=malloc(sizeof(Table));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;	
+	}
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;		
+		
+	courant=deb;
+		
+	// Recherche
+	for(i=1;i<=n;i++) {		
+	
+		if(service==1 && nbPersonne<=courant->nbPlaceMax) {
+			if(courant->estReserveMatin == 0) {
+				fclose(fdat);
+				return i;
+			}			
+		}
+		else if(service==2 && nbPersonne<=courant->nbPlaceMax) {
+			if(courant->estReserveSoir == 0) {
+				fclose(fdat);
+				return i;
+			}		
+		}	
+		courant=courant->suivant;
+	}
+	fclose(fdat);
+	return 0;
+}
+
+void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMenu, int service) {
+		
+	int n=0, i;
+
+	FILE *fdat, *fdatTmp;
+	fdat = fopen("Data/Table.dat", "r");
+	fdatTmp = fopen("Data/Table.tmp", "w");
+
+	Table *deb, *courant, *suivant;
+	courant=malloc(sizeof(Table));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		courant->estReserveMatin = 0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		courant->estReserveSoir = 0;
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
+		
+		fscanf(fdat,"%d",&courant->estReserveMatin);
+		if(courant->estReserveMatin == 1) {
+			fscanf(fdat,"%s",&courant->nomMatin);
+			fscanf(fdat,"%d",&courant->nbPersonneMatin);
+			fscanf(fdat,"%d",&courant->numMenuMatin);	
+		}
+
+		fscanf(fdat,"%d",&courant->estReserveSoir);
+		if(courant->estReserveSoir == 1) {
+			fscanf(fdat,"%s",&courant->nomSoir);
+			fscanf(fdat,"%d",&courant->nbPersonneSoir);
+			fscanf(fdat,"%d",&courant->numMenuSoir);
+		}
+		fscanf(fdat,"%d",&courant->nbPlaceMax);
+		
+		suivant=malloc(sizeof(Table));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;		
+	}
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;		
+		
+	courant=deb;		
+	// Ecriture
+	for(i=1;i<=n;i++) {	
+				
+		if(courant->estReserveMatin==1) {
+			fprintf(fdatTmp, "%d ", courant->estReserveMatin);
+			fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
+			
+		}
+				
+		if(courant->estReserveMatin==0) {
+			if(numTable==i && service==1) {
+				courant->estReserveMatin = 1;
+				courant->nbPersonneMatin = nbPersonne;
+				strcpy(courant->nomMatin, nom);
+				courant->numMenuMatin = numMenu;
+				fprintf(fdatTmp, "%d ", courant->estReserveMatin);
+				fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
+			}
+			else {
+				fprintf(fdatTmp, "%d ", courant->estReserveMatin);
+			}		
+		}
+			
+		if(courant->estReserveSoir==1) {
+			fprintf(fdatTmp, "%d ", courant->estReserveSoir);
+			fprintf(fdatTmp, "%s %d %d", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);		
+		}
+			
+		if(courant->estReserveSoir==0) {
+			if(numTable==i && service==2) {
+				courant->estReserveSoir = 1;
+				courant->nbPersonneSoir = nbPersonne;
+				strcpy(courant->nomSoir, nom);
+				courant->numMenuSoir = numMenu;
+				fprintf(fdatTmp, "%d ", courant->estReserveSoir);
+				fprintf(fdatTmp, "%s %d %d", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
+			}
+			else {
+				fprintf(fdatTmp, "%d", courant->estReserveSoir);
+			}		
+		}						
+		
+		fprintf(fdatTmp, " %d", courant->nbPlaceMax);
+		if(i!=n) {
+			fprintf(fdatTmp, "\n");
+		}
+		courant=courant->suivant;
+	}
+			
+	fclose(fdat);
+	fclose(fdatTmp);
+	remove("Data/Table.dat");		
+	rename("Data/Table.tmp", "Data/Table.dat");	
+}

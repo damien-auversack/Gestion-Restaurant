@@ -260,3 +260,60 @@ void changerCommande() {
 		printf("   Vous avez choisi le menu : %s\n\n", nomMenuChoisi(numMenuChoisi));
 	}	
 }
+
+void faireReservation() {
+	int service;
+	char nom[21];
+	int nbPersonne;
+	int numMenu;
+	
+	afficherReservation();	
+	recupTableLibreMidi();
+	recupTableLibreSoir();
+	printf("\n");
+	printf("   Service (Midi=1/Soir=2) : ");
+	scanf("%d", &service);
+	system("cls");
+	afficherReservation();	
+	
+	if(service==1) {
+		recupTableLibreMidi();
+		printf("   Nom de la reservation : ");
+		scanf("%s", &nom);
+		
+		system("cls");
+		afficherReservation();	
+		recupTableLibreMidi();
+		printf("   Nombre de personnes : ");
+		scanf("%d", &nbPersonne);
+		
+		system("cls");
+		afficherReservation();	
+		recupTableLibreMidi();
+		printf("   |Menu|");
+		recupMenu();
+		printf("   Numero du menu : ");
+		scanf("%d", &numMenu);
+		remplaceNonReserveTable(rechercheTableLibre(1, nbPersonne), nom, nbPersonne, numMenu, 1);
+	}
+	else if(service==2) {
+		recupTableLibreSoir();
+		printf("   Nom de la reservation : ");
+		scanf("%s", &nom);
+		
+		system("cls");
+		afficherReservation();	
+		recupTableLibreSoir();
+		printf("   Nombre de personnes : ");
+		scanf("%d", &nbPersonne);
+		
+		system("cls");
+		afficherReservation();	
+		recupTableLibreSoir();
+		printf("   |Menu|");
+		recupMenu();
+		printf("   Numero du menu : ");
+		scanf("%d", &numMenu);
+		remplaceNonReserveTable(rechercheTableLibre(2, nbPersonne), nom, nbPersonne, numMenu, 2);
+	}
+}

@@ -211,5 +211,6 @@ void afficherReservation() {
 	printf("\n");
 	printf("   **********************************************************");
 	printf("\n");	
+	
 }
 

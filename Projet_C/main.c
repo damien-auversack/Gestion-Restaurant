@@ -46,7 +46,7 @@ main() {
 					switch(choixServices) {
 						case 1: // Services -> 1. Faire une reservation	
 							system("cls");		
-							afficherReservation();
+							faireReservation();
 							system("pause");
 							break;
 						case 2: // Services -> 2. Changer ma commande				
