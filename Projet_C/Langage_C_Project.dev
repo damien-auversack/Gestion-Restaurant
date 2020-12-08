@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=14
+UnitCount=16
 
 [VersionInfo]
 Major=1
@@ -91,9 +91,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=Headers\suppression.h
+FileName=Functions\outils.c
 CompileCpp=0
-Folder=Headers
+Folder=Functions
 Compile=1
 Link=1
 Priority=1000
@@ -101,9 +101,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=Functions\ajout.c
+FileName=Headers\outils.h
 CompileCpp=0
-Folder=Functions
+Folder=Headers
 Compile=1
 Link=1
 Priority=1000

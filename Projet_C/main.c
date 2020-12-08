@@ -48,7 +48,7 @@ main() {
 							break;
 						case 2: // Services -> 2. Changer ma commande				
 							system("cls");							
-							changerCommander();
+							changerCommande();
 							system("pause");														
 							break;
 						case 3: // Services -> 3. Addition

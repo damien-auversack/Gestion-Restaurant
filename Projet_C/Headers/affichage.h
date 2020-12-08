@@ -6,5 +6,9 @@ void afficherGestionPersonnel();
 void afficherMenu();
 void afficherServices();
 void afficherTables();
+void afficherAddition();
+void afficherAdditionMidi();
+void afficherAdditionSoir();
+void afficherChangerCommande();
 
 #endif

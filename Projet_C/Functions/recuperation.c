@@ -32,8 +32,7 @@ void recupTables() {
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);		
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -131,8 +130,7 @@ void recupMenu() {
 			if(courant->description[j] == '_') {
 				courant->description[j] = ' ';
 			}
-		}
-		
+		}		
 		printf("   |  %d  |  %-10s  |      %5.2f       |  %-25s         |\n",i, courant->nom, courant->prix, courant->description);
 		courant=courant->suivant;
 	}
@@ -221,8 +219,7 @@ void recupAdditionMidi() {
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);			
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -267,8 +264,7 @@ void recupAdditionMidi() {
 }
 
 void recupAdditionSoir() {
-	
-	
+		
 	int n=0, i;
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "r");
@@ -295,8 +291,7 @@ void recupAdditionSoir() {
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);		
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -337,7 +332,6 @@ void recupAdditionSoir() {
 	free(courant);
 	free(suivant);	
 	fclose(fdat);	
-	
 }
 
 void recupTableReserveMidi() {
@@ -368,8 +362,7 @@ void recupTableReserveMidi() {
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);			
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
