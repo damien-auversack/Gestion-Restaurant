@@ -20,18 +20,26 @@ void ajouterTable() {
 	table.estReserveSoir = 0;
 	strcpy(table.nomSoir, "");
 	table.nbPersonneSoir = 0;
-	table.numMenuSoir = 0;	
-	
+	table.numMenuSoir = 0;
+		
+	erreurIndiceNbPlaceMax:
 	// Ajout table
 	system("cls");
 	recupTables();
 	printf("   Nombres de places a table : ");	
 	scanf("%d", &table.nbPlaceMax);
-		
+	if(table.nbPlaceMax<=0) {
+		goto erreurIndiceNbPlaceMax;
+	}
+	
+	erreurEstReserveMatin:
 	system("cls");
 	recupTables();	
-	printf("   Table reserve le matin(0/1) : ");	
+	printf("   Table reserve le matin(oui=1/non=0) : ");	
 	scanf("%d", &table.estReserveMatin);
+	if(table.estReserveMatin != 0 && table.estReserveMatin != 1) {
+		goto erreurEstReserveMatin;
+	}
 
 	if(table.estReserveMatin==1) {
 		
@@ -46,8 +54,8 @@ void ajouterTable() {
 		recupTables();		
 		printf("   Nombre de personne a table : ");
 		scanf("%d", &table.nbPersonneMatin);
-		
-		if(table.nbPersonneMatin > table.nbPlaceMax) {
+				
+		if(table.nbPersonneMatin > table.nbPlaceMax || table.nbPersonneMatin<=0) {
 			goto erreurNbPlaceMaxMatin;
 		}
 		
@@ -62,11 +70,14 @@ void ajouterTable() {
 			goto erreurNumMenuMatin;
 		}
 	}
-	
+	erreurEstReserveSoir:
 	system("cls");
 	recupTables();
-	printf("   Table reserve le soir(0/1) : ");
+	printf("   Table reserve le soir(oui=1/non=0) : ");
 	scanf("%d", &table.estReserveSoir);
+	if(table.estReserveSoir != 0 && table.estReserveSoir != 1) {
+		goto erreurEstReserveSoir;
+	}
 	
 	if(table.estReserveSoir==1) {
 		
@@ -82,7 +93,7 @@ void ajouterTable() {
 		printf("   Nombre de personne a table : ");
 		scanf("%d", &table.nbPersonneSoir);
 		
-		if(table.nbPersonneSoir > table.nbPlaceMax) {
+		if(table.nbPersonneSoir > table.nbPlaceMax || table.nbPersonneSoir<=0) {
 			goto erreurNbPlaceMaxSoir;
 		}
 		

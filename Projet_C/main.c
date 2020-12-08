@@ -33,7 +33,7 @@ main() {
 				while(1) {
 					system("cls");	
 					afficherGestionPersonnel();
-					scanf("%d", &choixGestionPersonnel);
+					scanf("%d", &choixGestionPersonnel);				
 					if(choixGestionPersonnel==0) break;
 				}			
 				break;
@@ -83,11 +83,11 @@ main() {
 								switch(choixTables) {
 									case 1: // ajouter Table
 										system("cls");
-										//ajouterTable();
+										ajouterTable();
 										break;
 									case 2: // supprimer Table
 										system("cls");
-										//supprimerTable();
+										supprimerTable();
 										break;
 								}
 								if(choixTables==0) break;
