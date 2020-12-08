@@ -163,7 +163,7 @@ FaireAddition(int tableAddition, int service) {
 		courant2=courant2->suivant;
 	}
 	
-	if(tableAddition>nTable || tableAddition<=0) {
+	if(tableAddition>nTable || tableAddition<=0 || reserveSelect==0) {
 		goto erreurTailleTable;
 	}
 	
