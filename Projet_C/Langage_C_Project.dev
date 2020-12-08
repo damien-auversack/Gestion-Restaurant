@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=9
+UnitCount=11
 
 [VersionInfo]
 Major=1
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=Headers\suppression.h
+FileName=Headers\operation.h
 CompileCpp=0
 Folder=Headers
 Compile=1
@@ -226,16 +226,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit10]
-FileName=Functions\recuperation.c
-CompileCpp=0
-Folder=Functions
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit6]
 FileName=Functions\suppression.c
 CompileCpp=0
@@ -278,6 +268,16 @@ BuildCmd=
 
 [Unit4]
 FileName=Functions\ajout.c
+CompileCpp=0
+Folder=Functions
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=Functions\operation.c
 CompileCpp=0
 Folder=Functions
 Compile=1

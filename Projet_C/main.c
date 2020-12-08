@@ -6,6 +6,7 @@
 #include "Headers/ajout.h"
 #include "Headers/suppression.h"
 #include "Headers/recuperation.h"
+#include "Headers/operation.h"
 
 main() {
 	// Paramètre Fenêtre
@@ -18,6 +19,8 @@ main() {
 	int choixServices=0;
 	int choixMenu=0;
 	int choixTables=0;
+	int choixAddition=0;
+	int tableAddition=0;
 	
 	while(1) { // Ecran Principal
 		system("cls");	
@@ -44,7 +47,29 @@ main() {
 							break;
 						case 2:
 							break;
-						case 3:
+						case 3: // Services -> 3. Addition
+							while(1) {
+								system("cls");
+								afficherAddition();
+								scanf("%d", &choixAddition);
+								switch(choixAddition) {
+									case 1: 								
+										system("cls");
+										afficherAdditionMidi();
+										scanf("%d", &tableAddition);
+										FaireAddition(tableAddition, 1);
+										system("pause");												
+										break;
+									case 2: 								
+										system("cls");
+										afficherAdditionSoir();
+										scanf("%d", &tableAddition);	
+										FaireAddition(tableAddition, 2);	
+										system("pause");		
+										break;
+								}
+								if(choixAddition==0) break;
+							}
 							break;
 						case 4: // Services -> 4. Gestion des tables
 							while(1) {

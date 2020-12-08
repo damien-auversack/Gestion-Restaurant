@@ -122,3 +122,62 @@ void afficherTables() {
 	printf("\n");
 	printf("   Choix : ");	
 }
+
+void afficherAddition() {
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	printf("                 _     _ _ _   _             \n");
+	printf("        /\\      | |   | (_) | (_)            \n");
+	printf("       /  \\   __| | __| |_| |_ _  ___  _ __  \n");
+	printf("      / /\\ \\ / _` |/ _` | | __| |/ _ \\| '_ \\ \n");
+	printf("     / ____ \\ (_| | (_| | | |_| | (_) | | | |\n");
+	printf("    /_/    \\_\\__,_|\\__,_|_|\\__|_|\\___/|_| |_|\n");
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	printf("\n");
+	printf("   1. Faire l'addition (Service du midi)\n");
+	printf("   2. Faire l'addition (Service du soir)\n");
+	printf("\n");
+	printf("   0. Retour\n");
+	printf("\n");
+	printf("   Choix : ");	
+}
+
+void afficherAdditionMidi() {
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	printf("                 _     _ _ _   _             \n");
+	printf("        /\\      | |   | (_) | (_)            \n");
+	printf("       /  \\   __| | __| |_| |_ _  ___  _ __  \n");
+	printf("      / /\\ \\ / _` |/ _` | | __| |/ _ \\| '_ \\ \n");
+	printf("     / ____ \\ (_| | (_| | | |_| | (_) | | | |\n");
+	printf("    /_/    \\_\\__,_|\\__,_|_|\\__|_|\\___/|_| |_|\n");
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	recupAdditionMidi();
+	printf("\n");
+	printf("   Faire l'addition de la table : ");
+}
+
+void afficherAdditionSoir() {
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	printf("                 _     _ _ _   _             \n");
+	printf("        /\\      | |   | (_) | (_)            \n");
+	printf("       /  \\   __| | __| |_| |_ _  ___  _ __  \n");
+	printf("      / /\\ \\ / _` |/ _` | | __| |/ _ \\| '_ \\ \n");
+	printf("     / ____ \\ (_| | (_| | | |_| | (_) | | | |\n");
+	printf("    /_/    \\_\\__,_|\\__,_|_|\\__|_|\\___/|_| |_|\n");
+	printf("\n");
+	printf("   ********************************************");
+	printf("\n");
+	recupAdditionSoir();
+	printf("\n");
+	printf("   Faire l'addition de la table : ");
+}
+

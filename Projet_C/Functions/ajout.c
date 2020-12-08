@@ -18,6 +18,7 @@ typedef struct Table {
 
 typedef struct Menu {
 	char nom[21];
+	float prix;
 	char description[40];
 }Menu;
 
@@ -130,6 +131,12 @@ void ajouterMenu() {
 	
 	system("cls");
 	recupMenu();
+	
+	printf("   Prix du Menu : ");
+	scanf("%5f", &menu.prix);
+	
+	system("cls");
+	recupMenu();
 	printf("   Description du Menu : ");
 	fflush(stdin);
 	fgets(menu.description, 40, stdin);
@@ -144,7 +151,7 @@ void ajouterMenu() {
 		}
 	}
 	
-	fprintf(fdat, "\n%s %s", menu.nom, menu.description);
+	fprintf(fdat, "\n%s %5.2f %s", menu.nom, menu.prix, menu.description);
 	
 	fclose(fdat);	
 }
