@@ -196,7 +196,7 @@ void afficherChangerCommande() {
 	printf("\n");
 	printf("   ****************************************************************************************************");
 	printf("\n");
-	recupTableReserve();
-	printf("   1. Numero de votre table : ");
+	
+	
 }
 
