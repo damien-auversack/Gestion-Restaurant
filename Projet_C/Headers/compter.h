@@ -1,0 +1,2 @@
+compterMenu();
+compterTable();

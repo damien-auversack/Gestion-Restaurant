@@ -7,6 +7,7 @@
 #include "Headers/suppression.h"
 #include "Headers/recuperation.h"
 #include "Headers/operation.h"
+#include "Headers/compter.h"
 
 main() {
 	// Paramètre Fenêtre

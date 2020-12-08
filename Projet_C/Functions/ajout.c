@@ -14,12 +14,16 @@ typedef struct Table {
 	char nomSoir[21];
 	int nbPersonneSoir;
 	int numMenuSoir;
+	
+	struct Table *suivant;
 }Table;
 
 typedef struct Menu {
 	char nom[21];
 	float prix;
 	char description[40];
+	
+	struct Menu *suivant;
 }Menu;
 
 void ajouterTable() {
@@ -69,10 +73,16 @@ void ajouterTable() {
 			goto erreurNbPlaceMaxMatin;
 		}
 		
+		erreurNumMenuMatin:
+		
 		system("cls");		
 		recupTables();		
 		printf("   Numero du menu choisi : ");
 		scanf("%d", &table.numMenuMatin);
+		
+		if(table.numMenuMatin<=0 || table.numMenuMatin>compterMenu()) {
+			goto erreurNumMenuMatin;
+		}
 	}
 	
 	system("cls");
@@ -98,10 +108,18 @@ void ajouterTable() {
 			goto erreurNbPlaceMaxSoir;
 		}
 		
+		erreurNumMenuSoir:
+			
 		system("cls");		
-		recupTables();		
+		recupTables();
+				
 		printf("   Numero du menu choisi : ");
 		scanf("%d", &table.numMenuSoir);
+		
+		if(table.numMenuSoir<=0 || table.numMenuSoir>compterMenu()) {
+			goto erreurNumMenuSoir;
+		}
+		
 	}
 		
 	fprintf(fdat, "\n%d ", table.estReserveMatin);
