@@ -22,6 +22,7 @@ main() {
 	int choixTables=0;
 	int choixAddition=0;
 	int tableAddition=0;
+	int choixChangerCommande=0;
 	
 	while(1) { // Ecran Principal
 		system("cls");	
@@ -46,7 +47,13 @@ main() {
 					switch(choixServices) {
 						case 1:
 							break;
-						case 2:
+						case 2: // Services -> 2. Changer ma commande
+							while(1) {
+								system("cls");
+								afficherChangerCommande();
+								scanf("%d", &choixChangerCommande);
+								if(choixChangerCommande==0) break;
+							}
 							break;
 						case 3: // Services -> 3. Addition
 							while(1) {

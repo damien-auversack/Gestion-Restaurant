@@ -2,29 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Table {
-	int nbPlaceMax;
-	
-	int estReserveMatin;
-	char nomMatin[21];
-	int nbPersonneMatin;
-	int numMenuMatin;
-	
-	int estReserveSoir;
-	char nomSoir[21];
-	int nbPersonneSoir;
-	int numMenuSoir;
-	
-	struct Table *suivant;
-}Table;
-
-typedef struct Menu {
-	char nom[21];
-	float prix;
-	char description[40];
-	
-	struct Menu *suivant;
-}Menu;
+#include "../Headers/structures.h"
 
 void ajouterTable() {
 
