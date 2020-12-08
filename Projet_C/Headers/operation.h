@@ -1,1 +1,1 @@
-FaireAddition(int tableAddition, int service);
+FaireAddition(int, int);
