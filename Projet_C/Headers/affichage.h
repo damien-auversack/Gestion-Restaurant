@@ -11,5 +11,6 @@ void afficherAdditionMidi();
 void afficherAdditionSoir();
 void afficherChangerCommande();
 void afficherReservation();
+void afficherReservationOptions();
 
 #endif

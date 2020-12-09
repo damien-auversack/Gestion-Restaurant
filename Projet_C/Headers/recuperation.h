@@ -8,5 +8,7 @@ void recupAdditionMidi();
 void recupAdditionSoir();
 void recupTableReserveMidi();
 void recupTableReserveSoir();
+void recupTableLibreMidi();
+void recupTableLibreSoir();
 
 #endif
