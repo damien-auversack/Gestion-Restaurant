@@ -4,7 +4,7 @@
 
 #include "../Headers/structures.h"
 
-int compterMenu() {//Compte le nombre de menus
+int compterMenu() { //Compte le nombre de menus
 	int n=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "r");
@@ -39,7 +39,7 @@ int compterMenu() {//Compte le nombre de menus
 	return n;
 }
 
-int compterTable() {//compte le nombre de tables
+int compterTable() { //compte le nombre de tables
 	int n=0, i;
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "r");

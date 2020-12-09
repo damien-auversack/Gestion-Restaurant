@@ -4,7 +4,7 @@
 
 #include "../Headers/structures.h"
 
-void ajouterTable() {//permet d'ajouter une table à la liste
+void ajouterTable() { //permet d'ajouter une table a la liste
 
 	Table table;
 	
@@ -22,7 +22,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 	table.nbPersonneSoir = 0;
 	table.numMenuSoir = 0;
 		
-	erreurIndiceNbPlaceMax:
+	erreurIndiceNbPlaceMax: //gestion d'erreur
 	// Ajout table
 	system("cls");
 	recupTables();
@@ -32,7 +32,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 		goto erreurIndiceNbPlaceMax;
 	}
 	
-	erreurEstReserveMatin://gestion d'erreur
+	erreurEstReserveMatin: //gestion d'erreur
 	system("cls");
 	recupTables();	
 	printf("   Table reserve le matin(oui=1/non=0) : ");	
@@ -48,7 +48,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomMatin);
 		
-		erreurNbPlaceMaxMatin://gestion d'erreur
+		erreurNbPlaceMaxMatin: //gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
@@ -59,7 +59,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 			goto erreurNbPlaceMaxMatin;
 		}
 		
-		erreurNumMenuMatin://gestion d'erreur
+		erreurNumMenuMatin: //gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
@@ -70,7 +70,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 			goto erreurNumMenuMatin;
 		}
 	}
-	erreurEstReserveSoir://gestion d'erreur
+	erreurEstReserveSoir: //gestion d'erreur
 	system("cls");
 	recupTables();
 	printf("   Table reserve le soir(oui=1/non=0) : ");
@@ -86,7 +86,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomSoir);
 		
-		erreurNbPlaceMaxSoir://gestion d'erreur
+		erreurNbPlaceMaxSoir: //gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
@@ -97,7 +97,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 			goto erreurNbPlaceMaxSoir;
 		}
 		
-		erreurNumMenuSoir://gestion d'erreur
+		erreurNumMenuSoir: //gestion d'erreur
 			
 		system("cls");		
 		recupTables();
@@ -124,7 +124,7 @@ void ajouterTable() {//permet d'ajouter une table à la liste
 	fclose(fdat);	
 }
 
-void ajouterMenu() {//permet d'ajouter un menu
+void ajouterMenu() { //permet d'ajouter un menu
 	int j;
 	Menu menu;
 	
@@ -148,7 +148,7 @@ void ajouterMenu() {//permet d'ajouter un menu
 	fflush(stdin);
 	fgets(menu.description, 40, stdin);
 	
-	//remplace les ' ' par des '_' dans la chaine de caractères
+	// remplace les ' ' par des '_' dans la chaine de caracteres
 	for(j=0; j<strlen(menu.description); j++) {
 		if(menu.description[j] == ' ') {
 			menu.description[j] = '_';

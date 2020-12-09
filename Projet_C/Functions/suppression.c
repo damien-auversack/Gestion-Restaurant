@@ -4,7 +4,7 @@
 
 #include "../Headers/structures.h"
 
-void supprimerTable() {//supprime une table de la liste de tables
+void supprimerTable() { //supprime une table de la liste de tables
 	
 	int n=0, i, nTable=1, tableEntre;
 
@@ -89,7 +89,7 @@ void supprimerTable() {//supprime une table de la liste de tables
 	rename("Data/Table.tmp", "Data/Table.dat");
 }
 
-void supprimerMenu() {//Supprime un menu de la liste des menus
+void supprimerMenu() { //Supprime un menu de la liste des menus
 	int n=0, i, nMenu=1, menuEntre;
 	
 	FILE *fdat, *fdatTmp;

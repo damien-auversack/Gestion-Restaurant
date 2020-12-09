@@ -5,7 +5,7 @@
 #include "../Headers/structures.h"
 #include "../Headers/outils.h"
 
-void FaireAddition(int tableAddition, int service) {//calcule l'addition d'une table en fonction de son menu
+void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une table en fonction de son menu
 	float sommeAddition;
 	
 	int nbPlaceMaxSelect;
@@ -146,6 +146,7 @@ void FaireAddition(int tableAddition, int service) {//calcule l'addition d'une t
 	if(tableAddition>nTable || tableAddition<=0 || reserveSelect==0) {
 		goto erreurTailleTable;
 	}
+	
 	//affichage de l'addition d'une table
 	sommeAddition = prixSelect * nbPersonneSelect;
 	system("cls");	
@@ -194,17 +195,21 @@ void FaireAddition(int tableAddition, int service) {//calcule l'addition d'une t
 	}
 	
 	printf("\n   L'addition de la table %d est de %5.2f Euro \n\n", tableAddition, sommeAddition);
+	
 	erreurTailleTable: //gestion d'erreur
+	
 	free(courant2);
 	free(suivant2);	
 	fclose(fdat2);		
 }
 
-void changerCommande() {//permet de changer le menu commander par une table en utilisant remplaceMenuTable
+void changerCommande() { //permet de changer le menu commander par une table en utilisant remplaceMenuTable
 	int service;
 	int numTable;
 	int numMenuChoisi;
-	erreurIndexService://gestion d'erreur
+	
+	erreurIndexService: //gestion d'erreur
+	
 	system("cls");	
 	afficherChangerCommande();
 	recupTableReserveMidi();
@@ -216,7 +221,7 @@ void changerCommande() {//permet de changer le menu commander par une table en u
 		goto erreurIndexService;
 	}
 	
-	erreurTableNonReserve://gestion d'erreur
+	erreurTableNonReserve: //gestion d'erreur
 	system("cls");
 	
 	afficherChangerCommande();
@@ -227,7 +232,7 @@ void changerCommande() {//permet de changer le menu commander par une table en u
 		if(estReserve(1, numTable)==0) {
 			goto erreurTableNonReserve;
 		}
-		erreurIndexNumMenuMidi://gestion d'erreur
+		erreurIndexNumMenuMidi: //gestion d'erreur
 		system("cls");
 		afficherChangerCommande();
 		selectTable(numTable, 1);
@@ -249,7 +254,7 @@ void changerCommande() {//permet de changer le menu commander par une table en u
 		if(estReserve(2, numTable)==0) {
 			goto erreurTableNonReserve;
 		}
-		erreurIndexNumMenuSoir://gestion d'erreur
+		erreurIndexNumMenuSoir: //gestion d'erreur
 		system("cls");
 		afficherChangerCommande();
 		selectTable(numTable, 2);
@@ -266,13 +271,13 @@ void changerCommande() {//permet de changer le menu commander par une table en u
 	}	
 }
 
-void faireReservation() {//Permet de réserver une table libre
+void faireReservation() { //Permet de reserver une table libre
 	int service;
 	char nom[21];
 	int nbPersonne;
 	int numMenu;
 	
-	erreurIndexService://gestion d'erreur
+	erreurIndexService: //gestion d'erreur
 		
 	system("cls");	
 	afficherReservation();	
@@ -294,7 +299,8 @@ void faireReservation() {//Permet de réserver une table libre
 		printf("   Nom de la reservation : ");
 		scanf("%s", &nom);
 		
-		erreurIndexnbPersonne://gestion d'erreur
+		erreurIndexnbPersonne: //gestion d'erreur
+		
 		system("cls");
 		afficherReservation();	
 		recupTableLibreMidi();
@@ -304,7 +310,8 @@ void faireReservation() {//Permet de réserver une table libre
 			goto erreurIndexnbPersonne;
 		}
 		
-		erreurIndexNumMenuMidi://gestion d'erreur
+		erreurIndexNumMenuMidi: //gestion d'erreur
+		
 		system("cls");
 		afficherReservation();	
 		recupTableLibreMidi();
@@ -329,6 +336,7 @@ void faireReservation() {//Permet de réserver une table libre
 		scanf("%d", &nbPersonne);
 		
 		erreurIndexNumMenuSoir: //gestion d'erreur
+		
 		system("cls");
 		afficherReservation();	
 		recupTableLibreSoir();
@@ -343,7 +351,7 @@ void faireReservation() {//Permet de réserver une table libre
 	}
 }
 
-void supprimerReservation() {//Permet de supprimer une réservation sur une table
+void supprimerReservation() { //Permet de supprimer une reservation sur une table
 	int service;
 	int numTable;
 	system("cls");	

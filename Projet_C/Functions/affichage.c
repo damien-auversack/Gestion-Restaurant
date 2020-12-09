@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void afficherEcranPrincipal() {//gestion restaurant + options
+void afficherEcranPrincipal() { //gestion restaurant + options
 	printf("\n");
 	printf("   *********************************************************************************************");
 	printf("\n");
@@ -23,7 +23,7 @@ void afficherEcranPrincipal() {//gestion restaurant + options
 	printf("   Choix : ");
 }
 
-void afficherGestionPersonnel() {//gestion du personnel + options
+void afficherGestionPersonnel() { //gestion du personnel + options
 	printf("\n");
 	printf("   ******************************************************************************************************");
 	printf("\n");
@@ -50,7 +50,7 @@ void afficherGestionPersonnel() {//gestion du personnel + options
 	printf("   Choix : ");
 }
 
-void afficherMenu() {//gestion des menus + options
+void afficherMenu() { //gestion des menus + options
 	printf("\n");
 	printf("   ********************************************************************************************");
 	printf("\n");
@@ -74,7 +74,7 @@ void afficherMenu() {//gestion des menus + options
 	printf("   Choix : ");	
 }
 
-void afficherServices() {//services + options
+void afficherServices() { //services + options
 	printf("\n");
 	printf("   ********************************************");
 	printf("\n");
@@ -99,7 +99,7 @@ void afficherServices() {//services + options
 	printf("   Choix : ");	
 }
 
-void afficherTables() {//gestion des tables + options
+void afficherTables() { //gestion des tables + options
 	printf("\n");
 	printf("   ***************************************************************************************");
 	printf("\n");
@@ -123,7 +123,7 @@ void afficherTables() {//gestion des tables + options
 	printf("   Choix : ");	
 }
 
-void afficherAddition() {//addition + options
+void afficherAddition() { //addition + options
 	printf("\n");
 	printf("   ********************************************");
 	printf("\n");
@@ -145,7 +145,7 @@ void afficherAddition() {//addition + options
 	printf("   Choix : ");	
 }
 
-void afficherAdditionMidi() {//addition pour le midi
+void afficherAdditionMidi() { //addition pour le midi
 	printf("\n");
 	printf("   ********************************************");
 	printf("\n");
@@ -163,7 +163,7 @@ void afficherAdditionMidi() {//addition pour le midi
 	printf("   Faire l'addition de la table : ");
 }
 
-void afficherAdditionSoir() {//addition pour le soir
+void afficherAdditionSoir() { //addition pour le soir
 	printf("\n");
 	printf("   ********************************************");
 	printf("\n");
@@ -181,7 +181,7 @@ void afficherAdditionSoir() {//addition pour le soir
 	printf("   Faire l'addition de la table : ");
 }
 
-void afficherChangerCommande() {//changer commande
+void afficherChangerCommande() { //changer commande
 	printf("\n");
 	printf("   ****************************************************************************************************");
 	printf("\n");
@@ -198,7 +198,7 @@ void afficherChangerCommande() {//changer commande
 	printf("\n");	
 }
 
-void afficherReservation() {//reservation
+void afficherReservation() { //reservation
 	printf("\n");
 	printf("   **********************************************************");
 	printf("\n");
@@ -214,7 +214,7 @@ void afficherReservation() {//reservation
 	
 }
 
-void afficherReservationOptions() {//reservation + options
+void afficherReservationOptions() { //reservation + options
 	printf("\n");
 	printf("   **********************************************************");
 	printf("\n");

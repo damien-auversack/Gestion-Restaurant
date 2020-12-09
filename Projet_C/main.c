@@ -23,34 +23,54 @@ main() {
 	int choixAddition=0;
 	int tableAddition=0;
 	int choixReservation=0;
+	int testDigit;
 	
 	while(1) { // Ecran Principal
+		erreurEcranPrincipal:
 		system("cls");	
 		afficherEcranPrincipal();	
-		scanf("%d", &choix);			
-		
+		testDigit = scanf("%d", &choix);			
+		if(testDigit==0) {
+			viderBuffer();
+			goto erreurEcranPrincipal;
+		}
 		switch(choix) {
 			case 1: // Gestion du personnel
 				while(1) {
+					erreurGestionPersonnel:
 					system("cls");	
 					afficherGestionPersonnel();
-					scanf("%d", &choixGestionPersonnel);				
+					testDigit = scanf("%d", &choixGestionPersonnel);
+					if(testDigit==0) {
+						viderBuffer();
+						goto erreurGestionPersonnel;
+					}				
 					if(choixGestionPersonnel==0) break;
 				}			
 				break;
 				
 			case 2: // Services
 				while(1) {
+					erreurServices:
 					system("cls");	
 					afficherServices();
-					scanf("%d", &choixServices);
+					testDigit = scanf("%d", &choixServices);
+					if(testDigit==0) {
+						viderBuffer();
+						goto erreurServices;
+					}
 					switch(choixServices) {
 						case 1: // Services -> 1. Faire une reservation	
 							while(1) {
+								erreurReservationOptions:
 								system("cls");
 								afficherReservationOptions();
 								
-								scanf("%d", &choixReservation);
+								testDigit = scanf("%d", &choixReservation);
+								if(testDigit==0) {
+									viderBuffer();
+									goto erreurReservationOptions;
+								}
 								switch(choixReservation) {
 									case 1:
 										system("cls");	
@@ -75,21 +95,36 @@ main() {
 							break;
 						case 3: // Services -> 3. Addition
 							while(1) {
+								erreurChoixAddition:
 								system("cls");
 								afficherAddition();
-								scanf("%d", &choixAddition);
+								testDigit = scanf("%d", &choixAddition);
+								if(testDigit==0) {
+									viderBuffer();
+									goto erreurChoixAddition;
+								}
 								switch(choixAddition) {
-									case 1: 								
+									case 1: 			
+										erreurAdditionMidi:					
 										system("cls");
 										afficherAdditionMidi();
-										scanf("%d", &tableAddition);
+										testDigit = scanf("%d", &tableAddition);
+										if(testDigit==0) {
+											viderBuffer();
+											goto erreurAdditionMidi;
+										}
 										FaireAddition(tableAddition, 1);
 										system("pause");												
 										break;
-									case 2: 								
+									case 2: 	
+										erreurAdditionSoir:							
 										system("cls");
 										afficherAdditionSoir();
-										scanf("%d", &tableAddition);	
+										testDigit = scanf("%d", &tableAddition);
+										if(testDigit==0) {
+											viderBuffer();
+											goto erreurAdditionSoir;
+										}
 										FaireAddition(tableAddition, 2);	
 										system("pause");		
 										break;
@@ -99,9 +134,14 @@ main() {
 							break;
 						case 4: // Services -> 4. Gestion des tables
 							while(1) {
+								erreurAfficherTables:
 								system("cls");
 								afficherTables();
-								scanf("%d", &choixTables);
+								testDigit = scanf("%d", &choixTables);
+								if(testDigit==0) {
+									viderBuffer();
+									goto erreurAfficherTables;
+								}
 								switch(choixTables) {
 									case 1: // ajouter Table
 										system("cls");
@@ -117,9 +157,14 @@ main() {
 							break;
 						case 5: // Services -> 5. Gestion du menu
 							while(1) {
+								erreurAfficherMenu:
 								system("cls");
 								afficherMenu();
-								scanf("%d", &choixMenu);
+								testDigit = scanf("%d", &choixMenu);
+								if(testDigit==0) {
+									viderBuffer();
+									goto erreurAfficherMenu;
+								}
 								switch(choixMenu) {
 									case 1: // ajouter Menu
 										system("cls");
@@ -133,9 +178,9 @@ main() {
 								if(choixMenu==0) break;
 							}						
 							break;	
-					}
-					//retour au menu principal
+					}//retour au menu principal
 					if(choixServices==0) break;
+					
 				}//sortie du menu de gestion
 				break;
 		}

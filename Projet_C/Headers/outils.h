@@ -8,5 +8,6 @@ void selectTable(int , int);
 int rechercheTableLibre(int , int );
 void remplaceNonReserveTable(int , char[], int , int , int );
 void modifTableSuppRes(int , int );
+void viderBuffer();
 
 #endif
