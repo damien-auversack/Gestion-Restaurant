@@ -4,7 +4,7 @@
 
 #include "../Headers/structures.h"
 
-void ajouterTable() {
+void ajouterTable() {//permet d'ajouter une table à la liste
 
 	Table table;
 	
@@ -32,7 +32,7 @@ void ajouterTable() {
 		goto erreurIndiceNbPlaceMax;
 	}
 	
-	erreurEstReserveMatin:
+	erreurEstReserveMatin://gestion d'erreur
 	system("cls");
 	recupTables();	
 	printf("   Table reserve le matin(oui=1/non=0) : ");	
@@ -48,7 +48,7 @@ void ajouterTable() {
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomMatin);
 		
-		erreurNbPlaceMaxMatin:
+		erreurNbPlaceMaxMatin://gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
@@ -59,7 +59,7 @@ void ajouterTable() {
 			goto erreurNbPlaceMaxMatin;
 		}
 		
-		erreurNumMenuMatin:
+		erreurNumMenuMatin://gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
@@ -70,7 +70,7 @@ void ajouterTable() {
 			goto erreurNumMenuMatin;
 		}
 	}
-	erreurEstReserveSoir:
+	erreurEstReserveSoir://gestion d'erreur
 	system("cls");
 	recupTables();
 	printf("   Table reserve le soir(oui=1/non=0) : ");
@@ -86,7 +86,7 @@ void ajouterTable() {
 		printf("   Nom de la reservation : ");
 		scanf("%s", &table.nomSoir);
 		
-		erreurNbPlaceMaxSoir:
+		erreurNbPlaceMaxSoir://gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
@@ -97,7 +97,7 @@ void ajouterTable() {
 			goto erreurNbPlaceMaxSoir;
 		}
 		
-		erreurNumMenuSoir:
+		erreurNumMenuSoir://gestion d'erreur
 			
 		system("cls");		
 		recupTables();
@@ -124,7 +124,7 @@ void ajouterTable() {
 	fclose(fdat);	
 }
 
-void ajouterMenu() {
+void ajouterMenu() {//permet d'ajouter un menu
 	int j;
 	Menu menu;
 	
@@ -147,8 +147,8 @@ void ajouterMenu() {
 	printf("   Description du Menu : ");
 	fflush(stdin);
 	fgets(menu.description, 40, stdin);
-	//scanf("%s", &menu.description);
 	
+	//remplace les ' ' par des '_' dans la chaine de caractères
 	for(j=0; j<strlen(menu.description); j++) {
 		if(menu.description[j] == ' ') {
 			menu.description[j] = '_';

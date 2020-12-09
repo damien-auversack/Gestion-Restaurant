@@ -134,8 +134,9 @@ main() {
 							}						
 							break;	
 					}
+					//retour au menu principal
 					if(choixServices==0) break;
-				}
+				}//sortie du menu de gestion
 				break;
 		}
 		if(choix==0) break;

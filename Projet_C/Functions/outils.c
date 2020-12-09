@@ -4,7 +4,7 @@
 
 #include "../Headers/structures.h"
 
-int estReserve(int service, int numTable) {
+int estReserve(int service, int numTable) {//Retourne un entier qui permet de savoir si la table est réservée ou non
 	
 	int n=0, i;
 
@@ -79,7 +79,7 @@ int estReserve(int service, int numTable) {
 	return 0;
 }
 
-const char* nomMenuChoisi(int numMenu) {
+const char* nomMenuChoisi(int numMenu) {//Retourne le nom d'un menu précis
 	static char nomMenuChoisi[21];
 	
 	int n=0, i, j;
@@ -130,7 +130,7 @@ const char* nomMenuChoisi(int numMenu) {
 	return nomMenuChoisi;
 }
 
-void remplaceMenuTable(int numMenu, int numTable, int service) {
+void remplaceMenuTable(int numMenu, int numTable, int service) {//change le menu d'une table précise
 	
 	int n=0, i;
 
@@ -214,7 +214,7 @@ void remplaceMenuTable(int numMenu, int numTable, int service) {
 	rename("Data/Table.tmp", "Data/Table.dat");	
 }
 
-void selectTable(int numTable, int service) {
+void selectTable(int numTable, int service) {//affiche une table précise
 	
 	int nbPlaceMaxSelect;
 	int reserveSelect;
@@ -321,7 +321,7 @@ void selectTable(int numTable, int service) {
 	}
 }
 
-int rechercheTableLibre(int service, int nbPersonne) {
+int rechercheTableLibre(int service, int nbPersonne) {//recherche toutes les tables libres dans la liste des tables
 	
 	int n=0, i;
 
@@ -396,7 +396,7 @@ int rechercheTableLibre(int service, int nbPersonne) {
 	return 0;
 }
 
-void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMenu, int service) {
+void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMenu, int service) {//Effectue la réservation sur base des données entrée par l'utilisateur qui lui sont envoyées
 		
 	int n=0, i;
 
@@ -469,7 +469,7 @@ void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMe
 			}
 			else {
 				fprintf(fdatTmp, "%d ", courant->estReserveMatin);
-			}		
+			}
 		}
 			
 		if(courant->estReserveSoir==1) {
@@ -504,7 +504,7 @@ void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMe
 	rename("Data/Table.tmp", "Data/Table.dat");	
 }
 
-void modifTableSuppRes(int service, int numTable) {
+void modifTableSuppRes(int service, int numTable) {//supprime une réservation sur une table précise
 	int n=0, i;
 
 	FILE *fdat, *fdatTmp;

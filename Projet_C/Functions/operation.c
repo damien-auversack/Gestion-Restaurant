@@ -5,7 +5,7 @@
 #include "../Headers/structures.h"
 #include "../Headers/outils.h"
 
-void FaireAddition(int tableAddition, int service) {
+void FaireAddition(int tableAddition, int service) {//calcule l'addition d'une table en fonction de son menu
 	float sommeAddition;
 	
 	int nbPlaceMaxSelect;
@@ -146,7 +146,7 @@ void FaireAddition(int tableAddition, int service) {
 	if(tableAddition>nTable || tableAddition<=0 || reserveSelect==0) {
 		goto erreurTailleTable;
 	}
-	
+	//affichage de l'addition d'une table
 	sommeAddition = prixSelect * nbPersonneSelect;
 	system("cls");	
 	printf("\n");
@@ -194,17 +194,17 @@ void FaireAddition(int tableAddition, int service) {
 	}
 	
 	printf("\n   L'addition de la table %d est de %5.2f Euro \n\n", tableAddition, sommeAddition);
-	erreurTailleTable:
+	erreurTailleTable: //gestion d'erreur
 	free(courant2);
 	free(suivant2);	
 	fclose(fdat2);		
 }
 
-void changerCommande() {
+void changerCommande() {//permet de changer le menu commander par une table en utilisant remplaceMenuTable
 	int service;
 	int numTable;
 	int numMenuChoisi;
-	erreurIndexService:
+	erreurIndexService://gestion d'erreur
 	system("cls");	
 	afficherChangerCommande();
 	recupTableReserveMidi();
@@ -216,7 +216,7 @@ void changerCommande() {
 		goto erreurIndexService;
 	}
 	
-	erreurTableNonReserve:
+	erreurTableNonReserve://gestion d'erreur
 	system("cls");
 	
 	afficherChangerCommande();
@@ -227,7 +227,7 @@ void changerCommande() {
 		if(estReserve(1, numTable)==0) {
 			goto erreurTableNonReserve;
 		}
-		erreurIndexNumMenuMidi:
+		erreurIndexNumMenuMidi://gestion d'erreur
 		system("cls");
 		afficherChangerCommande();
 		selectTable(numTable, 1);
@@ -249,7 +249,7 @@ void changerCommande() {
 		if(estReserve(2, numTable)==0) {
 			goto erreurTableNonReserve;
 		}
-		erreurIndexNumMenuSoir:
+		erreurIndexNumMenuSoir://gestion d'erreur
 		system("cls");
 		afficherChangerCommande();
 		selectTable(numTable, 2);
@@ -266,13 +266,13 @@ void changerCommande() {
 	}	
 }
 
-void faireReservation() {
+void faireReservation() {//Permet de réserver une table libre
 	int service;
 	char nom[21];
 	int nbPersonne;
 	int numMenu;
 	
-	erreurIndexService:
+	erreurIndexService://gestion d'erreur
 		
 	system("cls");	
 	afficherReservation();	
@@ -294,7 +294,7 @@ void faireReservation() {
 		printf("   Nom de la reservation : ");
 		scanf("%s", &nom);
 		
-		erreurIndexnbPersonne:
+		erreurIndexnbPersonne://gestion d'erreur
 		system("cls");
 		afficherReservation();	
 		recupTableLibreMidi();
@@ -304,7 +304,7 @@ void faireReservation() {
 			goto erreurIndexnbPersonne;
 		}
 		
-		erreurIndexNumMenuMidi:
+		erreurIndexNumMenuMidi://gestion d'erreur
 		system("cls");
 		afficherReservation();	
 		recupTableLibreMidi();
@@ -328,7 +328,7 @@ void faireReservation() {
 		printf("   Nombre de personnes : ");
 		scanf("%d", &nbPersonne);
 		
-		erreurIndexNumMenuSoir:
+		erreurIndexNumMenuSoir: //gestion d'erreur
 		system("cls");
 		afficherReservation();	
 		recupTableLibreSoir();
@@ -343,7 +343,7 @@ void faireReservation() {
 	}
 }
 
-void supprimerReservation() {
+void supprimerReservation() {//Permet de supprimer une réservation sur une table
 	int service;
 	int numTable;
 	system("cls");	

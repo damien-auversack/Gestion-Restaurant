@@ -4,7 +4,7 @@
 
 #include "../Headers/structures.h"
 
-void recupTables() {
+void recupTables() {//affiche la liste des tables
 	
 	int n=0, i;
 	FILE *fdat;
@@ -90,7 +90,7 @@ void recupTables() {
 	
 }
 
-void recupMenu() {
+void recupMenu() {//affiche la liste des menus
 	int n=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "r");
@@ -142,7 +142,7 @@ void recupMenu() {
 	fclose(fdat);	
 }
 
-void recupEmployes() {
+void recupEmployes() {//affiche la liste des employés
 	int n=0, i;
 	FILE *fdat;
 	fdat = fopen("Data/Employes.dat", "r");
@@ -191,7 +191,7 @@ void recupEmployes() {
 	fclose(fdat);
 }
 
-void recupAdditionMidi() {
+void recupAdditionMidi() {//affiche l'addition d'une table pour le service du midi
 		
 	int n=0, i;
 	FILE *fdat;
@@ -263,7 +263,7 @@ void recupAdditionMidi() {
 	
 }
 
-void recupAdditionSoir() {
+void recupAdditionSoir() {//affiche l'addition d'une table du service du soir
 		
 	int n=0, i;
 	FILE *fdat;
@@ -334,7 +334,7 @@ void recupAdditionSoir() {
 	fclose(fdat);	
 }
 
-void recupTableReserveMidi() {
+void recupTableReserveMidi() {//affiche les tables réservées pour le midi
 	
 	int n=0, i;
 	FILE *fdat;
@@ -407,7 +407,7 @@ void recupTableReserveMidi() {
 	fclose(fdat);	
 }
 
-void recupTableReserveSoir() {
+void recupTableReserveSoir() {//affiche les tables réservées pour le soir
 	
 	int n=0, i;
 	FILE *fdat;
@@ -482,7 +482,7 @@ void recupTableReserveSoir() {
 	fclose(fdat);	
 }
 
-void recupTableLibreMidi() {
+void recupTableLibreMidi() {//affiche les tables libres du midi
 	
 	int n=0, i;
 	FILE *fdat;
@@ -553,7 +553,7 @@ void recupTableLibreMidi() {
 	fclose(fdat);	
 }
 
-void recupTableLibreSoir() {
+void recupTableLibreSoir() {//affiche les tables libres du soir
 	
 	int n=0, i;
 	FILE *fdat;
