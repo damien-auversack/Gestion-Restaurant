@@ -204,13 +204,18 @@ void changerCommande() {
 	int service;
 	int numTable;
 	int numMenuChoisi;
-	
+	erreurIndexService:
+	system("cls");	
 	afficherChangerCommande();
 	recupTableReserveMidi();
 	recupTableReserveSoir();
 	
 	printf("   Service (Midi=1/Soir=2) : ");
 	scanf("%d", &service);
+	if(service != 1 && service != 2) {
+		goto erreurIndexService;
+	}
+	
 	erreurTableNonReserve:
 	system("cls");
 	
@@ -267,12 +272,20 @@ void faireReservation() {
 	int nbPersonne;
 	int numMenu;
 	
+	erreurIndexService:
+		
+	system("cls");	
 	afficherReservation();	
 	recupTableLibreMidi();
 	recupTableLibreSoir();
+	
 	printf("\n");
 	printf("   Service (Midi=1/Soir=2) : ");
 	scanf("%d", &service);
+	if(service != 1 && service != 2) {
+		goto erreurIndexService;
+	}
+	
 	system("cls");
 	afficherReservation();	
 	
@@ -281,12 +294,17 @@ void faireReservation() {
 		printf("   Nom de la reservation : ");
 		scanf("%s", &nom);
 		
+		erreurIndexnbPersonne:
 		system("cls");
 		afficherReservation();	
 		recupTableLibreMidi();
 		printf("   Nombre de personnes : ");
 		scanf("%d", &nbPersonne);
+		if(nbPersonne<=0) {
+			goto erreurIndexnbPersonne;
+		}
 		
+		erreurIndexNumMenuMidi:
 		system("cls");
 		afficherReservation();	
 		recupTableLibreMidi();
@@ -294,6 +312,9 @@ void faireReservation() {
 		recupMenu();
 		printf("   Numero du menu : ");
 		scanf("%d", &numMenu);
+		if(numMenu<=0 || numMenu > compterMenu()) {
+			goto erreurIndexNumMenuMidi;
+		}
 		remplaceNonReserveTable(rechercheTableLibre(1, nbPersonne), nom, nbPersonne, numMenu, 1);
 	}
 	else if(service==2) {
@@ -307,6 +328,7 @@ void faireReservation() {
 		printf("   Nombre de personnes : ");
 		scanf("%d", &nbPersonne);
 		
+		erreurIndexNumMenuSoir:
 		system("cls");
 		afficherReservation();	
 		recupTableLibreSoir();
@@ -314,6 +336,39 @@ void faireReservation() {
 		recupMenu();
 		printf("   Numero du menu : ");
 		scanf("%d", &numMenu);
+		if(numMenu<=0 || numMenu > compterMenu()) {
+			goto erreurIndexNumMenuSoir;
+		}
 		remplaceNonReserveTable(rechercheTableLibre(2, nbPersonne), nom, nbPersonne, numMenu, 2);
+	}
+}
+
+void supprimerReservation() {
+	int service;
+	int numTable;
+	system("cls");	
+	afficherReservation();	
+	recupTableReserveMidi();
+	recupTableReserveSoir();
+	
+	printf("   Aviez-vous reserve a midi(1) ou au soir(2) ? ");
+	scanf("%d", &service);
+	if(service==1) {
+		system("cls");	
+		afficherReservation();	
+		recupTableReserveMidi();
+		
+		printf("   Quelle table aviez-vous reserve ? ");
+		scanf("%d", &numTable);
+		modifTableSuppRes(1, numTable);
+	} 
+	else if(service==2) {
+		system("cls");	
+		afficherReservation();	
+		recupTableReserveSoir();
+		
+		printf("   Quelle table aviez-vous reserve ? ");
+		scanf("%d", &numTable);
+		modifTableSuppRes(2, numTable);
 	}
 }

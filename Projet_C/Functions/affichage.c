@@ -88,7 +88,7 @@ void afficherServices() {
 	printf("   ********************************************");
 	printf("\n");
 	printf("\n");
-	printf("   1. Faire une reservation\n");
+	printf("   1. Reservation\n");
 	printf("   2. Changer ma Commande\n");
 	printf("   3. Addition\n");
 	printf("   4. Gestion des tables\n");
@@ -210,7 +210,30 @@ void afficherReservation() {
 	printf("   |_|  \\_\\___||___/\\___|_|    \\_/ \\__,_|\\__|_|\\___/|_| |_|\n");
 	printf("\n");
 	printf("   **********************************************************");
+	printf("\n");
+	
+}
+
+void afficherReservationOptions() {
+	printf("\n");
+	printf("   **********************************************************");
+	printf("\n");
+	printf("    _____                                _   _             \n");
+	printf("   |  __ \\                              | | (_)            \n");
+	printf("   | |__) |___  ___  ___ _ ____   ____ _| |_ _  ___  _ __  \n");
+	printf("   |  _  // _ \\/ __|/ _ \\ '__\\ \\ / / _` | __| |/ _ \\| '_ \\ \n");
+	printf("   | | \\ \\  __/\\__ \\  __/ |   \\ V / (_| | |_| | (_) | | | |\n");
+	printf("   |_|  \\_\\___||___/\\___|_|    \\_/ \\__,_|\\__|_|\\___/|_| |_|\n");
+	printf("\n");
+	printf("   **********************************************************");
+	printf("\n");
 	printf("\n");	
+	printf("   1. Faire une reservation\n");
+	printf("   2. Supprimer une reservation\n");
+	printf("\n");
+	printf("   0. Retour\n");
+	printf("\n");
+	printf("   Choix : ");	
 	
 }
 

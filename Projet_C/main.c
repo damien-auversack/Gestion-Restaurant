@@ -22,6 +22,7 @@ main() {
 	int choixTables=0;
 	int choixAddition=0;
 	int tableAddition=0;
+	int choixReservation=0;
 	
 	while(1) { // Ecran Principal
 		system("cls");	
@@ -45,10 +46,28 @@ main() {
 					scanf("%d", &choixServices);
 					switch(choixServices) {
 						case 1: // Services -> 1. Faire une reservation	
-							system("cls");		
-							faireReservation();
-							system("pause");
-							break;
+							while(1) {
+								system("cls");
+								afficherReservationOptions();
+								
+								scanf("%d", &choixReservation);
+								switch(choixReservation) {
+									case 1:
+										system("cls");	
+										faireReservation();
+										printf("\n   Reservation reussie !\n\n");
+										system("pause");
+										break;
+									case 2:
+										system("cls");	
+										supprimerReservation();
+										printf("\n   Reservation supprime !\n\n");
+										system("pause");
+										break;
+								}
+								if(choixReservation==0) break;																	
+							}
+							break;																								
 						case 2: // Services -> 2. Changer ma commande				
 							system("cls");							
 							changerCommande();
