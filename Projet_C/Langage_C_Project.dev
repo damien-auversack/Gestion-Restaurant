@@ -24,12 +24,12 @@ HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
 CommandLine=
-Folders=Functions,Headers,Sources
+Folders=Autres,Functions,Headers,Sources
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=16
+UnitCount=17
 
 [VersionInfo]
 Major=1
@@ -111,11 +111,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
-FileName=Headers\ajout.h
+FileName=ressources.rc
 CompileCpp=0
-Folder=Headers
+Folder=Autres
 Compile=1
-Link=1
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
