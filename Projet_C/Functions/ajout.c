@@ -6,6 +6,7 @@
 
 void ajouterTable() { //permet d'ajouter une table a la liste
 
+	int testDigit=0, j;
 	Table table;
 	
 	FILE *fdat;
@@ -27,8 +28,9 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	system("cls");
 	recupTables();
 	printf("   Nombres de places a table : ");	
-	scanf("%d", &table.nbPlaceMax);
-	if(table.nbPlaceMax<=0) {
+	testDigit = scanf("%d", &table.nbPlaceMax);
+	if(table.nbPlaceMax<=0 || testDigit==0) {
+		viderBuffer();
 		goto erreurIndiceNbPlaceMax;
 	}
 	
@@ -36,8 +38,9 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	system("cls");
 	recupTables();	
 	printf("   Table reserve le matin(oui=1/non=0) : ");	
-	scanf("%d", &table.estReserveMatin);
-	if(table.estReserveMatin != 0 && table.estReserveMatin != 1) {
+	testDigit = scanf("%d", &table.estReserveMatin);
+	if( (table.estReserveMatin != 0 && table.estReserveMatin != 1) || testDigit==0 ) {
+		viderBuffer();
 		goto erreurEstReserveMatin;
 	}
 
@@ -46,16 +49,27 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		system("cls");	
 		recupTables();		
 		printf("   Nom de la reservation : ");
-		scanf("%s", &table.nomMatin);
+		viderBuffer();
+		fgets(table.nomMatin, 12, stdin);
+		// remplace les ' ' par des '_' dans la chaine de caracteres
+		for(j=0; j<strlen(table.nomMatin); j++) {
+			if(table.nomMatin[j] == ' ') {
+				table.nomMatin[j] = '_';
+			}
+			if(table.nomMatin[j] == '\n') {
+				table.nomMatin[j] = '\0';
+			}
+		}
 		
 		erreurNbPlaceMaxMatin: //gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
 		printf("   Nombre de personne a table : ");
-		scanf("%d", &table.nbPersonneMatin);
+		testDigit = scanf("%d", &table.nbPersonneMatin);
 				
-		if(table.nbPersonneMatin > table.nbPlaceMax || table.nbPersonneMatin<=0) {
+		if(table.nbPersonneMatin > table.nbPlaceMax || table.nbPersonneMatin<=0 || testDigit==0) {
+			viderBuffer();
 			goto erreurNbPlaceMaxMatin;
 		}
 		
@@ -64,9 +78,10 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		system("cls");		
 		recupTables();		
 		printf("   Numero du menu choisi : ");
-		scanf("%d", &table.numMenuMatin);
+		testDigit = scanf("%d", &table.numMenuMatin);
 		
-		if(table.numMenuMatin<=0 || table.numMenuMatin>compterMenu()) {
+		if(table.numMenuMatin<=0 || table.numMenuMatin>compterMenu() || testDigit==0) {
+			viderBuffer();
 			goto erreurNumMenuMatin;
 		}
 	}
@@ -74,8 +89,9 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	system("cls");
 	recupTables();
 	printf("   Table reserve le soir(oui=1/non=0) : ");
-	scanf("%d", &table.estReserveSoir);
-	if(table.estReserveSoir != 0 && table.estReserveSoir != 1) {
+	testDigit = scanf("%d", &table.estReserveSoir);
+	if( (table.estReserveSoir != 0 && table.estReserveSoir != 1) || testDigit==0 ) {
+		viderBuffer();
 		goto erreurEstReserveSoir;
 	}
 	
@@ -84,16 +100,27 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		system("cls");	
 		recupTables();		
 		printf("   Nom de la reservation : ");
-		scanf("%s", &table.nomSoir);
+		viderBuffer();
+		fgets(table.nomSoir, 12, stdin);
+		// remplace les ' ' par des '_' dans la chaine de caracteres
+		for(j=0; j<strlen(table.nomSoir); j++) {
+			if(table.nomSoir[j] == ' ') {
+				table.nomSoir[j] = '_';
+			}
+			if(table.nomSoir[j] == '\n') {
+				table.nomSoir[j] = '\0';
+			}
+		}
 		
 		erreurNbPlaceMaxSoir: //gestion d'erreur
 		
 		system("cls");		
 		recupTables();		
 		printf("   Nombre de personne a table : ");
-		scanf("%d", &table.nbPersonneSoir);
+		testDigit = scanf("%d", &table.nbPersonneSoir);
 		
-		if(table.nbPersonneSoir > table.nbPlaceMax || table.nbPersonneSoir<=0) {
+		if(table.nbPersonneSoir > table.nbPlaceMax || table.nbPersonneSoir<=0 || testDigit==0) {
+			viderBuffer();
 			goto erreurNbPlaceMaxSoir;
 		}
 		
@@ -103,9 +130,10 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		recupTables();
 				
 		printf("   Numero du menu choisi : ");
-		scanf("%d", &table.numMenuSoir);
+		testDigit = scanf("%d", &table.numMenuSoir);
 		
-		if(table.numMenuSoir<=0 || table.numMenuSoir>compterMenu()) {
+		if(table.numMenuSoir<=0 || table.numMenuSoir>compterMenu() || testDigit==0) {
+			viderBuffer();
 			goto erreurNumMenuSoir;
 		}
 		
@@ -113,41 +141,58 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		
 	fprintf(fdat, "\n%d ", table.estReserveMatin);
 	if(table.estReserveMatin==1) {
-		fprintf(fdat, "%s %d %d ", table.nomMatin, table.nbPersonneMatin, table.numMenuMatin);
+		fprintf(fdat, "%12s %d %d ", table.nomMatin, table.nbPersonneMatin, table.numMenuMatin);
 	}
 	
 	fprintf(fdat, "%d", table.estReserveSoir);
 	if(table.estReserveSoir==1) {
-		fprintf(fdat, " %s %d %d", table.nomSoir, table.nbPersonneSoir, table.numMenuSoir);
+		fprintf(fdat, " %12s %d %d", table.nomSoir, table.nbPersonneSoir, table.numMenuSoir);
 	}
 	fprintf(fdat, " %d", table.nbPlaceMax);
 	fclose(fdat);	
 }
 
 void ajouterMenu() { //permet d'ajouter un menu
-	int j;
+	int j, erreurAvecEspace=0;
 	Menu menu;
 	
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "a");
-	
+	afficherMenuSimple();
 	recupMenu();
 	
 	printf("   Nom du Menu : ");
-	scanf("%s", &menu.nom);
 	
+	viderBuffer();
+	fgets(menu.nom, 12, stdin);
+	// remplace les ' ' par des '_' dans la chaine de caracteres
+	for(j=0; j<strlen(menu.nom); j++) {
+		if(menu.nom[j] == ' ') {
+			erreurAvecEspace=1;
+			menu.nom[j] = '_';
+		}
+		if(menu.nom[j] == '\n') {
+			menu.nom[j] = '\0';
+		}
+	}
+	
+	if(erreurAvecEspace==1) {
+		viderBuffer();
+	}
+		
 	system("cls");
-	recupMenu();
-	
+	afficherMenuSimple();
+	recupMenu();	
 	printf("   Prix du Menu : ");
+		
 	scanf("%5f", &menu.prix);
-	
 	system("cls");
+	afficherMenuSimple();
 	recupMenu();
 	printf("   Description du Menu : ");
-	fflush(stdin);
-	fgets(menu.description, 40, stdin);
-	
+	viderBuffer();
+	fgets(menu.description, 34, stdin);
+
 	// remplace les ' ' par des '_' dans la chaine de caracteres
 	for(j=0; j<strlen(menu.description); j++) {
 		if(menu.description[j] == ' ') {
@@ -157,7 +202,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 			menu.description[j] = '\0';
 		}
 	}
-	
+
 	fprintf(fdat, "\n%s %5.2f %s", menu.nom, menu.prix, menu.description);
 	
 	fclose(fdat);	

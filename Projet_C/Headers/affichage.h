@@ -4,6 +4,7 @@
 void afficherEcranPrincipal();
 void afficherGestionPersonnel();
 void afficherMenu();
+void afficherMenuSimple();
 void afficherServices();
 void afficherTables();
 void afficherAddition();

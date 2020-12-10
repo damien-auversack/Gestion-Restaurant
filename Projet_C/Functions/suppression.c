@@ -95,7 +95,7 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Menu.dat", "r");
 	fdatTmp = fopen("Data/Menu.tmp", "w");
-	
+	afficherMenuSimple();
 	recupMenu();
 	
 	printf("   Supprimer un Menu : ");
