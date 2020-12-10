@@ -307,7 +307,7 @@ void selectTable(int numTable, int service) { //affiche une table precise
 		printf("   --------------------------------------------------------------------------------\n");
 		printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 		printf("   --------------------------------------------------------------------------------\n");
-		printf("   |     %d     |      %2d       |    %-3s    |   %-10s |      %d     |     %d    |\n",numTable, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
+		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",numTable, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
 		printf("   --------------------------------------------------------------------------------\n\n");		
 	}
 	else if(service==2) {
@@ -316,7 +316,7 @@ void selectTable(int numTable, int service) { //affiche une table precise
 		printf("   --------------------------------------------------------------------------------\n");
 		printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 		printf("   --------------------------------------------------------------------------------\n");
-		printf("   |     %d     |      %2d       |    %-3s    |   %-10s |      %d     |     %d    |\n",numTable, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
+		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",numTable, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
 		printf("   --------------------------------------------------------------------------------\n\n");
 	}
 }

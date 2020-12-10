@@ -169,13 +169,13 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		printf("   --------------------------------------------------------------------------------\n");
 		printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 		printf("   --------------------------------------------------------------------------------\n");
-		printf("   |     %d     |      %2d       |    %-3s    |   %-10s |      %d     |     %d    |\n",tableAddition, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
+		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",tableAddition, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
 		printf("   --------------------------------------------------------------------------------\n\n");
 		printf("   |Menu|\n");	
 		printf("   ------------------------------------------------------------------------------\n");
 		printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
 		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  %d  |  %-10s  |      %5.2f       |  %-25s         |\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
+		printf("   |  %d  |  %-12s|      %5.2f       |  %-25s         |\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
 		printf("   ------------------------------------------------------------------------------\n");
 		
 	}
@@ -184,13 +184,13 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		printf("   --------------------------------------------------------------------------------\n");
 		printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 		printf("   --------------------------------------------------------------------------------\n");
-		printf("   |     %d     |      %2d       |    %-3s    |   %-10s |      %d     |     %d    |\n",tableAddition, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
+		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",tableAddition, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
 		printf("   --------------------------------------------------------------------------------\n\n");
 		printf("   |Menu|\n");	
 		printf("   ------------------------------------------------------------------------------\n");
 		printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
 		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  %d  |  %-10s  |      %5.2f       |  %-25s         |\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
+		printf("   |  %d  |  %-12s|      %5.2f       |  %-25s         |\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
 		printf("   ------------------------------------------------------------------------------\n");
 	}
 	
