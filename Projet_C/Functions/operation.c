@@ -218,9 +218,10 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 	printf("   Service (Midi=1/Soir=2) : ");
 	scanf("%d", &service);
 	if(service != 1 && service != 2) {
+		viderBuffer();
 		goto erreurIndexService;
 	}
-	
+
 	erreurTableNonReserve: //gestion d'erreur
 	system("cls");
 	
@@ -230,6 +231,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 		printf("   Numero de votre table : ");
 		scanf("%d", &numTable);
 		if(estReserve(1, numTable)==0) {
+			viderBuffer();
 			goto erreurTableNonReserve;
 		}
 		erreurIndexNumMenuMidi: //gestion d'erreur
@@ -241,6 +243,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 		printf("   Quel menu voulez vous ? : ");
 		scanf("%d", &numMenuChoisi);
 		if(numMenuChoisi<=0 || numMenuChoisi > compterMenu()) {
+			viderBuffer();
 			goto erreurIndexNumMenuMidi;
 		}
 		printf("\n");
@@ -252,6 +255,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 		printf("   Numero de votre table : ");
 		scanf("%d", &numTable);
 		if(estReserve(2, numTable)==0) {
+			viderBuffer();
 			goto erreurTableNonReserve;
 		}
 		erreurIndexNumMenuSoir: //gestion d'erreur
@@ -263,6 +267,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 		printf("   Quel menu voulez vous ? : ");
 		scanf("%d", &numMenuChoisi);
 		if(numMenuChoisi<=0 || numMenuChoisi > compterMenu()) {
+			viderBuffer();
 			goto erreurIndexNumMenuSoir;
 		}
 		printf("\n");
@@ -288,6 +293,7 @@ void faireReservation() { //Permet de reserver une table libre
 	printf("   Service (Midi=1/Soir=2) : ");
 	scanf("%d", &service);
 	if(service != 1 && service != 2) {
+		viderBuffer();
 		goto erreurIndexService;
 	}
 	
@@ -307,6 +313,7 @@ void faireReservation() { //Permet de reserver une table libre
 		printf("   Nombre de personnes : ");
 		scanf("%d", &nbPersonne);
 		if(nbPersonne<=0) {
+			viderBuffer();
 			goto erreurIndexnbPersonne;
 		}
 		
@@ -320,6 +327,7 @@ void faireReservation() { //Permet de reserver une table libre
 		printf("   Numero du menu : ");
 		scanf("%d", &numMenu);
 		if(numMenu<=0 || numMenu > compterMenu()) {
+			viderBuffer();
 			goto erreurIndexNumMenuMidi;
 		}
 		remplaceNonReserveTable(rechercheTableLibre(1, nbPersonne), nom, nbPersonne, numMenu, 1);
@@ -345,6 +353,7 @@ void faireReservation() { //Permet de reserver une table libre
 		printf("   Numero du menu : ");
 		scanf("%d", &numMenu);
 		if(numMenu<=0 || numMenu > compterMenu()) {
+			viderBuffer();
 			goto erreurIndexNumMenuSoir;
 		}
 		remplaceNonReserveTable(rechercheTableLibre(2, nbPersonne), nom, nbPersonne, numMenu, 2);
@@ -352,8 +361,10 @@ void faireReservation() { //Permet de reserver une table libre
 }
 
 void supprimerReservation() { //Permet de supprimer une reservation sur une table
+	
 	int service;
 	int numTable;
+	erreurIndexService:
 	system("cls");	
 	afficherReservation();	
 	recupTableReserveMidi();
@@ -362,21 +373,35 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 	printf("   Aviez-vous reserve a midi(1) ou au soir(2) ? ");
 	scanf("%d", &service);
 	if(service==1) {
+		erreurIndexNumTableMidi:
 		system("cls");	
 		afficherReservation();	
 		recupTableReserveMidi();
 		
 		printf("   Quelle table aviez-vous reserve ? ");
 		scanf("%d", &numTable);
+		if(numTable<=0 || numTable > compterTable()) {
+			viderBuffer();
+			goto erreurIndexNumTableMidi;
+		}
 		modifTableSuppRes(1, numTable);
 	} 
 	else if(service==2) {
+		erreurIndexNumTableSoir:
 		system("cls");	
 		afficherReservation();	
 		recupTableReserveSoir();
 		
 		printf("   Quelle table aviez-vous reserve ? ");
 		scanf("%d", &numTable);
+		if(numTable<=0 || numTable > compterTable()) {
+			viderBuffer();
+			goto erreurIndexNumTableSoir;
+		}
 		modifTableSuppRes(2, numTable);
+	}
+	else{
+		viderBuffer();
+		goto erreurIndexService;
 	}
 }

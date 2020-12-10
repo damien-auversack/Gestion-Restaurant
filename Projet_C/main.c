@@ -26,7 +26,7 @@ main() {
 	int testDigit;
 	
 	while(1) { // Ecran Principal
-		erreurEcranPrincipal:
+		erreurEcranPrincipal://gestion d'erreur
 		system("cls");	
 		afficherEcranPrincipal();	
 		testDigit = scanf("%d", &choix);			
@@ -37,7 +37,7 @@ main() {
 		switch(choix) {
 			case 1: // Gestion du personnel
 				while(1) {
-					erreurGestionPersonnel:
+					erreurGestionPersonnel://gestion d'erreur
 					system("cls");	
 					afficherGestionPersonnel();
 					testDigit = scanf("%d", &choixGestionPersonnel);
@@ -51,7 +51,7 @@ main() {
 				
 			case 2: // Services
 				while(1) {
-					erreurServices:
+					erreurServices://gestion d'erreur
 					system("cls");	
 					afficherServices();
 					testDigit = scanf("%d", &choixServices);
@@ -62,7 +62,7 @@ main() {
 					switch(choixServices) {
 						case 1: // Services -> 1. Faire une reservation	
 							while(1) {
-								erreurReservationOptions:
+								erreurReservationOptions://gestion d'erreur
 								system("cls");
 								afficherReservationOptions();
 								
@@ -95,7 +95,7 @@ main() {
 							break;
 						case 3: // Services -> 3. Addition
 							while(1) {
-								erreurChoixAddition:
+								erreurChoixAddition://gestion d'erreur
 								system("cls");
 								afficherAddition();
 								testDigit = scanf("%d", &choixAddition);
@@ -105,7 +105,7 @@ main() {
 								}
 								switch(choixAddition) {
 									case 1: 			
-										erreurAdditionMidi:					
+										erreurAdditionMidi://gestion d'erreur				
 										system("cls");
 										afficherAdditionMidi();
 										testDigit = scanf("%d", &tableAddition);
@@ -117,7 +117,7 @@ main() {
 										system("pause");												
 										break;
 									case 2: 	
-										erreurAdditionSoir:							
+										erreurAdditionSoir://gestion d'erreur							
 										system("cls");
 										afficherAdditionSoir();
 										testDigit = scanf("%d", &tableAddition);
@@ -134,7 +134,7 @@ main() {
 							break;
 						case 4: // Services -> 4. Gestion des tables
 							while(1) {
-								erreurAfficherTables:
+								erreurAfficherTables://gestion d'erreur
 								system("cls");
 								afficherTables();
 								testDigit = scanf("%d", &choixTables);
@@ -157,7 +157,7 @@ main() {
 							break;
 						case 5: // Services -> 5. Gestion du menu
 							while(1) {
-								erreurAfficherMenu:
+								erreurAfficherMenu://gestion d'erreur
 								system("cls");
 								afficherMenu();
 								testDigit = scanf("%d", &choixMenu);

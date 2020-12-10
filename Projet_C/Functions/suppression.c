@@ -32,7 +32,7 @@ void supprimerTable() { //supprime une table de la liste de tables
 		strcpy(courant->nomSoir, "");
 		courant->nbPersonneSoir = 0;
 		courant->numMenuSoir = 0;
-		
+
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
