@@ -1,0 +1,17 @@
+Structure du fichier : Employes.dat
+-----------------------------------
+
+   Nom de l'employe  |  1(Service du midi) OU 2(Service du soir)  |  Fonction de l'employe
+
+Structure du fichier : Menu.dat
+-----------------------------------
+
+   Nom du menu  |  Prix du menu  |  Desciption du menu
+
+Structure du fichier : Table.dat
+-----------------------------------
+
+Réservé Midi et soir :  estRéservéMidi  |  NomRéservationMidi  |  nbPersonneRéservéMidi  |  NumMenuMidi  
+				estRéservéSoir  |  NomRéservationSoir  |  nbPersonneRéservéSoir  |  NumMenuSoir
+
+/!\ NomRéservation  |  nbPersonneRéservé  |  NumMenu (N'apparait que si réservé) /!\

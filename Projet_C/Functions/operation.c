@@ -175,7 +175,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		printf("   ------------------------------------------------------------------------------\n");
 		printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
 		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  %d  |  %-12s|      %5.2f       |  %-25s         |\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
+		printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
 		printf("   ------------------------------------------------------------------------------\n");
 		
 	}
@@ -190,11 +190,13 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		printf("   ------------------------------------------------------------------------------\n");
 		printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
 		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  %d  |  %-12s|      %5.2f       |  %-25s         |\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
+		printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
 		printf("   ------------------------------------------------------------------------------\n");
 	}
-	
-	printf("\n   L'addition de la table %d est de %5.2f Euro \n\n", tableAddition, sommeAddition);
+	printf("\n   |Addition|\n");
+	printf("   ------------------------------------------------\n");
+	printf("   |  L'addition de la table %d est de %5.2f Euro  |\n", tableAddition, sommeAddition);
+	printf("   ------------------------------------------------\n");
 	
 	erreurTailleTable: //gestion d'erreur
 	
