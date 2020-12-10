@@ -43,11 +43,28 @@ void afficherGestionPersonnel() { //gestion du personnel + options
 
 	printf("   1. Ajouter un employe\n");
 	printf("   2. Supprimer un employe\n");
-	printf("   3. Modifier l\'horaire d\'un employe\n");
+	printf("   3. Modifier un employe\n");
 	printf("\n");
 	printf("   0. Retour\n");
 	printf("\n");
 	printf("   Choix : ");
+}
+
+void afficherGestionPersonnelSimple() { //gestion du personnel + options
+	printf("\n");
+	printf("   ******************************************************************************************************");
+	printf("\n");
+	printf("       _____           _   _                   _                                                    _\n");
+	printf("      / ____|         | | (_)                 | |                                                  | |\n");
+	printf("     | |  __  ___  ___| |_ _  ___  _ __     __| |_   _   _ __   ___ _ __ ___  ___  _ __  _ __   ___| |\n");
+	printf("     | | |_ |/ _ \\/ __| __| |/ _ \\| '_ \\   / _` | | | | | '_ \\ / _ \\ '__/ __|/ _ \\| '_ \\| '_ \\ / _ \\ |\n");
+	printf("     | |__| |  __/\\__ \\ |_| | (_) | | | | | (_| | |_| | | |_) |  __/ |  \\__ \\ (_) | | | | | | |  __/ |\n");
+	printf("      \\_____|\\___||___/\\__|_|\\___/|_| |_|  \\__,_|\\__,_| | .__/ \\___|_|  |___/\\___/|_| |_|_| |_|\\___|_|\n");
+	printf("                                                        | |                                           \n");
+	printf("                                                        |_|                                           \n");
+	printf("\n");
+	printf("   ******************************************************************************************************");
+	printf("\n");
 }
 
 void afficherMenu() { //gestion des menus + options

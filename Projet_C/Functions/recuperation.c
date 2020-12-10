@@ -181,7 +181,9 @@ void recupEmployes() { //affiche la liste des employes
 	// Affichage
 	printf("\n");
 	printf("   Service - Midi : 12h00-15h00 - Soir : 18h00-23h00");	
-	printf("\n");	
+	printf("\n");
+	printf("\n");
+	printf("   |Employe|\n");	
 	printf("   ----------------------------------------------------\n");
 	printf("   |  N  |     Nom      |   Service   |   Fonction    |\n");
 	printf("   ----------------------------------------------------\n");
@@ -634,3 +636,4 @@ void recupTableLibreSoir() { //affiche les tables libres du soir
 	free(suivant);	
 	fclose(fdat);	
 }
+

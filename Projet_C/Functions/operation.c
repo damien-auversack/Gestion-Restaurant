@@ -407,3 +407,61 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 		goto erreurIndexService;
 	}
 }
+
+void modifierEmploye() {
+	system("cls");
+	int numEmploye;
+	int choixModif;
+	int serviceModif;
+	char fonctionModif[21];
+	char nomModif[21];
+	
+	afficherGestionPersonnelSimple();
+	recupEmployes();
+	printf("   Selectionner un employe : ");
+	scanf("%d", &numEmploye);
+	system("cls");
+	afficherGestionPersonnelSimple();
+	selectEmploye(numEmploye);
+	
+	printf("   1. Modifier le nom\n");
+	printf("   2. Modifier le service\n");
+	printf("   3. Modifier la fonction\n\n");
+	printf("   Choix : ");
+	scanf("%d", &choixModif);
+	
+	if(choixModif==1) {
+		system("cls");
+		afficherGestionPersonnelSimple();
+		selectEmploye(numEmploye);
+		printf("   Nom de l\'employe : ");
+		scanf("%s", &nomModif);
+		//Modifier le nom de l'employe
+		modifierNomEmploye(numEmploye, nomModif);
+		printf("\n\n   Modification reussie !");
+	}
+	else if(choixModif==2) {
+		system("cls");
+		afficherGestionPersonnelSimple();
+		selectEmploye(numEmploye);
+		printf("   Service du midi(1), service du soir(2) : ");
+		scanf("%d", &serviceModif);
+		//Modifier Service
+		modifierService(numEmploye, serviceModif);
+		printf("\n\n   Modification reussie !");
+	}
+	else if(choixModif==3) {
+		system("cls");
+		afficherGestionPersonnelSimple();
+		selectEmploye(numEmploye);
+		printf("   Nom de la fonction : ");
+		scanf("%s", &fonctionModif);
+		//Modifier fonction
+		modifierFonction(numEmploye, fonctionModif);
+		printf("\n\n   Modification reussie !");
+	}
+	else {
+		
+	}
+	
+}

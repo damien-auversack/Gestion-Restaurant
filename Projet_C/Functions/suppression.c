@@ -142,3 +142,58 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 	remove("Data/Menu.dat");		
 	rename("Data/Menu.tmp", "Data/Menu.dat");
 }
+
+void supprimerEmploye() {	
+	
+	int n=0, i, nEmploye=1, employeEntre;
+	
+	FILE *fdat, *fdatTmp;
+	fdat = fopen("Data/Employes.dat", "r");
+	fdatTmp = fopen("Data/Employes.tmp", "w");
+	afficherGestionPersonnelSimple();
+	recupEmployes();
+	
+	printf("   Supprimer un Employe : ");
+	scanf("%d", &employeEntre);
+	
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+		if(employeEntre != nEmploye) {
+			suivant=malloc(sizeof(Employe));
+			courant->suivant=suivant;
+			n++;
+			courant=suivant;
+		}	
+		nEmploye++;	
+	}
+	
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;	
+		
+	// Ecriture
+	for(i=1;i<=n;i++) {		
+		fprintf(fdatTmp, "%s %d %s", courant->nom, courant->service, courant->fonction);
+		if(i!=n) {
+			fprintf(fdatTmp, "\n");
+		}
+		courant=courant->suivant;
+	}
+		
+	fclose(fdat);
+	fclose(fdatTmp);
+	remove("Data/Employes.dat");		
+	rename("Data/Employes.tmp", "Data/Employes.dat");
+}

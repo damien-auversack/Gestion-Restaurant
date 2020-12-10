@@ -44,7 +44,22 @@ main() {
 					if(testDigit==0) {
 						viderBuffer();
 						goto erreurGestionPersonnel;
-					}				
+					}	
+					switch(choixGestionPersonnel) {
+						case 1:
+							system("cls");
+							ajouterEmploye();
+							break;
+						case 2:
+							system("cls");
+							supprimerEmploye();
+							break;
+						case 3:
+							system("cls");
+							modifierEmploye();
+							system("pause");
+							break;	
+					}			
 					if(choixGestionPersonnel==0) break;
 				}			
 				break;

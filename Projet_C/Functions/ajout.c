@@ -207,3 +207,56 @@ void ajouterMenu() { //permet d'ajouter un menu
 	
 	fclose(fdat);	
 }
+
+void ajouterEmploye() {
+	int j;
+	Employe employe;
+	
+	FILE *fdat;
+	fdat = fopen("Data/Employes.dat", "a");
+	
+	afficherGestionPersonnelSimple();
+	recupEmployes();
+		
+	printf("   Nom de l'employe : ");
+	
+	viderBuffer();
+	fgets(employe.nom, 12, stdin);
+	// remplace les ' ' par des '_' dans la chaine de caracteres
+	for(j=0; j<strlen(employe.nom); j++) {
+		if(employe.nom[j] == ' ') {
+			employe.nom[j] = '_';
+		}
+		if(employe.nom[j] == '\n') {
+			employe.nom[j] = '\0';
+		}
+	}
+		
+	system("cls");
+	afficherGestionPersonnelSimple();
+	recupEmployes();	
+	printf("   Service de l'employe : ");
+	scanf("%1d", &employe.service);
+	
+	system("cls");
+	afficherGestionPersonnelSimple();
+	recupEmployes();
+	printf("   Fonction de l'employe : ");
+	viderBuffer();
+	fgets(employe.fonction, 15, stdin);
+
+	// remplace les ' ' par des '_' dans la chaine de caracteres
+	for(j=0; j<strlen(employe.fonction); j++) {
+		if(employe.fonction[j] == ' ') {
+			employe.fonction[j] = '_';
+		}
+		if(employe.fonction[j] == '\n') {
+			employe.fonction[j] = '\0';
+		}
+	}
+
+	fprintf(fdat, "\n%s %d %s", employe.nom, employe.service, employe.fonction);
+	
+	fclose(fdat);	
+	
+}

@@ -321,6 +321,78 @@ void selectTable(int numTable, int service) { //affiche une table precise
 	}
 }
 
+void selectEmploye(int numEmploye) { //affiche un employe precis
+	
+	char nomEmployeSelect[21];
+	int serviceSelect;
+	char nomFonctionSelect[15];
+		
+	// Traitement table
+	int nEmploye=0, i, j;
+	FILE *fdat;
+	fdat = fopen("Data/Employes.dat", "r");
+
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		
+		// Initialisation
+		strcpy(courant->nom, "");
+		courant->service = 0;
+		strcpy(courant->fonction, "");
+		
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+					
+		suivant=malloc(sizeof(Employe));
+		courant->suivant=suivant;
+		nEmploye++;
+		courant=suivant;
+	}
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<nEmploye;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;	
+	// Affichage
+	for(i=1;i<=nEmploye;i++) {
+		if(i==numEmploye) {	
+			strcpy(nomEmployeSelect, courant->nom);
+			serviceSelect = courant->service;
+			strcpy(nomFonctionSelect, courant->fonction);					
+		}
+		courant=courant->suivant;
+	}
+	
+	free(courant);
+	free(suivant);	
+	fclose(fdat);
+		
+	// Affichage	
+
+	printf("\n");
+	printf("   Service - Midi : 12h00-15h00 - Soir : 18h00-23h00");	
+	printf("\n");
+	printf("\n");
+	printf("   |Employe|\n");	
+	printf("   ----------------------------------------------------\n");
+	printf("   |  N  |     Nom      |   Service   |   Fonction    |\n");
+	printf("   ----------------------------------------------------\n");
+	printf("   |  %d  |   %-10s |    %-6s   |   %-10s  |\n",numEmploye, nomEmployeSelect, (serviceSelect==1)?"Midi":(serviceSelect==2)?"Soir":"Aucun", nomFonctionSelect);	
+	printf("   ----------------------------------------------------\n");
+	printf("\n");
+
+
+}
+
 int rechercheTableLibre(int service, int nbPersonne) { //recherche toutes les tables libres dans la liste des tables
 	
 	int n=0, i;
@@ -603,4 +675,157 @@ void modifTableSuppRes(int service, int numTable) { //supprime une reservation s
 void viderBuffer() {
 	int c;
 	while ((c = getchar()) != '\n' && c != EOF);
+}
+
+void modifierService(int numEmploye, int newService) {
+	int n=0, i;
+	
+	FILE *fdat, *fdatTmp;
+	fdat = fopen("Data/Employes.dat", "r");
+	fdatTmp = fopen("Data/Employes.tmp", "w");
+	
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+		
+		suivant=malloc(sizeof(Employe));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+
+	}
+	
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;	
+		
+	// Ecriture
+	for(i=1;i<=n;i++) {	
+		if(i==numEmploye) {
+			courant->service = newService;
+		}
+		fprintf(fdatTmp, "%s %d %s", courant->nom, courant->service, courant->fonction);
+		if(i!=n) {
+			fprintf(fdatTmp, "\n");
+		}
+		courant=courant->suivant;
+	}
+		
+	fclose(fdat);
+	fclose(fdatTmp);
+	remove("Data/Employes.dat");		
+	rename("Data/Employes.tmp", "Data/Employes.dat");
+}
+
+void modifierFonction(int numEmploye, char nomFonction[]) {
+		int n=0, i;
+	
+	FILE *fdat, *fdatTmp;
+	fdat = fopen("Data/Employes.dat", "r");
+	fdatTmp = fopen("Data/Employes.tmp", "w");
+	
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+		
+		suivant=malloc(sizeof(Employe));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+
+	}
+	
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;	
+		
+	// Ecriture
+	for(i=1;i<=n;i++) {	
+		if(i==numEmploye) {
+			strcpy(courant->fonction, nomFonction);
+		}
+		fprintf(fdatTmp, "%s %d %s", courant->nom, courant->service, courant->fonction);
+		if(i!=n) {
+			fprintf(fdatTmp, "\n");
+		}
+		courant=courant->suivant;
+	}
+		
+	fclose(fdat);
+	fclose(fdatTmp);
+	remove("Data/Employes.dat");		
+	rename("Data/Employes.tmp", "Data/Employes.dat");
+}
+
+void modifierNomEmploye(int numEmploye, char nomEmploye[]) {
+		int n=0, i;
+	
+	FILE *fdat, *fdatTmp;
+	fdat = fopen("Data/Employes.dat", "r");
+	fdatTmp = fopen("Data/Employes.tmp", "w");
+	
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+		
+		suivant=malloc(sizeof(Employe));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+
+	}
+	
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;	
+		
+	// Ecriture
+	for(i=1;i<=n;i++) {	
+		if(i==numEmploye) {
+			strcpy(courant->nom, nomEmploye);
+		}
+		fprintf(fdatTmp, "%s %d %s", courant->nom, courant->service, courant->fonction);
+		if(i!=n) {
+			fprintf(fdatTmp, "\n");
+		}
+		courant=courant->suivant;
+	}
+		
+	fclose(fdat);
+	fclose(fdatTmp);
+	remove("Data/Employes.dat");		
+	rename("Data/Employes.tmp", "Data/Employes.dat");
 }
