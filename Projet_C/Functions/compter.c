@@ -97,3 +97,38 @@ int compterTable() { //compte le nombre de tables
 	
 	return n;
 }
+
+int compterEmploye() {
+	int n=0, i, j;
+	FILE *fdat;
+	fdat = fopen("Data/Employes.dat", "r");
+
+	Employe *deb, *courant, *suivant;
+	courant=malloc(sizeof(Employe));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		fscanf(fdat,"%s",&courant->nom);
+		fscanf(fdat,"%d",&courant->service);
+		fscanf(fdat,"%s",&courant->fonction);
+		suivant=malloc(sizeof(Employe));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+	}
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+		
+	courant=deb;
+	
+	free(courant);
+	free(suivant);	
+	fclose(fdat);	
+	return n;
+}

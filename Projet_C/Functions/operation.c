@@ -4,6 +4,7 @@
 
 #include "../Headers/structures.h"
 #include "../Headers/outils.h"
+#include "../Headers/compter.h"
 
 void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une table en fonction de son menu
 	float sommeAddition;
@@ -409,17 +410,26 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 }
 
 void modifierEmploye() {
-	system("cls");
+	
 	int numEmploye;
 	int choixModif;
 	int serviceModif;
 	char fonctionModif[21];
 	char nomModif[21];
+	int testDigit;
+	
+	erreurSelectEmploye:
+	system("cls");
 	
 	afficherGestionPersonnelSimple();
 	recupEmployes();
 	printf("   Selectionner un employe : ");
-	scanf("%d", &numEmploye);
+	testDigit = scanf("%d", &numEmploye);
+	if(testDigit==0 || numEmploye<=0 || numEmploye>compterEmploye()) {
+		viderBuffer();
+		goto erreurSelectEmploye;
+	}
+	erreurChoixModif:
 	system("cls");
 	afficherGestionPersonnelSimple();
 	selectEmploye(numEmploye);
@@ -428,8 +438,11 @@ void modifierEmploye() {
 	printf("   2. Modifier le service\n");
 	printf("   3. Modifier la fonction\n\n");
 	printf("   Choix : ");
-	scanf("%d", &choixModif);
-	
+	testDigit = scanf("%d", &choixModif);
+	if(testDigit==0 || choixModif<=0 || choixModif>3) {
+		viderBuffer();
+		goto erreurChoixModif;
+	}
 	if(choixModif==1) {
 		system("cls");
 		afficherGestionPersonnelSimple();
@@ -441,11 +454,16 @@ void modifierEmploye() {
 		printf("\n\n   Modification reussie !");
 	}
 	else if(choixModif==2) {
+		erreurServiceModif:
 		system("cls");
 		afficherGestionPersonnelSimple();
 		selectEmploye(numEmploye);
 		printf("   Service du midi(1), service du soir(2) : ");
-		scanf("%d", &serviceModif);
+		testDigit = scanf("%d", &serviceModif);
+		if(testDigit==0 || serviceModif<=0 || serviceModif>2) {
+			viderBuffer();
+			goto erreurServiceModif;
+		}
 		//Modifier Service
 		modifierService(numEmploye, serviceModif);
 		printf("\n\n   Modification reussie !");

@@ -210,6 +210,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 
 void ajouterEmploye() {
 	int j;
+	int testDigit;
 	Employe employe;
 	
 	FILE *fdat;
@@ -231,12 +232,16 @@ void ajouterEmploye() {
 			employe.nom[j] = '\0';
 		}
 	}
-		
+	erreurServiceEmploye:
 	system("cls");
 	afficherGestionPersonnelSimple();
 	recupEmployes();	
-	printf("   Service de l'employe : ");
-	scanf("%1d", &employe.service);
+	printf("   Service de l'employe midi(1), soir(2) : ");
+	testDigit = scanf("%1d", &employe.service);
+	if(testDigit==0 || (employe.service != 1 && employe.service != 2)) {
+		viderBuffer();
+		goto erreurServiceEmploye;
+	}
 	
 	system("cls");
 	afficherGestionPersonnelSimple();

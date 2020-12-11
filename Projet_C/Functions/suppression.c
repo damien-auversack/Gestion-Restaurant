@@ -146,15 +146,17 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 void supprimerEmploye() {	
 	
 	int n=0, i, nEmploye=1, employeEntre;
+	int testDigit;
 	
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Employes.dat", "r");
 	fdatTmp = fopen("Data/Employes.tmp", "w");
+	system("cls");
 	afficherGestionPersonnelSimple();
 	recupEmployes();
 	
 	printf("   Supprimer un Employe : ");
-	scanf("%d", &employeEntre);
+	testDigit = scanf("%d", &employeEntre);
 	
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));
