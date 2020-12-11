@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "../Headers/structures.h"
+#include "../Headers/compter.h"
 
 void recupTables() { //affiche la liste des tables
 	
@@ -63,11 +64,15 @@ void recupTables() { //affiche la liste des tables
 	printf("   --------------------------------------------------------------------------------\n");
 	printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 	printf("   --------------------------------------------------------------------------------\n");
-	for(i=1;i<=n;i++) {
-		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i, courant->nbPlaceMax, (courant->estReserveMatin==1 ? "Oui":"Non"), courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
-		courant=courant->suivant;
+	
+	if(compterTable()!=0) { 
+		for(i=1;i<=n;i++) {
+			printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i, courant->nbPlaceMax, (courant->estReserveMatin==1 ? "Oui":"Non"), courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
+			courant=courant->suivant;
+		}
+		printf("   --------------------------------------------------------------------------------\n");
+		
 	}
-	printf("   --------------------------------------------------------------------------------\n");
 	printf("\n");
 	
 	courant=deb;	
@@ -77,11 +82,14 @@ void recupTables() { //affiche la liste des tables
 	printf("   --------------------------------------------------------------------------------\n");
 	printf("   | Num table | nb place max  |  Reserve  |     Nom      |  nb Pers.  | Num menu |\n");
 	printf("   --------------------------------------------------------------------------------\n");
-	for(i=1;i<=n;i++) {
-		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i,courant->nbPlaceMax, (courant->estReserveSoir==1) ? "Oui":"Non", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
-		courant=courant->suivant;
+	if(compterTable()!=0) { 	
+		for(i=1;i<=n;i++) {
+			printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i,courant->nbPlaceMax, (courant->estReserveSoir==1) ? "Oui":"Non", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
+			courant=courant->suivant;
+		}
+		printf("   --------------------------------------------------------------------------------\n");
+		
 	}
-	printf("   --------------------------------------------------------------------------------\n");
 	printf("\n");
 	
 	free(courant);
@@ -94,7 +102,7 @@ void recupMenu() { //affiche la liste des menus
 	int n=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/Menu.dat", "r");
-
+	
 	Menu *deb, *courant, *suivant;
 	courant=malloc(sizeof(Menu));
 	deb=courant;
@@ -124,24 +132,32 @@ void recupMenu() { //affiche la liste des menus
 	printf("   ------------------------------------------------------------------------------\n");
 	printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
 	printf("   ------------------------------------------------------------------------------\n");
-	for(i=1;i<=n;i++) {
-		
-		for(j=0; j<strlen(courant->nom); j++) {
-			if(courant->nom[j] == '_') {
-				courant->nom[j] = ' ';
+
+	if(compterMenu()!=0) {
+	
+	
+		for(i=1;i<=n;i++) {
+			
+			for(j=0; j<strlen(courant->nom); j++) {
+				if(courant->nom[j] == '_') {
+					courant->nom[j] = ' ';
+				}
 			}
+			
+			for(j=0; j<strlen(courant->description); j++) {
+				if(courant->description[j] == '_') {
+					courant->description[j] = ' ';
+				}
+			}		
+			printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",i, courant->nom, courant->prix, courant->description);
+			courant=courant->suivant;
 		}
-		
-		for(j=0; j<strlen(courant->description); j++) {
-			if(courant->description[j] == '_') {
-				courant->description[j] = ' ';
-			}
-		}		
-		printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",i, courant->nom, courant->prix, courant->description);
-		courant=courant->suivant;
+		printf("   ------------------------------------------------------------------------------\n");
+		printf("\n");
 	}
-	printf("   ------------------------------------------------------------------------------\n");
-	printf("\n");
+	else {
+		printf("\n");
+	}
 	
 	free(courant);
 	free(suivant);	
@@ -187,11 +203,14 @@ void recupEmployes() { //affiche la liste des employes
 	printf("   ----------------------------------------------------\n");
 	printf("   |  N  |     Nom      |   Service   |   Fonction    |\n");
 	printf("   ----------------------------------------------------\n");
-	for(i=1;i<=n;i++) {
-		printf("   |  %d  |   %-10s |    %-6s   |   %-10s  |\n",i, courant->nom, (courant->service==1)?"Midi":(courant->service==2)?"Soir":"Aucun", courant->fonction);
-		courant=courant->suivant;
+	if(compterEmploye()!=0) {	
+		for(i=1;i<=n;i++) {
+			printf("   |  %d  |   %-10s |    %-6s   |   %-10s  |\n",i, courant->nom, (courant->service==1)?"Midi":(courant->service==2)?"Soir":"Aucun", courant->fonction);
+			courant=courant->suivant;
+		}
+		printf("   ----------------------------------------------------\n");
 	}
-	printf("   ----------------------------------------------------\n");
+	
 	printf("\n");
 	
 	free(courant);

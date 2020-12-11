@@ -56,8 +56,10 @@ main() {
 							break;
 						case 3:
 							system("cls");
-							modifierEmploye();
-							system("pause");
+							if(compterEmploye()!=0) {
+								modifierEmploye();
+								system("pause");	
+							}							
 							break;	
 					}			
 					if(choixGestionPersonnel==0) break;

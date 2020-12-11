@@ -5,9 +5,10 @@
 #include "../Headers/structures.h"
 
 int compterMenu() { //Compte le nombre de menus
-	int n=0, i, j;
 	FILE *fdat;
-	fdat = fopen("Data/Menu.dat", "r");
+	fdat = fopen("Data/Menu.dat", "r");	
+
+	int n=0, i, j, fichierVide;	
 
 	Menu *deb, *courant, *suivant;
 	courant=malloc(sizeof(Menu));
@@ -15,7 +16,7 @@ int compterMenu() { //Compte le nombre de menus
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
-		fscanf(fdat,"%s",&courant->nom);
+		fichierVide = fscanf(fdat,"%s",&courant->nom);
 		fscanf(fdat,"%5f",&courant->prix);
 		fscanf(fdat,"%s",&courant->description);
 		suivant=malloc(sizeof(Menu));
@@ -35,12 +36,15 @@ int compterMenu() { //Compte le nombre de menus
 	
 	free(courant);
 	free(suivant);	
-	fclose(fdat);	
+	fclose(fdat);
+	if(fichierVide==-1) {
+		return 0;
+	}
 	return n;
 }
 
 int compterTable() { //compte le nombre de tables
-	int n=0, i;
+	int n=0, i, fichierVide;
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "r");
 
@@ -51,18 +55,7 @@ int compterTable() { //compte le nombre de tables
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
 		
-		// Initialisation
-		courant->estReserveMatin = 0;
-		strcpy(courant->nomMatin, "");
-		courant->nbPersonneMatin = 0;
-		courant->numMenuMatin = 0;
-		
-		courant->estReserveSoir = 0;
-		strcpy(courant->nomSoir, "");
-		courant->nbPersonneSoir = 0;
-		courant->numMenuSoir = 0;
-		
-		fscanf(fdat,"%d",&courant->estReserveMatin);
+		fichierVide = fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
@@ -94,12 +87,15 @@ int compterTable() { //compte le nombre de tables
 	free(courant);
 	free(suivant);	
 	fclose(fdat);
+	if(fichierVide==-1) {
+		return 0;
+	}
 	
 	return n;
 }
 
 int compterEmploye() {
-	int n=0, i, j;
+	int n=0, i, j, fichierVide;
 	FILE *fdat;
 	fdat = fopen("Data/Employes.dat", "r");
 
@@ -109,7 +105,7 @@ int compterEmploye() {
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
-		fscanf(fdat,"%s",&courant->nom);
+		fichierVide = fscanf(fdat,"%s",&courant->nom);
 		fscanf(fdat,"%d",&courant->service);
 		fscanf(fdat,"%s",&courant->fonction);
 		suivant=malloc(sizeof(Employe));
@@ -130,5 +126,8 @@ int compterEmploye() {
 	free(courant);
 	free(suivant);	
 	fclose(fdat);	
+	if(fichierVide==-1) {
+		return 0;
+	}
 	return n;
 }

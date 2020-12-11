@@ -138,8 +138,10 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		}
 		
 	}
-		
-	fprintf(fdat, "\n%d ", table.estReserveMatin);
+	if(compterTable()!=0) {
+		fprintf(fdat, "\n");
+	}	
+	fprintf(fdat, "%d ", table.estReserveMatin);
 	if(table.estReserveMatin==1) {
 		fprintf(fdat, "%12s %d %d ", table.nomMatin, table.nbPersonneMatin, table.numMenuMatin);
 	}
@@ -202,8 +204,12 @@ void ajouterMenu() { //permet d'ajouter un menu
 			menu.description[j] = '\0';
 		}
 	}
-
-	fprintf(fdat, "\n%s %5.2f %s", menu.nom, menu.prix, menu.description);
+	
+	if(compterMenu()!=0) {
+		fprintf(fdat, "\n");
+	}
+	
+	fprintf(fdat, "%s %5.2f %s", menu.nom, menu.prix, menu.description);
 	
 	fclose(fdat);	
 }
@@ -260,7 +266,11 @@ void ajouterEmploye() {
 		}
 	}
 
-	fprintf(fdat, "\n%s %d %s", employe.nom, employe.service, employe.fonction);
+	if(compterEmploye()!=0) {
+		fprintf(fdat, "\n");
+	}
+
+	fprintf(fdat, "%s %d %s", employe.nom, employe.service, employe.fonction);
 	
 	fclose(fdat);	
 	

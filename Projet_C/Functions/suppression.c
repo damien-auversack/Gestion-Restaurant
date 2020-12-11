@@ -63,30 +63,36 @@ void supprimerTable() { //supprime une table de la liste de tables
 	}
 	courant->suivant=NULL;		
 		
-	courant=deb;
+	
 		
 	// Ecriture
-	for(i=1;i<=n;i++) {		
-		fprintf(fdatTmp, "%d ", courant->estReserveMatin);
-		if(courant->estReserveMatin==1) {
-			fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
+	if(compterTable()!=0) {
+		courant=deb;
+
+		for(i=1;i<=n;i++) {		
+			fprintf(fdatTmp, "%d ", courant->estReserveMatin);
+			if(courant->estReserveMatin==1) {
+				fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
+			}
+			
+			fprintf(fdatTmp, "%d", courant->estReserveSoir);
+			if(courant->estReserveSoir==1) {
+				fprintf(fdatTmp, " %s %d %d", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
+			}
+			fprintf(fdatTmp, " %d", courant->nbPlaceMax);
+			if(i!=n) {
+				fprintf(fdatTmp, "\n");
+			}
+			courant=courant->suivant;
 		}
-		
-		fprintf(fdatTmp, "%d", courant->estReserveSoir);
-		if(courant->estReserveSoir==1) {
-			fprintf(fdatTmp, " %s %d %d", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
-		}
-		fprintf(fdatTmp, " %d", courant->nbPlaceMax);
-		if(i!=n) {
-			fprintf(fdatTmp, "\n");
-		}
-		courant=courant->suivant;
 	}
 		
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Table.dat");		
-	rename("Data/Table.tmp", "Data/Table.dat");
+	if(compterTable()!=0) {
+		remove("Data/Table.dat");		
+		rename("Data/Table.tmp", "Data/Table.dat");
+	}	
 }
 
 void supprimerMenu() { //Supprime un menu de la liste des menus
@@ -184,18 +190,20 @@ void supprimerEmploye() {
 	courant->suivant=NULL;	
 		
 	courant=deb;	
-		
-	// Ecriture
-	for(i=1;i<=n;i++) {		
-		fprintf(fdatTmp, "%s %d %s", courant->nom, courant->service, courant->fonction);
-		if(i!=n) {
-			fprintf(fdatTmp, "\n");
+	if(compterEmploye()!=0) {	
+		// Ecriture
+		for(i=1;i<=n;i++) {		
+			fprintf(fdatTmp, "%s %d %s", courant->nom, courant->service, courant->fonction);
+			if(i!=n) {
+				fprintf(fdatTmp, "\n");
+			}
+			courant=courant->suivant;
 		}
-		courant=courant->suivant;
-	}
-		
+	} 	
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Employes.dat");		
-	rename("Data/Employes.tmp", "Data/Employes.dat");
+	if(compterEmploye()!=0) {
+		remove("Data/Employes.dat");		
+		rename("Data/Employes.tmp", "Data/Employes.dat");
+	}
 }
