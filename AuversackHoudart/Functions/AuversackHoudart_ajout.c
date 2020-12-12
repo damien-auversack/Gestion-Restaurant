@@ -255,7 +255,7 @@ void ajouterEmploye() {//permet d'ajouter un employé à la liste
 	recupEmployes();
 	printf("   Fonction de l'employe : ");
 	viderBuffer();
-	fgets(employe.fonction, 15, stdin);
+	fgets(employe.fonction, 20, stdin);
 
 	// remplace les ' ' par des '_' dans la chaine de caracteres
 	for(j=0; j<strlen(employe.fonction); j++) {

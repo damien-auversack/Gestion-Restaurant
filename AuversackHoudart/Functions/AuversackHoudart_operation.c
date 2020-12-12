@@ -8,7 +8,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		
 	int nbPlaceMaxSelect, reserveSelect, nbPersonneSelect, numMenuSelect;
 	float sommeAddition, prixSelect;
-	char nomPersonneSelect[21], nomMenuSelect[21], descriptionSelect[40];
+	char nomPersonneSelect[21], nomMenuSelect[21], descriptionSelect[60];
 	
 	// Traitement table
 	int nTable=0, nMenu=0, i, j;
@@ -90,7 +90,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 	
 	// Traitement Menu
 	FILE *fdat2;
-	fdat2 = fopen("Data/Menu.dat", "r");
+	fdat2 = fopen("Data/AuversackHoudart_Menu.dat", "r");
 
 	Menu *deb2, *courant2, *suivant2;
 	courant2=malloc(sizeof(Menu));
@@ -162,11 +162,13 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",tableAddition, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
 		printf("   --------------------------------------------------------------------------------\n\n");
 		printf("   |Menu|\n");	
-		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
-		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
-		printf("   ------------------------------------------------------------------------------\n");
+		
+		printf("   ----------------------------------------------------------------------------------------------------------\n");
+		printf("   |  N  |         Nom          |     Prix (Euro)  |         Description                                    |\n");
+		printf("   ----------------------------------------------------------------------------------------------------------\n");
+
+		printf("   |  %d  |  %-20s|      %5.2f       |  %-54s|\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
+		printf("   ----------------------------------------------------------------------------------------------------------\n");
 		
 	}
 	else if(service==2) {
@@ -177,11 +179,13 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",tableAddition, nbPlaceMaxSelect, (reserveSelect ? "Oui":"Non"), nomPersonneSelect, nbPersonneSelect, numMenuSelect);
 		printf("   --------------------------------------------------------------------------------\n\n");
 		printf("   |Menu|\n");	
-		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
-		printf("   ------------------------------------------------------------------------------\n");
-		printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
-		printf("   ------------------------------------------------------------------------------\n");
+		
+		printf("   ----------------------------------------------------------------------------------------------------------\n");
+		printf("   |  N  |         Nom          |     Prix (Euro)  |         Description                                    |\n");
+		printf("   ----------------------------------------------------------------------------------------------------------\n");
+		
+		printf("   |  %d  |  %-20s|      %5.2f       |  %-54s|\n",numMenuSelect, nomMenuSelect, prixSelect, descriptionSelect);
+		printf("   ----------------------------------------------------------------------------------------------------------\n");
 	}
 	printf("\n   |Addition|\n");
 	printf("   ------------------------------------------------\n");

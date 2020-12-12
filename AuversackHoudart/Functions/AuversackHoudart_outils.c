@@ -323,7 +323,7 @@ void selectEmploye(int numEmploye) { //affiche un employe precis
 		
 	// Traitement table
 	FILE *fdat;
-	fdat = fopen("Data/Employes.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
 
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));

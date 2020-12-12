@@ -163,7 +163,7 @@ void recupMenu() { //affiche la liste des menus
 }
 
 void recupEmployes() { //affiche la liste des employes
-	int n=0, i;
+	int n=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
 
@@ -203,15 +203,25 @@ void recupEmployes() { //affiche la liste des employes
 	printf("\n");
 	printf("\n");
 	printf("   |Employe|\n");	
-	printf("   ----------------------------------------------------\n");
-	printf("   |  N  |     Nom      |   Service   |   Fonction    |\n");
-	printf("   ----------------------------------------------------\n");
+	printf("   --------------------------------------------------------\n");
+	printf("   |  N  |     Nom      |   Service   |      Fonction     |\n");
+	printf("   --------------------------------------------------------\n");
+	
+	
+	
 	if(compterEmploye()!=0) {	
+		
 		for(i=1;i<=n;i++) {
-			printf("   |  %d  |   %-10s |    %-6s   |   %-10s  |\n",i, courant->nom, (courant->service==1)?"Midi":(courant->service==2)?"Soir":"Aucun", courant->fonction);
+			for(j=0; j<strlen(courant->fonction); j++) {
+				if(courant->fonction[j] == '_') {
+					courant->fonction[j] = ' ';
+				}
+			}
+			
+			printf("   |  %d  |   %-10s |    %-6s   |   %-16s|\n",i, courant->nom, (courant->service==1)?"Midi":(courant->service==2)?"Soir":"Aucun", courant->fonction);
 			courant=courant->suivant;
 		}
-		printf("   ----------------------------------------------------\n");
+		printf("   --------------------------------------------------------\n");
 	}
 	
 	printf("\n");
