@@ -13,17 +13,17 @@ void recupTables() { //affiche la liste des tables
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
 	deb=courant;
-	
-	strcpy(courant->nomMatin,"");
-	courant->nbPersonneMatin=0;
-	courant->numMenuMatin=0;
-	
-	strcpy(courant->nomSoir,"");
-	courant->nbPersonneSoir=0;
-	courant->numMenuSoir=0;
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
+		
+		strcpy(courant->nomMatin,"");
+		courant->nbPersonneMatin=0;
+		courant->numMenuMatin=0;
+		
+		strcpy(courant->nomSoir,"");
+		courant->nbPersonneSoir=0;
+		courant->numMenuSoir=0;
 		
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
@@ -106,6 +106,11 @@ void recupMenu() { //affiche la liste des menus
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
+		
+		strcpy(courant->nom,"");
+		courant->prix=0;
+		strcpy(courant->description,"");
+		
 		fscanf(fdat,"%s",&courant->nom);
 		fscanf(fdat,"%5f",&courant->prix);
 		fscanf(fdat,"%s",&courant->description);
@@ -168,6 +173,11 @@ void recupEmployes() { //affiche la liste des employes
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
+		
+		strcpy(courant->nom,"");
+		courant->service=0;
+		strcpy(courant->fonction,"");
+		
 		fscanf(fdat,"%s",&courant->nom);
 		fscanf(fdat,"%d",&courant->service);
 		fscanf(fdat,"%s",&courant->fonction);
@@ -221,20 +231,18 @@ void recupAdditionMidi() { //affiche l'addition d'une table pour le service du m
 	courant=malloc(sizeof(Table));
 	deb=courant;
 	
-	// Initialisation
-	courant->nbPlaceMax=0;
-	strcpy(courant->nomMatin, "");
-	courant->nbPersonneMatin = 0;
-	courant->numMenuMatin = 0;
-	
-	strcpy(courant->nomSoir, "");
-	courant->nbPersonneSoir = 0;
-	courant->numMenuSoir = 0;
-
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
 		
-
+		// Initialisation
+		courant->nbPlaceMax=0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
 		
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
@@ -293,18 +301,18 @@ void recupAdditionSoir() { //affiche l'addition d'une table du service du soir
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
 	deb=courant;
-	
-	courant->nbPlaceMax=0;
-	strcpy(courant->nomMatin, "");
-	courant->nbPersonneMatin = 0;
-	courant->numMenuMatin = 0;
-	
-	strcpy(courant->nomSoir, "");
-	courant->nbPersonneSoir = 0;
-	courant->numMenuSoir = 0;
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
+		
+		courant->nbPlaceMax=0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
 		
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
@@ -365,6 +373,16 @@ void recupTableReserveMidi() { //affiche les tables reservees pour le midi
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {		
+		
+		courant->nbPlaceMax=0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
+	
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
@@ -428,7 +446,17 @@ void recupTableReserveSoir() { //affiche les tables reservees pour le soir
 	deb=courant;
 
 	// Lecture + Construction de ma liste chainée
-	while(!feof(fdat)) {		
+	while(!feof(fdat)) {			
+	
+		courant->nbPlaceMax=0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
+	
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
@@ -490,18 +518,19 @@ void recupTableLibreMidi() { //affiche les tables libres du midi
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
 	deb=courant;
-	
-	courant->nbPlaceMax=0;
-	strcpy(courant->nomMatin, "");
-	courant->nbPersonneMatin = 0;
-	courant->numMenuMatin = 0;
-	
-	strcpy(courant->nomSoir, "");
-	courant->nbPersonneSoir = 0;
-	courant->numMenuSoir = 0;
 
 	// Lecture + Construction de ma liste chainée
-	while(!feof(fdat)) {		
+	while(!feof(fdat)) {	
+	
+		courant->nbPlaceMax=0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
+		
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
@@ -539,7 +568,7 @@ void recupTableLibreMidi() { //affiche les tables libres du midi
 	printf("   --------------------------------------------------------------------------------\n");
 	if(compterTable()!=0) {
 		for(i=1;i<=n;i++) {
-			if(courant->estReserveMatin!=0) {
+			if(courant->estReserveMatin==0) {
 				printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i, courant->nbPlaceMax, (courant->estReserveMatin==1 ? "Oui":"Non"), courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);			
 			}
 			courant=courant->suivant;
@@ -562,18 +591,19 @@ void recupTableLibreSoir() { //affiche les tables libres du soir
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
 	deb=courant;
-	
-	courant->nbPlaceMax=0;
-	strcpy(courant->nomMatin, "");
-	courant->nbPersonneMatin = 0;
-	courant->numMenuMatin = 0;
-	
-	strcpy(courant->nomSoir, "");
-	courant->nbPersonneSoir = 0;
-	courant->numMenuSoir = 0;
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {	
+	
+		courant->nbPlaceMax=0;
+		strcpy(courant->nomMatin, "");
+		courant->nbPersonneMatin = 0;
+		courant->numMenuMatin = 0;
+		
+		strcpy(courant->nomSoir, "");
+		courant->nbPersonneSoir = 0;
+		courant->numMenuSoir = 0;
+	
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
@@ -612,7 +642,7 @@ void recupTableLibreSoir() { //affiche les tables libres du soir
 	printf("   --------------------------------------------------------------------------------\n");
 	if(compterTable()!=0) {	
 		for(i=1;i<=n;i++) {
-			if(courant->estReserveSoir!=0) {
+			if(courant->estReserveSoir==0) {
 				printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i,courant->nbPlaceMax, (courant->estReserveSoir==1) ? "Oui":"Non", courant->nomSoir, courant->nbPersonneSoir, courant->numMenuSoir);
 			
 			}

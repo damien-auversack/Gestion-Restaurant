@@ -12,7 +12,7 @@
 main() {
 	// Paramètre Fenêtre
 		system("title Gestion Restaurant");	// Défini un titre à ma fenêtre
-		system("mode con: cols=110 lines=40"); // Défini la taille de ma fenêtre	
+		system("mode con: cols=120 lines=50"); // Défini la taille de ma fenêtre	
 	// Fin Paramètre Fenêtre
 	
 	int choix=0, choixGestionPersonnel=0, choixServices=0, choixMenu=0, choixTables=0, choixAddition=0, tableAddition=0, choixReservation=0, testDigit;
