@@ -3,5 +3,6 @@
 
 void ajouterTable();
 void ajouterMenu();
+void ajouterEmploye();
 
 #endif

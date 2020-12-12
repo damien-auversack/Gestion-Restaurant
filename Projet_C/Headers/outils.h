@@ -9,5 +9,8 @@ int rechercheTableLibre(int , int );
 void remplaceNonReserveTable(int , char[], int , int , int );
 void modifTableSuppRes(int , int );
 void viderBuffer();
+void modifierService(int, int);
+void modifierFonction(int, char[]);
+void modifierNomEmploye(int, char[]);
 
 #endif

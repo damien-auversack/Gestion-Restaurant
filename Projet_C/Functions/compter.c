@@ -94,6 +94,109 @@ int compterTable() { //compte le nombre de tables
 	return n;
 }
 
+int compterTableReservMatin() { //compte le nombre de tables
+	int n=0, i, fichierVide, nMatin=0;
+	FILE *fdat;
+	fdat = fopen("Data/Table.dat", "r");
+
+	Table *deb, *courant, *suivant;
+	courant=malloc(sizeof(Table));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		
+		fichierVide = fscanf(fdat,"%d",&courant->estReserveMatin);
+		if(courant->estReserveMatin == 1) {
+			fscanf(fdat,"%s",&courant->nomMatin);
+			fscanf(fdat,"%d",&courant->nbPersonneMatin);
+			fscanf(fdat,"%d",&courant->numMenuMatin);
+			nMatin++;
+		}
+
+		fscanf(fdat,"%d",&courant->estReserveSoir);
+		if(courant->estReserveSoir == 1) {
+			fscanf(fdat,"%s",&courant->nomSoir);
+			fscanf(fdat,"%d",&courant->nbPersonneSoir);
+			fscanf(fdat,"%d",&courant->numMenuSoir);
+		}
+		fscanf(fdat,"%d",&courant->nbPlaceMax);
+		
+		suivant=malloc(sizeof(Table));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+	}	
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+	
+	free(courant);
+	free(suivant);	
+	fclose(fdat);
+	if(fichierVide==-1) {
+		return 0;
+	}
+	
+	return nMatin;
+}
+
+int compterTableReservSoir() { //compte le nombre de tables
+	int n=0, i, fichierVide, nSoir=0;
+	FILE *fdat;
+	fdat = fopen("Data/Table.dat", "r");
+
+	Table *deb, *courant, *suivant;
+	courant=malloc(sizeof(Table));
+	deb=courant;
+
+	// Lecture + Construction de ma liste chainée
+	while(!feof(fdat)) {
+		
+		fichierVide = fscanf(fdat,"%d",&courant->estReserveMatin);
+		if(courant->estReserveMatin == 1) {
+			fscanf(fdat,"%s",&courant->nomMatin);
+			fscanf(fdat,"%d",&courant->nbPersonneMatin);
+			fscanf(fdat,"%d",&courant->numMenuMatin);
+			nSoir++;
+		}
+
+		fscanf(fdat,"%d",&courant->estReserveSoir);
+		if(courant->estReserveSoir == 1) {
+			fscanf(fdat,"%s",&courant->nomSoir);
+			fscanf(fdat,"%d",&courant->nbPersonneSoir);
+			fscanf(fdat,"%d",&courant->numMenuSoir);
+		}
+		fscanf(fdat,"%d",&courant->nbPlaceMax);
+		
+		suivant=malloc(sizeof(Table));
+		courant->suivant=suivant;
+		n++;
+		courant=suivant;
+	}	
+
+	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
+	courant=deb;
+	for(i=1;i<n;i++) {
+		courant=courant->suivant;
+	}
+	courant->suivant=NULL;	
+	
+	free(courant);
+	free(suivant);	
+	fclose(fdat);
+	if(fichierVide==-1) {
+		return 0;
+	}
+	
+	return nSoir;
+}
+
+
 int compterEmploye() {
 	int n=0, i, j, fichierVide;
 	FILE *fdat;

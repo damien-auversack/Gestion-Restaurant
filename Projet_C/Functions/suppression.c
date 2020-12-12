@@ -11,7 +11,7 @@ void supprimerTable() { //supprime une table de la liste de tables
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Table.dat", "r");
 	fdatTmp = fopen("Data/Table.tmp", "w");
-	
+	afficherTablesSimple();
 	recupTables();
 	
 	printf("   Supprimer une table : ");
@@ -23,16 +23,6 @@ void supprimerTable() { //supprime une table de la liste de tables
 
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
-		courant->estReserveMatin = 0;
-		strcpy(courant->nomMatin, "");
-		courant->nbPersonneMatin = 0;
-		courant->numMenuMatin = 0;
-		
-		courant->estReserveSoir = 0;
-		strcpy(courant->nomSoir, "");
-		courant->nbPersonneSoir = 0;
-		courant->numMenuSoir = 0;
-
 		fscanf(fdat,"%d",&courant->estReserveMatin);
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
@@ -62,9 +52,7 @@ void supprimerTable() { //supprime une table de la liste de tables
 		courant=courant->suivant;
 	}
 	courant->suivant=NULL;		
-		
-	
-		
+				
 	// Ecriture
 	if(compterTable()!=0) {
 		courant=deb;
@@ -205,5 +193,51 @@ void supprimerEmploye() {
 	if(compterEmploye()!=0) {
 		remove("Data/Employes.dat");		
 		rename("Data/Employes.tmp", "Data/Employes.dat");
+	}
+}
+
+void supprimerReservation() { //Permet de supprimer une reservation sur une table
+	
+	int service;
+	int numTable;
+	erreurIndexService:
+	system("cls");	
+	afficherReservation();	
+	recupTableReserveMidi();
+	recupTableReserveSoir();
+	
+	printf("   Aviez-vous reserve a midi(1) ou au soir(2) ? ");
+	scanf("%d", &service);
+	if(service==1) {
+		erreurIndexNumTableMidi:
+		system("cls");	
+		afficherReservation();	
+		recupTableReserveMidi();
+		
+		printf("   Quelle table aviez-vous reserve ? ");
+		scanf("%d", &numTable);
+		if(numTable<=0 || numTable > compterTable()) {
+			viderBuffer();
+			goto erreurIndexNumTableMidi;
+		}
+		modifTableSuppRes(1, numTable);
+	} 
+	else if(service==2) {
+		erreurIndexNumTableSoir:
+		system("cls");	
+		afficherReservation();	
+		recupTableReserveSoir();
+		
+		printf("   Quelle table aviez-vous reserve ? ");
+		scanf("%d", &numTable);
+		if(numTable<=0 || numTable > compterTable()) {
+			viderBuffer();
+			goto erreurIndexNumTableSoir;
+		}
+		modifTableSuppRes(2, numTable);
+	}
+	else{
+		viderBuffer();
+		goto erreurIndexService;
 	}
 }

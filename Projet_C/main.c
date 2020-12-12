@@ -15,15 +15,7 @@ main() {
 		system("mode con: cols=110 lines=40"); // Défini la taille de ma fenêtre	
 	// Fin Paramètre Fenêtre
 	
-	int choix=0;
-	int choixGestionPersonnel=0;
-	int choixServices=0;
-	int choixMenu=0;
-	int choixTables=0;
-	int choixAddition=0;
-	int tableAddition=0;
-	int choixReservation=0;
-	int testDigit;
+	int choix=0, choixGestionPersonnel=0, choixServices=0, choixMenu=0, choixTables=0, choixAddition=0, tableAddition=0, choixReservation=0, testDigit;
 	
 	while(1) { // Ecran Principal
 		erreurEcranPrincipal://gestion d'erreur
@@ -97,18 +89,22 @@ main() {
 										break;
 									case 2:
 										system("cls");	
-										supprimerReservation();
-										printf("\n   Reservation supprime !\n\n");
-										system("pause");
+										if(compterTableReservMatin()!=0 || compterTableReservSoir()!=0) {
+											supprimerReservation();
+											printf("\n   Reservation supprime !\n\n");
+											system("pause");	
+										}
 										break;
 								}
 								if(choixReservation==0) break;																	
 							}
 							break;																								
 						case 2: // Services -> 2. Changer ma commande				
-							system("cls");							
-							changerCommande();
-							system("pause");														
+							system("cls");		
+							if(compterTableReservSoir()!=0 || compterTableReservSoir()!=0) {
+								changerCommande();
+								system("pause");
+							}																			
 							break;
 						case 3: // Services -> 3. Addition
 							while(1) {
@@ -162,11 +158,15 @@ main() {
 								switch(choixTables) {
 									case 1: // ajouter Table
 										system("cls");
-										ajouterTable();
+										if(compterMenu()!=0) {
+											ajouterTable();	
+										}	
 										break;
 									case 2: // supprimer Table
 										system("cls");
-										supprimerTable();
+										if(compterTable()!=0) {
+											supprimerTable();
+										}				
 										break;
 								}
 								if(choixTables==0) break;

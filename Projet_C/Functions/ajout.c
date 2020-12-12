@@ -11,21 +11,11 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "a");
-	
-	// Initialisation
-	table.estReserveMatin = 0;
-	strcpy(table.nomMatin, "");
-	table.nbPersonneMatin = 0;
-	table.numMenuMatin = 0;
-	
-	table.estReserveSoir = 0;
-	strcpy(table.nomSoir, "");
-	table.nbPersonneSoir = 0;
-	table.numMenuSoir = 0;
-		
+
 	erreurIndiceNbPlaceMax: //gestion d'erreur
 	// Ajout table
 	system("cls");
+	afficherTablesSimple();
 	recupTables();
 	printf("   Nombres de places a table : ");	
 	testDigit = scanf("%d", &table.nbPlaceMax);
@@ -36,6 +26,7 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	
 	erreurEstReserveMatin: //gestion d'erreur
 	system("cls");
+	afficherTablesSimple();
 	recupTables();	
 	printf("   Table reserve le matin(oui=1/non=0) : ");	
 	testDigit = scanf("%d", &table.estReserveMatin);
@@ -47,6 +38,7 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	if(table.estReserveMatin==1) {
 		
 		system("cls");	
+		afficherTablesSimple();
 		recupTables();		
 		printf("   Nom de la reservation : ");
 		viderBuffer();
@@ -63,7 +55,8 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		
 		erreurNbPlaceMaxMatin: //gestion d'erreur
 		
-		system("cls");		
+		system("cls");	
+		afficherTablesSimple();	
 		recupTables();		
 		printf("   Nombre de personne a table : ");
 		testDigit = scanf("%d", &table.nbPersonneMatin);
@@ -75,7 +68,8 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		
 		erreurNumMenuMatin: //gestion d'erreur
 		
-		system("cls");		
+		system("cls");	
+		afficherTablesSimple();	
 		recupTables();		
 		printf("   Numero du menu choisi : ");
 		testDigit = scanf("%d", &table.numMenuMatin);
@@ -87,6 +81,7 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	}
 	erreurEstReserveSoir: //gestion d'erreur
 	system("cls");
+	afficherTablesSimple();
 	recupTables();
 	printf("   Table reserve le soir(oui=1/non=0) : ");
 	testDigit = scanf("%d", &table.estReserveSoir);
@@ -97,7 +92,8 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	
 	if(table.estReserveSoir==1) {
 		
-		system("cls");	
+		system("cls");
+		afficherTablesSimple();	
 		recupTables();		
 		printf("   Nom de la reservation : ");
 		viderBuffer();
@@ -114,7 +110,8 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		
 		erreurNbPlaceMaxSoir: //gestion d'erreur
 		
-		system("cls");		
+		system("cls");	
+		afficherTablesSimple();	
 		recupTables();		
 		printf("   Nombre de personne a table : ");
 		testDigit = scanf("%d", &table.nbPersonneSoir);
@@ -126,7 +123,8 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 		
 		erreurNumMenuSoir: //gestion d'erreur
 			
-		system("cls");		
+		system("cls");	
+		afficherTablesSimple();	
 		recupTables();
 				
 		printf("   Numero du menu choisi : ");
@@ -143,11 +141,13 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	}	
 	fprintf(fdat, "%d ", table.estReserveMatin);
 	if(table.estReserveMatin==1) {
+		table.nbPersonneSoir = table.numMenuSoir = 0;
 		fprintf(fdat, "%12s %d %d ", table.nomMatin, table.nbPersonneMatin, table.numMenuMatin);
 	}
 	
 	fprintf(fdat, "%d", table.estReserveSoir);
 	if(table.estReserveSoir==1) {
+		table.nbPersonneMatin = table.numMenuMatin = 0;
 		fprintf(fdat, " %12s %d %d", table.nomSoir, table.nbPersonneSoir, table.numMenuSoir);
 	}
 	fprintf(fdat, " %d", table.nbPlaceMax);

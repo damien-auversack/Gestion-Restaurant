@@ -3,5 +3,7 @@
 
 void supprimerTable();
 void supprimerMenu();
+void supprimerEmploye();
+void supprimerReservation();
 
 #endif

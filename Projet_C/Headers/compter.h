@@ -3,5 +3,8 @@
 
 int compterMenu();
 int compterTable();
+int compterTableReservMatin();
+int compterTableReservSoir();
+int compterEmploye();
 
 #endif
