@@ -195,7 +195,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 	recupMenu();
 	printf("   Description du Menu : ");
 	viderBuffer();
-	fgets(menu.description, 54, stdin);
+	fgets(menu.description, 55, stdin);
 
 	// remplace les ' ' par des '_' dans la chaine de caracteres
 	for(j=0; j<strlen(menu.description); j++) {

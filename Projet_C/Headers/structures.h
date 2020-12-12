@@ -21,7 +21,7 @@ typedef struct Table {
 typedef struct Menu {
 	char nom[21];
 	float prix;
-	char description[56];
+	char description[60];
 	
 	struct Menu *suivant;
 }Menu;
