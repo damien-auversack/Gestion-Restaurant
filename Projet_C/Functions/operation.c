@@ -5,17 +5,10 @@
 #include "../Headers/structures.h"
 
 void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une table en fonction de son menu
-	float sommeAddition;
-	
-	int nbPlaceMaxSelect;
-	int reserveSelect;
-	char nomPersonneSelect[21];
-	int nbPersonneSelect;
-	int numMenuSelect;
-	
-	char nomMenuSelect[21];
-	float prixSelect;
-	char descriptionSelect[40];
+		
+	int nbPlaceMaxSelect, reserveSelect, nbPersonneSelect, numMenuSelect;
+	float sommeAddition, prixSelect;
+	char nomPersonneSelect[21], nomMenuSelect[21], descriptionSelect[40];
 	
 	// Traitement table
 	int nTable=0, nMenu=0, i, j;
@@ -44,8 +37,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);			
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -137,8 +129,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 			strcpy(nomMenuSelect, courant2->nom);
 			prixSelect = courant2->prix;
 			strcpy(descriptionSelect, courant2->description);
-		}
-		
+		}	
 		courant2=courant2->suivant;
 	}
 	
@@ -205,9 +196,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 }
 
 void changerCommande() { //permet de changer le menu commander par une table en utilisant remplaceMenuTable
-	int service;
-	int numTable;
-	int numMenuChoisi;
+	int service, numTable, numMenuChoisi;
 	
 	erreurIndexService: //gestion d'erreur
 	
@@ -286,10 +275,8 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 }
 
 void faireReservation() { //Permet de reserver une table libre
-	int service;
+	int service, nbPersonne, numMenu;
 	char nom[21];
-	int nbPersonne;
-	int numMenu;
 	
 	erreurIndexService: //gestion d'erreur
 		
@@ -371,12 +358,8 @@ void faireReservation() { //Permet de reserver une table libre
 
 void modifierEmploye() {
 	
-	int numEmploye;
-	int choixModif;
-	int serviceModif;
-	char fonctionModif[21];
-	char nomModif[21];
-	int testDigit;
+	int numEmploye, choixModif, serviceModif, testDigit;	
+	char fonctionModif[21], nomModif[21];
 	
 	erreurSelectEmploye:
 	system("cls");

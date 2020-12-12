@@ -215,8 +215,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 }
 
 void ajouterEmploye() {
-	int j;
-	int testDigit;
+	int j, testDigit;
 	Employe employe;
 	
 	FILE *fdat;

@@ -216,14 +216,10 @@ void remplaceMenuTable(int numMenu, int numTable, int service) { //change le men
 
 void selectTable(int numTable, int service) { //affiche une table precise
 	
-	int nbPlaceMaxSelect;
-	int reserveSelect;
+	int nbPlaceMaxSelect, reserveSelect, nbPersonneSelect, numMenuSelect, nTable=0, i, j;
 	char nomPersonneSelect[21];
-	int nbPersonneSelect;
-	int numMenuSelect;
 		
 	// Traitement table
-	int nTable=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "r");
 
@@ -249,8 +245,7 @@ void selectTable(int numTable, int service) { //affiche une table precise
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);			
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -322,13 +317,11 @@ void selectTable(int numTable, int service) { //affiche une table precise
 }
 
 void selectEmploye(int numEmploye) { //affiche un employe precis
-	
-	char nomEmployeSelect[21];
-	int serviceSelect;
-	char nomFonctionSelect[15];
+
+	int serviceSelect, nEmploye=0, i, j;
+	char nomEmployeSelect[21], nomFonctionSelect[15];
 		
 	// Traitement table
-	int nEmploye=0, i, j;
 	FILE *fdat;
 	fdat = fopen("Data/Employes.dat", "r");
 
@@ -389,8 +382,6 @@ void selectEmploye(int numEmploye) { //affiche un employe precis
 	printf("   |  %d  |   %-10s |    %-6s   |   %-10s  |\n",numEmploye, nomEmployeSelect, (serviceSelect==1)?"Midi":(serviceSelect==2)?"Soir":"Aucun", nomFonctionSelect);	
 	printf("   ----------------------------------------------------\n");
 	printf("\n");
-
-
 }
 
 int rechercheTableLibre(int service, int nbPersonne) { //recherche toutes les tables libres dans la liste des tables
@@ -420,8 +411,7 @@ int rechercheTableLibre(int service, int nbPersonne) { //recherche toutes les ta
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			
+			fscanf(fdat,"%d",&courant->numMenuMatin);			
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -526,8 +516,7 @@ void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMe
 				
 		if(courant->estReserveMatin==1) {
 			fprintf(fdatTmp, "%d ", courant->estReserveMatin);
-			fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);
-			
+			fprintf(fdatTmp, "%s %d %d ", courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);		
 		}
 				
 		if(courant->estReserveMatin==0) {
@@ -698,7 +687,6 @@ void modifierService(int numEmploye, int newService) {
 		courant->suivant=suivant;
 		n++;
 		courant=suivant;
-
 	}
 	
 	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
@@ -729,7 +717,7 @@ void modifierService(int numEmploye, int newService) {
 }
 
 void modifierFonction(int numEmploye, char nomFonction[]) {
-		int n=0, i;
+	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Employes.dat", "r");
@@ -749,7 +737,6 @@ void modifierFonction(int numEmploye, char nomFonction[]) {
 		courant->suivant=suivant;
 		n++;
 		courant=suivant;
-
 	}
 	
 	//Placer Null au suivant du dernière élément + libérer l'espace de suivant
@@ -780,7 +767,7 @@ void modifierFonction(int numEmploye, char nomFonction[]) {
 }
 
 void modifierNomEmploye(int numEmploye, char nomEmploye[]) {
-		int n=0, i;
+	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Employes.dat", "r");
@@ -800,7 +787,6 @@ void modifierNomEmploye(int numEmploye, char nomEmploye[]) {
 		courant->suivant=suivant;
 		n++;
 		courant=suivant;
-
 	}
 	
 	//Placer Null au suivant du dernière élément + libérer l'espace de suivant

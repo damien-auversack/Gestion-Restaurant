@@ -139,8 +139,7 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 
 void supprimerEmploye() {	
 	
-	int n=0, i, nEmploye=1, employeEntre;
-	int testDigit;
+	int n=0, i, nEmploye=1, employeEntre, testDigit;
 	
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Employes.dat", "r");
@@ -198,8 +197,7 @@ void supprimerEmploye() {
 
 void supprimerReservation() { //Permet de supprimer une reservation sur une table
 	
-	int service;
-	int numTable;
+	int service, numTable;
 	erreurIndexService:
 	system("cls");	
 	afficherReservation();	

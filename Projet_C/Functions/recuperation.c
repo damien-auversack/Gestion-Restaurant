@@ -424,10 +424,8 @@ void recupTableReserveMidi() { //affiche les tables reservees pour le midi
 				printf("   |     %d     |      %2d       |    %-3s    |  %-12s|      %d     |     %d    |\n",i, courant->nbPlaceMax, (courant->estReserveMatin==1 ? "Oui":"Non"), courant->nomMatin, courant->nbPersonneMatin, courant->numMenuMatin);			
 			}
 			courant=courant->suivant;
-		}
-	
-	printf("   --------------------------------------------------------------------------------\n");
-	
+		}	
+		printf("   --------------------------------------------------------------------------------\n");	
 	}
 	printf("\n");
 	free(courant);
