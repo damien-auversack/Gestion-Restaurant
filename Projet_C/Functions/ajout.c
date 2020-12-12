@@ -155,7 +155,8 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 }
 
 void ajouterMenu() { //permet d'ajouter un menu
-	int j, erreurAvecEspace=0;
+	int j;
+	//int erreurAvecEspace=0;
 	Menu menu;
 	
 	FILE *fdat;
@@ -170,7 +171,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 	// remplace les ' ' par des '_' dans la chaine de caracteres
 	for(j=0; j<strlen(menu.nom); j++) {
 		if(menu.nom[j] == ' ') {
-			erreurAvecEspace=1;
+			//erreurAvecEspace=1;
 			menu.nom[j] = '_';
 		}
 		if(menu.nom[j] == '\n') {
@@ -178,9 +179,10 @@ void ajouterMenu() { //permet d'ajouter un menu
 		}
 	}
 	
-	if(erreurAvecEspace==1) {
+/**	if(erreurAvecEspace==1) {
 		viderBuffer();
 	}
+**/
 		
 	system("cls");
 	afficherMenuSimple();
@@ -193,7 +195,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 	recupMenu();
 	printf("   Description du Menu : ");
 	viderBuffer();
-	fgets(menu.description, 34, stdin);
+	fgets(menu.description, 54, stdin);
 
 	// remplace les ' ' par des '_' dans la chaine de caracteres
 	for(j=0; j<strlen(menu.description); j++) {
