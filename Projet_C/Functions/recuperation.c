@@ -131,9 +131,9 @@ void recupMenu() { //affiche la liste des menus
 		
 	// Affichage	
 	printf("\n");	
-	printf("   ------------------------------------------------------------------------------\n");
-	printf("   |  N  |     Nom      |     Prix (Euro)  |         Description                |\n");
-	printf("   ------------------------------------------------------------------------------\n");
+	printf("   --------------------------------------------------------------------------------------\n");
+	printf("   |  N  |     Nom              |     Prix (Euro)  |         Description                |\n");
+	printf("   --------------------------------------------------------------------------------------\n");
 
 	if(compterMenu()!=0) {	
 		for(i=1;i<=n;i++) {			
@@ -147,10 +147,10 @@ void recupMenu() { //affiche la liste des menus
 					courant->description[j] = ' ';
 				}
 			}		
-			printf("   |  %d  |  %-12s|      %5.2f       |  %-34s|\n",i, courant->nom, courant->prix, courant->description);
+			printf("   |  %d  |  %-20s|      %5.2f       |  %-34s|\n",i, courant->nom, courant->prix, courant->description);
 			courant=courant->suivant;
 		}
-		printf("   ------------------------------------------------------------------------------\n");
+		printf("   --------------------------------------------------------------------------------------\n");
 		printf("\n");
 	}
 	else {
