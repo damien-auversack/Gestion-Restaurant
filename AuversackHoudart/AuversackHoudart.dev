@@ -1,5 +1,5 @@
 [Project]
-FileName=Langage_C_Project.dev
+FileName=AuversackHoudart.dev
 Name=Langage_C_Project
 Type=1
 Ver=2
@@ -51,19 +51,19 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=main.c
+FileName=AuversackHoudart_ressources.rc
 CompileCpp=0
-Folder=Sources
+Folder=Autres
 Compile=1
-Link=1
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=Headers\ajout.h
+FileName=Functions\AuversackHoudart_operation.c
 CompileCpp=0
-Folder=Headers
+Folder=Functions
 Compile=1
 Link=1
 Priority=1000
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=Headers\operation.h
+FileName=Headers\AuversackHoudart_compter.h
 CompileCpp=0
 Folder=Headers
 Compile=1
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=Headers\compter.h
+FileName=Headers\AuversackHoudart_outils.h
 CompileCpp=0
 Folder=Headers
 Compile=1
@@ -91,9 +91,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=Functions\outils.c
+FileName=Headers\AuversackHoudart_structures.h
 CompileCpp=0
-Folder=Functions
+Folder=Headers
 Compile=1
 Link=1
 Priority=1000
@@ -101,7 +101,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=Headers\outils.h
+FileName=Headers\AuversackHoudart_suppression.h
 CompileCpp=0
 Folder=Headers
 Compile=1
@@ -111,11 +111,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
-FileName=ressources.rc
+FileName=AuversackHoudart_Main.c
 CompileCpp=0
-Folder=Autres
+Folder=Sources
 Compile=1
-Link=0
+Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
@@ -187,9 +187,9 @@ FileName=Functions\affichage.c
 FileName=Headers\affichage.h
 
 [Unit7]
-FileName=Headers\suppression.h
+FileName=Functions\AuversackHoudart_recuperation.c
 CompileCpp=0
-Folder=Headers
+Folder=Functions
 Compile=1
 Link=1
 Priority=1000
@@ -197,7 +197,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit9]
-FileName=Headers\recuperation.h
+FileName=Headers\AuversackHoudart_affichage.h
 CompileCpp=0
 Folder=Headers
 Compile=1
@@ -207,9 +207,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=Functions\compter.c
+FileName=Headers\AuversackHoudart_operation.h
 CompileCpp=0
-Folder=Functions
+Folder=Headers
 Compile=1
 Link=1
 Priority=1000
@@ -217,7 +217,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=Functions\suppression.c
+FileName=Functions\AuversackHoudart_outils.c
 CompileCpp=0
 Folder=Functions
 Compile=1
@@ -227,7 +227,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=Functions\recuperation.c
+FileName=Functions\AuversackHoudart_suppression.c
 CompileCpp=0
 Folder=Functions
 Compile=1
@@ -237,7 +237,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=Functions\affichage.c
+FileName=Functions\AuversackHoudart_affichage.c
 CompileCpp=0
 Folder=Functions
 Compile=1
@@ -247,9 +247,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=Headers\affichage.h
+FileName=Functions\AuversackHoudart_ajout.c
 CompileCpp=0
-Folder=Headers
+Folder=Functions
 Compile=1
 Link=1
 Priority=1000
@@ -257,7 +257,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=Functions\ajout.c
+FileName=Functions\AuversackHoudart_compter.c
 CompileCpp=0
 Folder=Functions
 Compile=1
@@ -267,9 +267,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=Functions\operation.c
+FileName=Headers\AuversackHoudart_ajout.h
 CompileCpp=0
-Folder=Functions
+Folder=Headers
 Compile=1
 Link=1
 Priority=1000
@@ -277,7 +277,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=Headers\structures.h
+FileName=Headers\AuversackHoudart_recuperation.h
 CompileCpp=0
 Folder=Headers
 Compile=1

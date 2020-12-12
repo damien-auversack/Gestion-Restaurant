@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Headers/affichage.h"
-#include "Headers/ajout.h"
-#include "Headers/suppression.h"
-#include "Headers/recuperation.h"
-#include "Headers/operation.h"
-#include "Headers/compter.h"
+#include "Headers/AuversackHoudart_affichage.h"
+#include "Headers/AuversackHoudart_ajout.h"
+#include "Headers/AuversackHoudart_suppression.h"
+#include "Headers/AuversackHoudart_recuperation.h"
+#include "Headers/AuversackHoudart_operation.h"
+#include "Headers/AuversackHoudart_compter.h"
 
 main() {
 	// Paramètre Fenêtre

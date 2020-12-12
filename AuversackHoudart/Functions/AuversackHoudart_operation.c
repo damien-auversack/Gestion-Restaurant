@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Headers/structures.h"
+#include "../Headers/AuversackHoudart_structures.h"
 
 void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une table en fonction de son menu
 		
@@ -13,7 +13,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 	// Traitement table
 	int nTable=0, nMenu=0, i, j;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));

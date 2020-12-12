@@ -1,5 +1,5 @@
-#ifndef DEF_compter
-#define DEF_compter
+#ifndef DEF_AuversackHoudart_compter
+#define DEF_AuversackHoudart_compter
 //permet de compter les éléments d'une liste
 
 int compterMenu();

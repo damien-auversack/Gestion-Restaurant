@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Headers/structures.h"
+#include "../Headers/AuversackHoudart_structures.h"
 
 int estReserve(int service, int numTable) { //Retourne un entier qui permet de savoir si la table est reservee ou non
 	
 	int n=0, i;
 
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -84,7 +84,7 @@ const char* nomMenuChoisi(int numMenu) { //Retourne le nom d'un menu precis
 	
 	int n=0, i, j;
 	FILE *fdat;
-	fdat = fopen("Data/Menu.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Menu.dat", "r");
 
 	Menu *deb, *courant, *suivant;
 	courant=malloc(sizeof(Menu));
@@ -135,8 +135,8 @@ void remplaceMenuTable(int numMenu, int numTable, int service) { //change le men
 	int n=0, i;
 
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Table.dat", "r");
-	fdatTmp = fopen("Data/Table.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Table.tmp", "w");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -210,8 +210,8 @@ void remplaceMenuTable(int numMenu, int numTable, int service) { //change le men
 		
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Table.dat");		
-	rename("Data/Table.tmp", "Data/Table.dat");	
+	remove("Data/AuversackHoudart_Table.dat");		
+	rename("Data/AuversackHoudart_Table.tmp", "Data/AuversackHoudart_Table.dat");	
 }
 
 void selectTable(int numTable, int service) { //affiche une table precise
@@ -221,7 +221,7 @@ void selectTable(int numTable, int service) { //affiche une table precise
 		
 	// Traitement table
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -389,7 +389,7 @@ int rechercheTableLibre(int service, int nbPersonne) { //recherche toutes les ta
 	int n=0, i;
 
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -463,8 +463,8 @@ int remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMen
 	int n=0, i, reservOk=0;
 
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Table.dat", "r");
-	fdatTmp = fopen("Data/Table.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Table.tmp", "w");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -563,8 +563,8 @@ int remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMen
 			
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Table.dat");		
-	rename("Data/Table.tmp", "Data/Table.dat");	
+	remove("Data/AuversackHoudart_Table.dat");		
+	rename("Data/AuversackHoudart_Table.tmp", "Data/AuversackHoudart_Table.dat");	
 	return reservOk;
 }
 
@@ -572,8 +572,8 @@ int modifTableSuppRes(int service, int numTable) { //supprime une reservation su
 	int n=0, i, modifOk=0;
 
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Table.dat", "r");
-	fdatTmp = fopen("Data/Table.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Table.tmp", "w");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -662,8 +662,8 @@ int modifTableSuppRes(int service, int numTable) { //supprime une reservation su
 			
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Table.dat");		
-	rename("Data/Table.tmp", "Data/Table.dat");	
+	remove("Data/AuversackHoudart_Table.dat");		
+	rename("Data/AuversackHoudart_Table.tmp", "Data/AuversackHoudart_Table.dat");	
 	return modifOk;
 }
 
@@ -676,8 +676,8 @@ void modifierService(int numEmploye, int newService) {//modifie le service d'un 
 	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Employes.dat", "r");
-	fdatTmp = fopen("Data/Employes.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Employes.tmp", "w");
 	
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));
@@ -718,16 +718,16 @@ void modifierService(int numEmploye, int newService) {//modifie le service d'un 
 		
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Employes.dat");		
-	rename("Data/Employes.tmp", "Data/Employes.dat");
+	remove("Data/AuversackHoudart_Employes.dat");		
+	rename("Data/AuversackHoudart_Employes.tmp", "Data/AuversackHoudart_Employes.dat");
 }
 
 void modifierFonction(int numEmploye, char nomFonction[]) {//modifie la fonction d'un employé
 	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Employes.dat", "r");
-	fdatTmp = fopen("Data/Employes.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Employes.tmp", "w");
 	
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));
@@ -768,16 +768,16 @@ void modifierFonction(int numEmploye, char nomFonction[]) {//modifie la fonction
 		
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Employes.dat");		
-	rename("Data/Employes.tmp", "Data/Employes.dat");
+	remove("Data/AuversackHoudart_Employes.dat");		
+	rename("Data/AuversackHoudart_Employes.tmp", "Data/AuversackHoudart_Employes.dat");
 }
 
 void modifierNomEmploye(int numEmploye, char nomEmploye[]) {//modifie le nom de l'employé
 	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Employes.dat", "r");
-	fdatTmp = fopen("Data/Employes.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Employes.tmp", "w");
 	
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));
@@ -818,6 +818,6 @@ void modifierNomEmploye(int numEmploye, char nomEmploye[]) {//modifie le nom de 
 		
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Employes.dat");		
-	rename("Data/Employes.tmp", "Data/Employes.dat");
+	remove("Data/AuversackHoudart_Employes.dat");		
+	rename("Data/AuversackHoudart_Employes.tmp", "Data/AuversackHoudart_Employes.dat");
 }

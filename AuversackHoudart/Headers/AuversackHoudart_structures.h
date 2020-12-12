@@ -1,5 +1,5 @@
-#ifndef DEF_structures
-#define DEF_structures
+#ifndef DEF_AuversackHoudart_structures
+#define DEF_AuversackHoudart_structures
 //récupères les différentes structures utilisées dans le code
 
 typedef struct Table {

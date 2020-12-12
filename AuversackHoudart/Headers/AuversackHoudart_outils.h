@@ -1,5 +1,5 @@
-#ifndef DEF_outils
-#define DEF_outils
+#ifndef DEF_AuversackHoudart_outils
+#define DEF_AuversackHoudart_outils
 //différentes fonctions utilisées pour simplifié d'autres fonctions
 
 int estReserve(int , int);

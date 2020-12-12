@@ -1,5 +1,5 @@
-#ifndef DEF_suppression
-#define DEF_suppression
+#ifndef DEF_AuversackHoudart_suppression
+#define DEF_AuversackHoudart_suppression
 //permet de supprimer un élément d'une liste ou une réservation
 
 void supprimerTable();

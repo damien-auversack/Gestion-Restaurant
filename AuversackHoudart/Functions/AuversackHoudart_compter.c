@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Headers/structures.h"
+#include "../Headers/AuversackHoudart_structures.h"
 
 int compterMenu() { //Compte le nombre de menus
 	FILE *fdat;
-	fdat = fopen("Data/Menu.dat", "r");	
+	fdat = fopen("Data/AuversackHoudart_Menu.dat", "r");	
 
 	int n=0, i, j, fichierVide;	
 
@@ -46,7 +46,7 @@ int compterMenu() { //Compte le nombre de menus
 int compterTable() { //compte le nombre de tables
 	int n=0, i, fichierVide;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -97,7 +97,7 @@ int compterTable() { //compte le nombre de tables
 int compterTableReservMatin() { //compte le nombre de tables réservées au matin
 	int n=0, i, fichierVide, nMatin=0;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -148,7 +148,7 @@ int compterTableReservMatin() { //compte le nombre de tables réservées au matin
 int compterTableReservSoir() { //compte le nombre de tables réservées au soir
 	int n=0, i, fichierVide, nSoir=0;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -200,7 +200,7 @@ int compterTableReservSoir() { //compte le nombre de tables réservées au soir
 int compterEmploye() {//compte le nombre d'employé dans la liste
 	int n=0, i, j, fichierVide;
 	FILE *fdat;
-	fdat = fopen("Data/Employes.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
 
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));

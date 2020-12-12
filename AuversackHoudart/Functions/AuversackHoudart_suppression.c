@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Headers/structures.h"
+#include "../Headers/AuversackHoudart_structures.h"
 
 void supprimerTable() { //supprime une table de la liste de tables
 	
 	int n=0, i, nTable=1, tableEntre;
 
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Table.dat", "r");
-	fdatTmp = fopen("Data/Table.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Table.tmp", "w");
 	afficherTablesSimple();
 	recupTables();
 	
@@ -78,8 +78,8 @@ void supprimerTable() { //supprime une table de la liste de tables
 	fclose(fdat);
 	fclose(fdatTmp);
 	if(compterTable()!=0) {
-		remove("Data/Table.dat");		
-		rename("Data/Table.tmp", "Data/Table.dat");
+		remove("Data/AuversackHoudart_Table.dat");		
+		rename("Data/AuversackHoudart_Table.tmp", "Data/AuversackHoudart_Table.dat");
 	}	
 }
 
@@ -87,8 +87,8 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 	int n=0, i, nMenu=1, menuEntre;
 	
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Menu.dat", "r");
-	fdatTmp = fopen("Data/Menu.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Menu.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Menu.tmp", "w");
 	afficherMenuSimple();
 	recupMenu();
 	
@@ -133,8 +133,8 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 		
 	fclose(fdat);
 	fclose(fdatTmp);
-	remove("Data/Menu.dat");		
-	rename("Data/Menu.tmp", "Data/Menu.dat");
+	remove("Data/AuversackHoudart_Menu.dat");		
+	rename("Data/AuversackHoudart_Menu.tmp", "Data/AuversackHoudart_Menu.dat");
 }
 
 void supprimerEmploye() {//supprime un employé de la liste	
@@ -142,8 +142,8 @@ void supprimerEmploye() {//supprime un employé de la liste
 	int n=0, i, nEmploye=1, employeEntre, testDigit;
 	
 	FILE *fdat, *fdatTmp;
-	fdat = fopen("Data/Employes.dat", "r");
-	fdatTmp = fopen("Data/Employes.tmp", "w");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
+	fdatTmp = fopen("Data/AuversackHoudart_Employes.tmp", "w");
 	system("cls");
 	afficherGestionPersonnelSimple();
 	recupEmployes();
@@ -190,8 +190,8 @@ void supprimerEmploye() {//supprime un employé de la liste
 	fclose(fdat);
 	fclose(fdatTmp);
 	if(compterEmploye()!=0) {
-		remove("Data/Employes.dat");		
-		rename("Data/Employes.tmp", "Data/Employes.dat");
+		remove("Data/AuversackHoudart_Employes.dat");		
+		rename("Data/AuversackHoudart_Employes.tmp", "Data/AuversackHoudart_Employes.dat");
 	}
 }
 

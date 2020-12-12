@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Headers/structures.h"
+#include "../Headers/AuversackHoudart_structures.h"
 
 void recupTables() { //affiche la liste des tables
 	
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -98,7 +98,7 @@ void recupTables() { //affiche la liste des tables
 void recupMenu() { //affiche la liste des menus
 	int n=0, i, j;
 	FILE *fdat;
-	fdat = fopen("Data/Menu.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Menu.dat", "r");
 	
 	Menu *deb, *courant, *suivant;
 	courant=malloc(sizeof(Menu));
@@ -165,7 +165,7 @@ void recupMenu() { //affiche la liste des menus
 void recupEmployes() { //affiche la liste des employes
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Employes.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "r");
 
 	Employe *deb, *courant, *suivant;
 	courant=malloc(sizeof(Employe));
@@ -225,7 +225,7 @@ void recupAdditionMidi() { //affiche l'addition d'une table pour le service du m
 		
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -296,7 +296,7 @@ void recupAdditionSoir() { //affiche l'addition d'une table du service du soir
 		
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -365,7 +365,7 @@ void recupTableReserveMidi() { //affiche les tables reservees pour le midi
 	
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -437,7 +437,7 @@ void recupTableReserveSoir() { //affiche les tables reservees pour le soir
 	
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -511,7 +511,7 @@ void recupTableLibreMidi() { //affiche les tables libres du midi
 	
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
@@ -584,7 +584,7 @@ void recupTableLibreSoir() { //affiche les tables libres du soir
 	
 	int n=0, i;
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "r");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "r");
 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));

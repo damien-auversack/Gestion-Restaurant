@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Headers/structures.h"
+#include "../Headers/AuversackHoudart_structures.h"
 
 void ajouterTable() { //permet d'ajouter une table a la liste
 
@@ -10,7 +10,7 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	Table table;
 	
 	FILE *fdat;
-	fdat = fopen("Data/Table.dat", "a");
+	fdat = fopen("Data/AuversackHoudart_Table.dat", "a");
 
 	erreurIndiceNbPlaceMax: //gestion d'erreur
 	// Ajout table
@@ -160,7 +160,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 	Menu menu;
 	
 	FILE *fdat;
-	fdat = fopen("Data/Menu.dat", "a");
+	fdat = fopen("Data/AuversackHoudart_Menu.dat", "a");
 	afficherMenuSimple();
 	recupMenu();
 	
@@ -221,7 +221,7 @@ void ajouterEmploye() {//permet d'ajouter un employé à la liste
 	Employe employe;
 	
 	FILE *fdat;
-	fdat = fopen("Data/Employes.dat", "a");
+	fdat = fopen("Data/AuversackHoudart_Employes.dat", "a");
 	
 	afficherGestionPersonnelSimple();
 	recupEmployes();

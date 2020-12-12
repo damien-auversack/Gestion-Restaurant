@@ -1,5 +1,5 @@
-#ifndef DEF_ajout
-#define DEF_ajout
+#ifndef DEF_AuversackHoudart_ajout
+#define DEF_AuversackHoudart_ajout
 //permet d'ajouter des éléments aux listes chainées de tables, menus et employé
 
 void ajouterTable();

@@ -1,5 +1,5 @@
-#ifndef DEF_affichage
-#define DEF_affichage
+#ifndef DEF_AuversackHoudart_affichage
+#define DEF_AuversackHoudart_affichage
 //contient toutes les fonctions gérant l'affichage
 
 void afficherEcranPrincipal();
