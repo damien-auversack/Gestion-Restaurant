@@ -91,7 +91,7 @@ void afficherMenu() { //gestion des menus + options
 	printf("   Choix : ");	
 }
 
-void afficherMenuSimple() {
+void afficherMenuSimple() {//gestion des menus
 	printf("\n");
 	printf("   ********************************************************************************************");
 	printf("\n");

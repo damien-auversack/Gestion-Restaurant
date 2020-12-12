@@ -1,5 +1,6 @@
 #ifndef DEF_recuperation
 #define DEF_recuperation
+//permet de récupérer des listes et de les afficher
 
 void recupTables();
 void recupMenu();

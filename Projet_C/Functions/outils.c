@@ -667,12 +667,12 @@ int modifTableSuppRes(int service, int numTable) { //supprime une reservation su
 	return modifOk;
 }
 
-void viderBuffer() {
+void viderBuffer() {//vide le buffer, aide principalement à la gestion d'erreur lorsque des lettres sont entrée à la place des chiffres
 	int c;
 	while ((c = getchar()) != '\n' && c != EOF);
 }
 
-void modifierService(int numEmploye, int newService) {
+void modifierService(int numEmploye, int newService) {//modifie le service d'un employé
 	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
@@ -722,7 +722,7 @@ void modifierService(int numEmploye, int newService) {
 	rename("Data/Employes.tmp", "Data/Employes.dat");
 }
 
-void modifierFonction(int numEmploye, char nomFonction[]) {
+void modifierFonction(int numEmploye, char nomFonction[]) {//modifie la fonction d'un employé
 	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;
@@ -772,7 +772,7 @@ void modifierFonction(int numEmploye, char nomFonction[]) {
 	rename("Data/Employes.tmp", "Data/Employes.dat");
 }
 
-void modifierNomEmploye(int numEmploye, char nomEmploye[]) {
+void modifierNomEmploye(int numEmploye, char nomEmploye[]) {//modifie le nom de l'employé
 	int n=0, i;
 	
 	FILE *fdat, *fdatTmp;

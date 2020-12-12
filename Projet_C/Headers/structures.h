@@ -1,5 +1,6 @@
 #ifndef DEF_structures
 #define DEF_structures
+//récupères les différentes structures utilisées dans le code
 
 typedef struct Table {
 	int nbPlaceMax;

@@ -1,5 +1,6 @@
 #ifndef DEF_outils
 #define DEF_outils
+//différentes fonctions utilisées pour simplifié d'autres fonctions
 
 int estReserve(int , int);
 const char* nomMenuChoisi(int);

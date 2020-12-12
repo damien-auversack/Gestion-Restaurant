@@ -137,7 +137,7 @@ void supprimerMenu() { //Supprime un menu de la liste des menus
 	rename("Data/Menu.tmp", "Data/Menu.dat");
 }
 
-void supprimerEmploye() {	
+void supprimerEmploye() {//supprime un employé de la liste	
 	
 	int n=0, i, nEmploye=1, employeEntre, testDigit;
 	
@@ -198,7 +198,7 @@ void supprimerEmploye() {
 void supprimerReservation() { //Permet de supprimer une reservation sur une table
 	
 	int service, numTable, modifOk=0;
-	erreurIndexService:
+	erreurIndexService://gestion d'erreur
 	system("cls");	
 	afficherReservation();	
 	recupTableReserveMidi();
@@ -207,7 +207,7 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 	printf("   Aviez-vous reserve a midi(1) ou au soir(2) ? ");
 	scanf("%d", &service);
 	if(service==1 && compterTableReservMatin()!=0) {
-		erreurIndexNumTableMidi:
+		erreurIndexNumTableMidi://gestion d'erreur
 		system("cls");	
 		afficherReservation();	
 		recupTableReserveMidi();
@@ -227,7 +227,7 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 		}
 	} 
 	else if(service==2 && compterTableReservSoir()!=0) {
-		erreurIndexNumTableSoir:
+		erreurIndexNumTableSoir://gestion d'erreur
 		system("cls");	
 		afficherReservation();	
 		recupTableReserveSoir();

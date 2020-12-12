@@ -1,5 +1,6 @@
 #ifndef DEF_affichage
 #define DEF_affichage
+//contient toutes les fonctions gérant l'affichage
 
 void afficherEcranPrincipal();
 void afficherGestionPersonnel();

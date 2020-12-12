@@ -214,7 +214,7 @@ void ajouterMenu() { //permet d'ajouter un menu
 	fclose(fdat);	
 }
 
-void ajouterEmploye() {
+void ajouterEmploye() {//permet d'ajouter un employé à la liste
 	int j, testDigit;
 	Employe employe;
 	
@@ -237,7 +237,7 @@ void ajouterEmploye() {
 			employe.nom[j] = '\0';
 		}
 	}
-	erreurServiceEmploye:
+	erreurServiceEmploye://gestion d'erreur
 	system("cls");
 	afficherGestionPersonnelSimple();
 	recupEmployes();	

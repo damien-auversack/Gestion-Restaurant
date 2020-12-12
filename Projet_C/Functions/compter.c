@@ -94,7 +94,7 @@ int compterTable() { //compte le nombre de tables
 	return n;
 }
 
-int compterTableReservMatin() { //compte le nombre de tables
+int compterTableReservMatin() { //compte le nombre de tables réservées au matin
 	int n=0, i, fichierVide, nMatin=0;
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "r");
@@ -145,7 +145,7 @@ int compterTableReservMatin() { //compte le nombre de tables
 	return nMatin;
 }
 
-int compterTableReservSoir() { //compte le nombre de tables
+int compterTableReservSoir() { //compte le nombre de tables réservées au soir
 	int n=0, i, fichierVide, nSoir=0;
 	FILE *fdat;
 	fdat = fopen("Data/Table.dat", "r");
@@ -197,7 +197,7 @@ int compterTableReservSoir() { //compte le nombre de tables
 }
 
 
-int compterEmploye() {
+int compterEmploye() {//compte le nombre d'employé dans la liste
 	int n=0, i, j, fichierVide;
 	FILE *fdat;
 	fdat = fopen("Data/Employes.dat", "r");

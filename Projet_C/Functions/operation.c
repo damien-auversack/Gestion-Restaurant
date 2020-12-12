@@ -207,15 +207,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 	
 	printf("   Service (Midi=1/Soir=2) : ");
 	scanf("%d", &service);
-	if(service != 1 && service != 2) {
-		viderBuffer();
-		goto erreurIndexService;
-	}
-	if(service == 1 && compterTableReservMatin()==0) {
-		viderBuffer();
-		goto erreurIndexService;
-	}
-	if(service == 2 && compterTableReservSoir()==0) {
+	if((service != 1 && service != 2) || (service == 1 && compterTableReservMatin()==0) || (service == 2 && compterTableReservSoir()==0)) {
 		viderBuffer();
 		goto erreurIndexService;
 	}
@@ -368,12 +360,12 @@ void faireReservation() { //Permet de reserver une table libre
 	}
 }
 
-void modifierEmploye() {
+void modifierEmploye() {//permet de modifier un paramètre d'un employé
 	
 	int numEmploye, choixModif, serviceModif, testDigit;	
 	char fonctionModif[21], nomModif[21];
 	
-	erreurSelectEmploye:
+	erreurSelectEmploye://gestion d'erreur
 	system("cls");
 	
 	afficherGestionPersonnelSimple();
@@ -384,7 +376,7 @@ void modifierEmploye() {
 		viderBuffer();
 		goto erreurSelectEmploye;
 	}
-	erreurChoixModif:
+	erreurChoixModif://gestion d'erreur
 	system("cls");
 	afficherGestionPersonnelSimple();
 	selectEmploye(numEmploye);
@@ -409,7 +401,7 @@ void modifierEmploye() {
 		printf("\n\n   Modification reussie !");
 	}
 	else if(choixModif==2) {
-		erreurServiceModif:
+		erreurServiceModif://gestion d'erreur
 		system("cls");
 		afficherGestionPersonnelSimple();
 		selectEmploye(numEmploye);
