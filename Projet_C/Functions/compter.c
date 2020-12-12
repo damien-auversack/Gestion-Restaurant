@@ -161,8 +161,7 @@ int compterTableReservSoir() { //compte le nombre de tables
 		if(courant->estReserveMatin == 1) {
 			fscanf(fdat,"%s",&courant->nomMatin);
 			fscanf(fdat,"%d",&courant->nbPersonneMatin);
-			fscanf(fdat,"%d",&courant->numMenuMatin);
-			nSoir++;
+			fscanf(fdat,"%d",&courant->numMenuMatin);		
 		}
 
 		fscanf(fdat,"%d",&courant->estReserveSoir);
@@ -170,6 +169,7 @@ int compterTableReservSoir() { //compte le nombre de tables
 			fscanf(fdat,"%s",&courant->nomSoir);
 			fscanf(fdat,"%d",&courant->nbPersonneSoir);
 			fscanf(fdat,"%d",&courant->numMenuSoir);
+			nSoir++;
 		}
 		fscanf(fdat,"%d",&courant->nbPlaceMax);
 		

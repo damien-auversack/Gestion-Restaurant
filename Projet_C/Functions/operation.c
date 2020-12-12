@@ -275,7 +275,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 }
 
 void faireReservation() { //Permet de reserver une table libre
-	int service, nbPersonne, numMenu;
+	int service, nbPersonne, numMenu, reserveOk = 0;
 	char nom[21];
 	
 	erreurIndexService: //gestion d'erreur
@@ -326,7 +326,13 @@ void faireReservation() { //Permet de reserver une table libre
 			viderBuffer();
 			goto erreurIndexNumMenuMidi;
 		}
-		remplaceNonReserveTable(rechercheTableLibre(1, nbPersonne), nom, nbPersonne, numMenu, 1);
+		reserveOk = remplaceNonReserveTable(rechercheTableLibre(1, nbPersonne), nom, nbPersonne, numMenu, 1);
+		if(reserveOk==0) {
+			printf("\n   Pas de table disponible !\n\n");
+		}
+		else {
+			printf("\n   Reservation reussie !\n\n");
+		}
 	}
 	else if(service==2) {
 		recupTableLibreSoir();
@@ -352,7 +358,13 @@ void faireReservation() { //Permet de reserver une table libre
 			viderBuffer();
 			goto erreurIndexNumMenuSoir;
 		}
-		remplaceNonReserveTable(rechercheTableLibre(2, nbPersonne), nom, nbPersonne, numMenu, 2);
+		reserveOk = remplaceNonReserveTable(rechercheTableLibre(2, nbPersonne), nom, nbPersonne, numMenu, 2);
+		if(reserveOk==0) {
+			printf("\n   Pas de table disponible !\n\n");
+		}
+		else {
+			printf("\n   Reservation reussie !\n\n");
+		}
 	}
 }
 

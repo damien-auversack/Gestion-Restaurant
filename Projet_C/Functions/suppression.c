@@ -197,7 +197,7 @@ void supprimerEmploye() {
 
 void supprimerReservation() { //Permet de supprimer une reservation sur une table
 	
-	int service, numTable;
+	int service, numTable, modifOk=0;
 	erreurIndexService:
 	system("cls");	
 	afficherReservation();	
@@ -206,7 +206,7 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 	
 	printf("   Aviez-vous reserve a midi(1) ou au soir(2) ? ");
 	scanf("%d", &service);
-	if(service==1) {
+	if(service==1 && compterTableReservMatin()!=0) {
 		erreurIndexNumTableMidi:
 		system("cls");	
 		afficherReservation();	
@@ -218,9 +218,15 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 			viderBuffer();
 			goto erreurIndexNumTableMidi;
 		}
-		modifTableSuppRes(1, numTable);
+		modifOk = modifTableSuppRes(1, numTable);
+		if(modifOk==1) {
+			printf("\n   Suppression reussie !\n\n");
+		}
+		else {
+			printf("\n   La reservation n\'existe pas !\n\n");
+		}
 	} 
-	else if(service==2) {
+	else if(service==2 && compterTableReservSoir()!=0) {
 		erreurIndexNumTableSoir:
 		system("cls");	
 		afficherReservation();	
@@ -232,7 +238,13 @@ void supprimerReservation() { //Permet de supprimer une reservation sur une tabl
 			viderBuffer();
 			goto erreurIndexNumTableSoir;
 		}
-		modifTableSuppRes(2, numTable);
+		modifOk = modifTableSuppRes(2, numTable);
+		if(modifOk==1) {
+			printf("\n   Suppression reussie !\n\n");
+		}
+		else {
+			printf("\n   La reservation n\'existe pas !\n\n");
+		}
 	}
 	else{
 		viderBuffer();

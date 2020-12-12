@@ -458,9 +458,9 @@ int rechercheTableLibre(int service, int nbPersonne) { //recherche toutes les ta
 	return 0;
 }
 
-void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMenu, int service) { //Effectue la reservation sur base des donnees entree par l'utilisateur qui lui sont envoyees
+int remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMenu, int service) { //Effectue la reservation sur base des donnees entree par l'utilisateur qui lui sont envoyees
 		
-	int n=0, i;
+	int n=0, i, reservOk=0;
 
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Table.dat", "r");
@@ -521,6 +521,7 @@ void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMe
 				
 		if(courant->estReserveMatin==0) {
 			if(numTable==i && service==1) {
+				reservOk = 1;
 				courant->estReserveMatin = 1;
 				courant->nbPersonneMatin = nbPersonne;
 				strcpy(courant->nomMatin, nom);
@@ -540,6 +541,7 @@ void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMe
 			
 		if(courant->estReserveSoir==0) {
 			if(numTable==i && service==2) {
+				reservOk = 1;
 				courant->estReserveSoir = 1;
 				courant->nbPersonneSoir = nbPersonne;
 				strcpy(courant->nomSoir, nom);
@@ -563,10 +565,11 @@ void remplaceNonReserveTable(int numTable, char nom[], int nbPersonne, int numMe
 	fclose(fdatTmp);
 	remove("Data/Table.dat");		
 	rename("Data/Table.tmp", "Data/Table.dat");	
+	return reservOk;
 }
 
-void modifTableSuppRes(int service, int numTable) { //supprime une reservation sur une table precise
-	int n=0, i;
+int modifTableSuppRes(int service, int numTable) { //supprime une reservation sur une table precise
+	int n=0, i, modifOk=0;
 
 	FILE *fdat, *fdatTmp;
 	fdat = fopen("Data/Table.dat", "r");
@@ -622,6 +625,7 @@ void modifTableSuppRes(int service, int numTable) { //supprime une reservation s
 	
 		if(courant->estReserveMatin==1) {
 			if(i==numTable && service == 1) {
+				modifOk=1;
 				courant->estReserveMatin=0;
 				courant->nbPersonneMatin=0;
 				strcpy(courant->nomMatin, "");
@@ -640,6 +644,7 @@ void modifTableSuppRes(int service, int numTable) { //supprime une reservation s
 				courant->nbPersonneSoir=0;
 				strcpy(courant->nomSoir, "");
 				courant->numMenuSoir = 0;	
+				modifOk=1;
 			}			
 		}
 		
@@ -659,6 +664,7 @@ void modifTableSuppRes(int service, int numTable) { //supprime une reservation s
 	fclose(fdatTmp);
 	remove("Data/Table.dat");		
 	rename("Data/Table.tmp", "Data/Table.dat");	
+	return modifOk;
 }
 
 void viderBuffer() {

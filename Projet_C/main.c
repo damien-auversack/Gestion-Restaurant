@@ -84,14 +84,12 @@ main() {
 									case 1:
 										system("cls");	
 										faireReservation();
-										printf("\n   Reservation reussie !\n\n");
 										system("pause");
 										break;
 									case 2:
 										system("cls");	
 										if(compterTableReservMatin()!=0 || compterTableReservSoir()!=0) {
 											supprimerReservation();
-											printf("\n   Reservation supprime !\n\n");
 											system("pause");	
 										}
 										break;
