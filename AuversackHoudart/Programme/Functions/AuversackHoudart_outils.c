@@ -118,6 +118,12 @@ const char* nomMenuChoisi(int numMenu) { //Retourne le nom d'un menu precis
 			}
 		}
 		
+		for(j=0; j<strlen(courant->nom); j++) {
+			if(courant->nom[j] == '_') {
+				courant->nom[j] = ' ';
+			}
+		}
+		
 		if(i==numMenu) {
 			strcpy(nomMenuChoisi, courant->nom);
 		}

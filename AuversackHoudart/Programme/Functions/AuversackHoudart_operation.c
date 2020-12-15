@@ -242,6 +242,7 @@ void changerCommande() { //permet de changer le menu commander par une table en 
 		}
 		printf("\n");
 		remplaceMenuTable(numMenuChoisi, numTable, service);
+		
 		printf("   Vous avez choisi le menu : %s\n\n", nomMenuChoisi(numMenuChoisi));
 	}
 	else if(service==2) {
@@ -402,7 +403,7 @@ void modifierEmploye() {//permet de modifier un paramètre d'un employé
 		scanf("%s", &nomModif);
 		//Modifier le nom de l'employe
 		modifierNomEmploye(numEmploye, nomModif);
-		printf("\n\n   Modification reussie !");
+		printf("\n   Modification reussie !\n\n");
 	}
 	else if(choixModif==2) {
 		erreurServiceModif://gestion d'erreur
@@ -417,7 +418,7 @@ void modifierEmploye() {//permet de modifier un paramètre d'un employé
 		}
 		//Modifier Service
 		modifierService(numEmploye, serviceModif);
-		printf("\n\n   Modification reussie !");
+		printf("\n   Modification reussie !\n\n");
 	}
 	else if(choixModif==3) {
 		system("cls");
@@ -427,7 +428,7 @@ void modifierEmploye() {//permet de modifier un paramètre d'un employé
 		scanf("%s", &fonctionModif);
 		//Modifier fonction
 		modifierFonction(numEmploye, fonctionModif);
-		printf("\n\n   Modification reussie !");
+		printf("\n   Modification reussie !\n\n");
 	}
 	else {
 		
