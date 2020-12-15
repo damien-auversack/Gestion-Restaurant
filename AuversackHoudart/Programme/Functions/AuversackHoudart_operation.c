@@ -18,7 +18,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 	Table *deb, *courant, *suivant;
 	courant=malloc(sizeof(Table));
 	deb=courant;
-
+	
 	// Lecture + Construction de ma liste chainée
 	while(!feof(fdat)) {
 		
@@ -132,7 +132,7 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 		}	
 		courant2=courant2->suivant;
 	}
-	
+
 	if(tableAddition>nTable || tableAddition<=0 || reserveSelect==0) {
 		goto erreurTailleTable;
 	}
@@ -191,8 +191,10 @@ void FaireAddition(int tableAddition, int service) { //calcule l'addition d'une 
 	printf("   ------------------------------------------------\n");
 	printf("   |  L'addition de la table %d est de %5.2f Euro  |\n", tableAddition, sommeAddition);
 	printf("   ------------------------------------------------\n");
-	
-	erreurTailleTable: //gestion d'erreur
+	if(0) {
+		erreurTailleTable: //gestion d'erreur
+		printf("\n   Table non occupee !\n\n");
+	}
 	
 	free(courant2);
 	free(suivant2);	
