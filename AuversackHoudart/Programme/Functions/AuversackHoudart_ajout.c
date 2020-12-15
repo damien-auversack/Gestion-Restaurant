@@ -141,13 +141,11 @@ void ajouterTable() { //permet d'ajouter une table a la liste
 	}	
 	fprintf(fdat, "%d ", table.estReserveMatin);
 	if(table.estReserveMatin==1) {
-		table.nbPersonneSoir = table.numMenuSoir = 0;
 		fprintf(fdat, "%12s %d %d ", table.nomMatin, table.nbPersonneMatin, table.numMenuMatin);
 	}
 	
 	fprintf(fdat, "%d", table.estReserveSoir);
 	if(table.estReserveSoir==1) {
-		table.nbPersonneMatin = table.numMenuMatin = 0;
 		fprintf(fdat, " %12s %d %d", table.nomSoir, table.nbPersonneSoir, table.numMenuSoir);
 	}
 	fprintf(fdat, " %d", table.nbPlaceMax);
