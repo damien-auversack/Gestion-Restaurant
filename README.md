@@ -1,4 +1,4 @@
-# Langage_C_2Bi1a_Q1 | Projet scolaire | [FR]
+# Gestion-Restaurant | Projet scolaire | [FR]
 
 ## Informations
 
